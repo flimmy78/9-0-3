@@ -22,6 +22,8 @@
 #include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
 #include <QtGui/QPushButton>
+#include <QtGui/QRadioButton>
+#include <QtGui/QSlider>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QStackedWidget>
 #include <QtGui/QTabWidget>
@@ -39,6 +41,8 @@ public:
     QGridLayout *gridLayout;
     QFrame *sideBar_up_Frame;
     QGridLayout *gridLayout_14;
+    QLabel *RS_maxCur_Label;
+    QLabel *RS_maxCur_tag_Label;
     QLabel *runTime_Label;
     QSpacerItem *sideBar_up_HlSpacer_2;
     QSpacerItem *sideBar_up_HlSpacer_3;
@@ -47,9 +51,9 @@ public:
     QSpacerItem *sideBar_up_HlSpacer_1;
     QPushButton *keyBoard_PsBtn;
     QLabel *BMS_cntState_tag_Label;
-    QLabel *RS_maxCur_tag_Label;
-    QLabel *RS_maxCur_Label;
     QLabel *BMS_cntState_Label;
+    QRadioButton *lock_RdBtn;
+    QSpacerItem *horizontalSpacer;
     QSpacerItem *sideBar_up_HlSpacer;
     QStackedWidget *main_SkWidget;
     QWidget *test_power_Page;
@@ -92,14 +96,23 @@ public:
     QLabel *ES_PE_Label;
     QLineEdit *ES_PE_LnEdit;
     QWidget *test_ripple_Page;
-    QGridLayout *gridLayout_11;
-    QwtPlot *ripple_wave_QwtPlot;
-    QFrame *RRF_ripple_Frame;
+    QGridLayout *gridLayout_3;
+    QwtPlot *RSMV_Harmonic_QwtPlot;
+    QFrame *RSMV_harmonic_Frame;
     QGridLayout *gridLayout_10;
-    QLabel *RRF_ripple_chl_Label;
-    QComboBox *RRF_ripple_chl_CbBox;
-    QSpacerItem *RRF_ripple_HlSpacer;
-    QTableWidget *RRF_ripple_TblWidget;
+    QLabel *RSMV_Harmonic_Phase_Label;
+    QComboBox *RSMV_Harmonic_Phase_CbBox;
+    QLabel *RSMV_Harmonic_Times_Label;
+    QComboBox *RSMV_Harmonic_Times_CbBox;
+    QLabel *RSMV_Harmonic_Range_Label;
+    QSlider *RSMV_Harmonic_Range_HSlider;
+    QSpacerItem *horizontalSpacer_3;
+    QSpacerItem *horizontalSpacer_4;
+    QLineEdit *RSMV_Harmonic_LnEdit_Range;
+    QSpacerItem *horizontalSpacer_11;
+    QSpacerItem *horizontalSpacer_12;
+    QTableWidget *RSMV_harmonic_rms_TblWidget;
+    QTableWidget *RSMV_Harmonic_TblWidget;
     QWidget *from_Page;
     QGridLayout *gridLayout_26;
     QFrame *from_information_Frame;
@@ -144,7 +157,7 @@ public:
     QPushButton *serPort_RS_PsBtn;
     QPushButton *serPort_RSM_PsBtn;
     QPushButton *serPort_AV_PsBtn;
-    QPushButton *serPort_RD_PsBtn;
+    QPushButton *serPort_RBAT_PsBtn;
     QSpacerItem *horizontalSpacer_19;
     QGroupBox *serPort_SP_GpBox;
     QGridLayout *gridLayout_17;
@@ -222,6 +235,26 @@ public:
         gridLayout_14->setSpacing(0);
         gridLayout_14->setContentsMargins(0, 0, 0, 0);
         gridLayout_14->setObjectName(QString::fromUtf8("gridLayout_14"));
+        RS_maxCur_Label = new QLabel(sideBar_up_Frame);
+        RS_maxCur_Label->setObjectName(QString::fromUtf8("RS_maxCur_Label"));
+        sizePolicy.setHeightForWidth(RS_maxCur_Label->sizePolicy().hasHeightForWidth());
+        RS_maxCur_Label->setSizePolicy(sizePolicy);
+        RS_maxCur_Label->setFont(font);
+        RS_maxCur_Label->setContextMenuPolicy(Qt::NoContextMenu);
+        RS_maxCur_Label->setStyleSheet(QString::fromUtf8("color: rgb(0, 255, 0);"));
+
+        gridLayout_14->addWidget(RS_maxCur_Label, 0, 10, 1, 1);
+
+        RS_maxCur_tag_Label = new QLabel(sideBar_up_Frame);
+        RS_maxCur_tag_Label->setObjectName(QString::fromUtf8("RS_maxCur_tag_Label"));
+        sizePolicy.setHeightForWidth(RS_maxCur_tag_Label->sizePolicy().hasHeightForWidth());
+        RS_maxCur_tag_Label->setSizePolicy(sizePolicy);
+        RS_maxCur_tag_Label->setFont(font);
+        RS_maxCur_tag_Label->setContextMenuPolicy(Qt::NoContextMenu);
+        RS_maxCur_tag_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        gridLayout_14->addWidget(RS_maxCur_tag_Label, 0, 9, 1, 1);
+
         runTime_Label = new QLabel(sideBar_up_Frame);
         runTime_Label->setObjectName(QString::fromUtf8("runTime_Label"));
         runTime_Label->setFont(font);
@@ -229,11 +262,11 @@ public:
 
         gridLayout_14->addWidget(runTime_Label, 0, 3, 1, 1);
 
-        sideBar_up_HlSpacer_2 = new QSpacerItem(95, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        sideBar_up_HlSpacer_2 = new QSpacerItem(30, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout_14->addItem(sideBar_up_HlSpacer_2, 0, 5, 1, 1);
 
-        sideBar_up_HlSpacer_3 = new QSpacerItem(26, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        sideBar_up_HlSpacer_3 = new QSpacerItem(30, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout_14->addItem(sideBar_up_HlSpacer_3, 0, 15, 1, 1);
 
@@ -244,7 +277,8 @@ public:
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(runTime_LnEdit->sizePolicy().hasHeightForWidth());
         runTime_LnEdit->setSizePolicy(sizePolicy1);
-        runTime_LnEdit->setMinimumSize(QSize(100, 0));
+        runTime_LnEdit->setMinimumSize(QSize(70, 0));
+        runTime_LnEdit->setMaximumSize(QSize(70, 16777215));
         runTime_LnEdit->setFont(font);
         runTime_LnEdit->setReadOnly(true);
 
@@ -262,9 +296,9 @@ public:
         battery_Label->setFont(font);
         battery_Label->setStyleSheet(QString::fromUtf8("border-image: url(:/pic/battery_1.png);"));
 
-        gridLayout_14->addWidget(battery_Label, 0, 16, 1, 1);
+        gridLayout_14->addWidget(battery_Label, 0, 18, 1, 1);
 
-        sideBar_up_HlSpacer_1 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        sideBar_up_HlSpacer_1 = new QSpacerItem(30, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout_14->addItem(sideBar_up_HlSpacer_1, 0, 1, 1, 1);
 
@@ -286,26 +320,6 @@ public:
 
         gridLayout_14->addWidget(BMS_cntState_tag_Label, 0, 6, 1, 1);
 
-        RS_maxCur_tag_Label = new QLabel(sideBar_up_Frame);
-        RS_maxCur_tag_Label->setObjectName(QString::fromUtf8("RS_maxCur_tag_Label"));
-        sizePolicy.setHeightForWidth(RS_maxCur_tag_Label->sizePolicy().hasHeightForWidth());
-        RS_maxCur_tag_Label->setSizePolicy(sizePolicy);
-        RS_maxCur_tag_Label->setFont(font);
-        RS_maxCur_tag_Label->setContextMenuPolicy(Qt::NoContextMenu);
-        RS_maxCur_tag_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_14->addWidget(RS_maxCur_tag_Label, 0, 9, 1, 1);
-
-        RS_maxCur_Label = new QLabel(sideBar_up_Frame);
-        RS_maxCur_Label->setObjectName(QString::fromUtf8("RS_maxCur_Label"));
-        sizePolicy.setHeightForWidth(RS_maxCur_Label->sizePolicy().hasHeightForWidth());
-        RS_maxCur_Label->setSizePolicy(sizePolicy);
-        RS_maxCur_Label->setFont(font);
-        RS_maxCur_Label->setContextMenuPolicy(Qt::NoContextMenu);
-        RS_maxCur_Label->setStyleSheet(QString::fromUtf8("color: rgb(0, 255, 0);"));
-
-        gridLayout_14->addWidget(RS_maxCur_Label, 0, 10, 1, 1);
-
         BMS_cntState_Label = new QLabel(sideBar_up_Frame);
         BMS_cntState_Label->setObjectName(QString::fromUtf8("BMS_cntState_Label"));
         BMS_cntState_Label->setMinimumSize(QSize(20, 20));
@@ -314,7 +328,19 @@ public:
 
         gridLayout_14->addWidget(BMS_cntState_Label, 0, 7, 1, 1);
 
-        sideBar_up_HlSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        lock_RdBtn = new QRadioButton(sideBar_up_Frame);
+        lock_RdBtn->setObjectName(QString::fromUtf8("lock_RdBtn"));
+        sizePolicy.setHeightForWidth(lock_RdBtn->sizePolicy().hasHeightForWidth());
+        lock_RdBtn->setSizePolicy(sizePolicy);
+        lock_RdBtn->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        gridLayout_14->addWidget(lock_RdBtn, 0, 16, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(52, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_14->addItem(horizontalSpacer, 0, 17, 1, 1);
+
+        sideBar_up_HlSpacer = new QSpacerItem(30, 16, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout_14->addItem(sideBar_up_HlSpacer, 0, 8, 1, 1);
 
@@ -363,7 +389,7 @@ public:
 "	border-top-right-radius:10px;\n"
 "    padding:3px;\n"
 "*/\n"
-"    width:240px;\n"
+"    width:252px;\n"
 "	border-top-left-radius:10px;\n"
 "	border-top-right-radius:10px;\n"
 "	color: rgb(255, 255, 255);\n"
@@ -994,52 +1020,49 @@ public:
         main_SkWidget->addWidget(test_power_Page);
         test_ripple_Page = new QWidget();
         test_ripple_Page->setObjectName(QString::fromUtf8("test_ripple_Page"));
-        gridLayout_11 = new QGridLayout(test_ripple_Page);
-        gridLayout_11->setSpacing(0);
-        gridLayout_11->setContentsMargins(0, 0, 0, 0);
-        gridLayout_11->setObjectName(QString::fromUtf8("gridLayout_11"));
-        ripple_wave_QwtPlot = new QwtPlot(test_ripple_Page);
-        ripple_wave_QwtPlot->setObjectName(QString::fromUtf8("ripple_wave_QwtPlot"));
-        sizePolicy7.setHeightForWidth(ripple_wave_QwtPlot->sizePolicy().hasHeightForWidth());
-        ripple_wave_QwtPlot->setSizePolicy(sizePolicy7);
-        ripple_wave_QwtPlot->setMinimumSize(QSize(0, 0));
-        ripple_wave_QwtPlot->setFont(font4);
-        ripple_wave_QwtPlot->setStyleSheet(QString::fromUtf8("color: rgb(0, 170, 255);\n"
+        gridLayout_3 = new QGridLayout(test_ripple_Page);
+        gridLayout_3->setSpacing(0);
+        gridLayout_3->setContentsMargins(0, 0, 0, 0);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        RSMV_Harmonic_QwtPlot = new QwtPlot(test_ripple_Page);
+        RSMV_Harmonic_QwtPlot->setObjectName(QString::fromUtf8("RSMV_Harmonic_QwtPlot"));
+        RSMV_Harmonic_QwtPlot->setMinimumSize(QSize(0, 232));
+        RSMV_Harmonic_QwtPlot->setStyleSheet(QString::fromUtf8("color: rgb(0, 170, 255);\n"
 "background-color: rgb(0, 0, 0);"));
 
-        gridLayout_11->addWidget(ripple_wave_QwtPlot, 0, 0, 1, 1);
+        gridLayout_3->addWidget(RSMV_Harmonic_QwtPlot, 0, 0, 1, 2);
 
-        RRF_ripple_Frame = new QFrame(test_ripple_Page);
-        RRF_ripple_Frame->setObjectName(QString::fromUtf8("RRF_ripple_Frame"));
-        sizePolicy3.setHeightForWidth(RRF_ripple_Frame->sizePolicy().hasHeightForWidth());
-        RRF_ripple_Frame->setSizePolicy(sizePolicy3);
-        RRF_ripple_Frame->setMinimumSize(QSize(0, 40));
-        RRF_ripple_Frame->setMaximumSize(QSize(16777215, 40));
-        RRF_ripple_Frame->setStyleSheet(QString::fromUtf8("#RRF_ripple_Frame{\n"
+        RSMV_harmonic_Frame = new QFrame(test_ripple_Page);
+        RSMV_harmonic_Frame->setObjectName(QString::fromUtf8("RSMV_harmonic_Frame"));
+        sizePolicy3.setHeightForWidth(RSMV_harmonic_Frame->sizePolicy().hasHeightForWidth());
+        RSMV_harmonic_Frame->setSizePolicy(sizePolicy3);
+        RSMV_harmonic_Frame->setMinimumSize(QSize(0, 45));
+        RSMV_harmonic_Frame->setMaximumSize(QSize(16777215, 48));
+        RSMV_harmonic_Frame->setStyleSheet(QString::fromUtf8("#RSMV_harmonic_Frame{\n"
 " border: 1px solid rgb(18, 220, 200);\n"
 "    background: qlineargradient(spread:reflect,\n"
 "        x1:0, y1:0, x2:1, y2:0,\n"
 "        stop:0 rgba(7, 85, 75, 255),\n"
 "        stop:1 rgba(18, 220, 200, 255));\n"
 "}"));
-        RRF_ripple_Frame->setFrameShape(QFrame::StyledPanel);
-        RRF_ripple_Frame->setFrameShadow(QFrame::Raised);
-        gridLayout_10 = new QGridLayout(RRF_ripple_Frame);
+        RSMV_harmonic_Frame->setFrameShape(QFrame::StyledPanel);
+        RSMV_harmonic_Frame->setFrameShadow(QFrame::Raised);
+        gridLayout_10 = new QGridLayout(RSMV_harmonic_Frame);
         gridLayout_10->setSpacing(0);
         gridLayout_10->setContentsMargins(0, 0, 0, 0);
         gridLayout_10->setObjectName(QString::fromUtf8("gridLayout_10"));
-        RRF_ripple_chl_Label = new QLabel(RRF_ripple_Frame);
-        RRF_ripple_chl_Label->setObjectName(QString::fromUtf8("RRF_ripple_chl_Label"));
-        RRF_ripple_chl_Label->setFont(font3);
-        RRF_ripple_chl_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+        RSMV_Harmonic_Phase_Label = new QLabel(RSMV_harmonic_Frame);
+        RSMV_Harmonic_Phase_Label->setObjectName(QString::fromUtf8("RSMV_Harmonic_Phase_Label"));
+        RSMV_Harmonic_Phase_Label->setFont(font3);
+        RSMV_Harmonic_Phase_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
-        gridLayout_10->addWidget(RRF_ripple_chl_Label, 0, 0, 1, 1);
+        gridLayout_10->addWidget(RSMV_Harmonic_Phase_Label, 0, 0, 1, 1);
 
-        RRF_ripple_chl_CbBox = new QComboBox(RRF_ripple_Frame);
-        RRF_ripple_chl_CbBox->setObjectName(QString::fromUtf8("RRF_ripple_chl_CbBox"));
-        RRF_ripple_chl_CbBox->setMinimumSize(QSize(60, 30));
-        RRF_ripple_chl_CbBox->setFont(font3);
-        RRF_ripple_chl_CbBox->setStyleSheet(QString::fromUtf8("\n"
+        RSMV_Harmonic_Phase_CbBox = new QComboBox(RSMV_harmonic_Frame);
+        RSMV_Harmonic_Phase_CbBox->setObjectName(QString::fromUtf8("RSMV_Harmonic_Phase_CbBox"));
+        RSMV_Harmonic_Phase_CbBox->setMinimumSize(QSize(60, 30));
+        RSMV_Harmonic_Phase_CbBox->setFont(font3);
+        RSMV_Harmonic_Phase_CbBox->setStyleSheet(QString::fromUtf8("\n"
 "QScrollBar:vertical\n"
 "{\n"
 "	width:26px;\n"
@@ -1048,91 +1071,263 @@ public:
 "}\n"
 ""));
 
-        gridLayout_10->addWidget(RRF_ripple_chl_CbBox, 0, 1, 1, 1);
+        gridLayout_10->addWidget(RSMV_Harmonic_Phase_CbBox, 0, 1, 1, 1);
 
-        RRF_ripple_HlSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        RSMV_Harmonic_Times_Label = new QLabel(RSMV_harmonic_Frame);
+        RSMV_Harmonic_Times_Label->setObjectName(QString::fromUtf8("RSMV_Harmonic_Times_Label"));
+        RSMV_Harmonic_Times_Label->setFont(font3);
+        RSMV_Harmonic_Times_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
-        gridLayout_10->addItem(RRF_ripple_HlSpacer, 0, 2, 1, 1);
+        gridLayout_10->addWidget(RSMV_Harmonic_Times_Label, 0, 3, 1, 1);
+
+        RSMV_Harmonic_Times_CbBox = new QComboBox(RSMV_harmonic_Frame);
+        RSMV_Harmonic_Times_CbBox->setObjectName(QString::fromUtf8("RSMV_Harmonic_Times_CbBox"));
+        QSizePolicy sizePolicy11(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy11.setHorizontalStretch(0);
+        sizePolicy11.setVerticalStretch(0);
+        sizePolicy11.setHeightForWidth(RSMV_Harmonic_Times_CbBox->sizePolicy().hasHeightForWidth());
+        RSMV_Harmonic_Times_CbBox->setSizePolicy(sizePolicy11);
+        RSMV_Harmonic_Times_CbBox->setMinimumSize(QSize(60, 30));
+        RSMV_Harmonic_Times_CbBox->setFont(font3);
+        RSMV_Harmonic_Times_CbBox->setStyleSheet(QString::fromUtf8("\n"
+"QScrollBar:vertical\n"
+"{\n"
+"	width:26px;\n"
+"	background:rgba(0,0,0,10%);\n"
+"    border-radius:4px;\n"
+"}\n"
+""));
+
+        gridLayout_10->addWidget(RSMV_Harmonic_Times_CbBox, 0, 4, 1, 1);
+
+        RSMV_Harmonic_Range_Label = new QLabel(RSMV_harmonic_Frame);
+        RSMV_Harmonic_Range_Label->setObjectName(QString::fromUtf8("RSMV_Harmonic_Range_Label"));
+        RSMV_Harmonic_Range_Label->setFont(font3);
+        RSMV_Harmonic_Range_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        gridLayout_10->addWidget(RSMV_Harmonic_Range_Label, 0, 7, 1, 1);
+
+        RSMV_Harmonic_Range_HSlider = new QSlider(RSMV_harmonic_Frame);
+        RSMV_Harmonic_Range_HSlider->setObjectName(QString::fromUtf8("RSMV_Harmonic_Range_HSlider"));
+        RSMV_Harmonic_Range_HSlider->setMinimumSize(QSize(0, 30));
+        QFont font8;
+        font8.setFamily(QString::fromUtf8("Kalinga"));
+        font8.setPointSize(9);
+        RSMV_Harmonic_Range_HSlider->setFont(font8);
+        RSMV_Harmonic_Range_HSlider->setMaximum(100);
+        RSMV_Harmonic_Range_HSlider->setSingleStep(0);
+        RSMV_Harmonic_Range_HSlider->setValue(1);
+        RSMV_Harmonic_Range_HSlider->setOrientation(Qt::Horizontal);
+
+        gridLayout_10->addWidget(RSMV_Harmonic_Range_HSlider, 0, 8, 1, 1);
+
+        horizontalSpacer_3 = new QSpacerItem(30, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_10->addItem(horizontalSpacer_3, 0, 5, 1, 1);
+
+        horizontalSpacer_4 = new QSpacerItem(180, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_10->addItem(horizontalSpacer_4, 0, 6, 1, 1);
+
+        RSMV_Harmonic_LnEdit_Range = new QLineEdit(RSMV_harmonic_Frame);
+        RSMV_Harmonic_LnEdit_Range->setObjectName(QString::fromUtf8("RSMV_Harmonic_LnEdit_Range"));
+        QSizePolicy sizePolicy12(QSizePolicy::Maximum, QSizePolicy::Fixed);
+        sizePolicy12.setHorizontalStretch(0);
+        sizePolicy12.setVerticalStretch(0);
+        sizePolicy12.setHeightForWidth(RSMV_Harmonic_LnEdit_Range->sizePolicy().hasHeightForWidth());
+        RSMV_Harmonic_LnEdit_Range->setSizePolicy(sizePolicy12);
+        RSMV_Harmonic_LnEdit_Range->setMinimumSize(QSize(0, 30));
+        RSMV_Harmonic_LnEdit_Range->setMaximumSize(QSize(100, 16777215));
+        RSMV_Harmonic_LnEdit_Range->setFont(font3);
+        RSMV_Harmonic_LnEdit_Range->setStyleSheet(QString::fromUtf8(""));
+        RSMV_Harmonic_LnEdit_Range->setReadOnly(true);
+
+        gridLayout_10->addWidget(RSMV_Harmonic_LnEdit_Range, 0, 10, 1, 1);
+
+        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_10->addItem(horizontalSpacer_11, 0, 2, 1, 1);
+
+        horizontalSpacer_12 = new QSpacerItem(30, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_10->addItem(horizontalSpacer_12, 0, 9, 1, 1);
 
 
-        gridLayout_11->addWidget(RRF_ripple_Frame, 1, 0, 1, 1);
+        gridLayout_3->addWidget(RSMV_harmonic_Frame, 1, 0, 1, 2);
 
-        RRF_ripple_TblWidget = new QTableWidget(test_ripple_Page);
-        if (RRF_ripple_TblWidget->columnCount() < 6)
-            RRF_ripple_TblWidget->setColumnCount(6);
+        RSMV_harmonic_rms_TblWidget = new QTableWidget(test_ripple_Page);
+        if (RSMV_harmonic_rms_TblWidget->columnCount() < 4)
+            RSMV_harmonic_rms_TblWidget->setColumnCount(4);
         QTableWidgetItem *__qtablewidgetitem42 = new QTableWidgetItem();
-        RRF_ripple_TblWidget->setHorizontalHeaderItem(0, __qtablewidgetitem42);
+        RSMV_harmonic_rms_TblWidget->setHorizontalHeaderItem(0, __qtablewidgetitem42);
         QTableWidgetItem *__qtablewidgetitem43 = new QTableWidgetItem();
-        RRF_ripple_TblWidget->setHorizontalHeaderItem(1, __qtablewidgetitem43);
+        RSMV_harmonic_rms_TblWidget->setHorizontalHeaderItem(1, __qtablewidgetitem43);
         QTableWidgetItem *__qtablewidgetitem44 = new QTableWidgetItem();
-        RRF_ripple_TblWidget->setHorizontalHeaderItem(2, __qtablewidgetitem44);
+        RSMV_harmonic_rms_TblWidget->setHorizontalHeaderItem(2, __qtablewidgetitem44);
         QTableWidgetItem *__qtablewidgetitem45 = new QTableWidgetItem();
-        RRF_ripple_TblWidget->setHorizontalHeaderItem(3, __qtablewidgetitem45);
+        RSMV_harmonic_rms_TblWidget->setHorizontalHeaderItem(3, __qtablewidgetitem45);
+        if (RSMV_harmonic_rms_TblWidget->rowCount() < 4)
+            RSMV_harmonic_rms_TblWidget->setRowCount(4);
         QTableWidgetItem *__qtablewidgetitem46 = new QTableWidgetItem();
-        RRF_ripple_TblWidget->setHorizontalHeaderItem(4, __qtablewidgetitem46);
+        RSMV_harmonic_rms_TblWidget->setVerticalHeaderItem(0, __qtablewidgetitem46);
         QTableWidgetItem *__qtablewidgetitem47 = new QTableWidgetItem();
-        RRF_ripple_TblWidget->setHorizontalHeaderItem(5, __qtablewidgetitem47);
-        if (RRF_ripple_TblWidget->rowCount() < 1)
-            RRF_ripple_TblWidget->setRowCount(1);
+        RSMV_harmonic_rms_TblWidget->setVerticalHeaderItem(1, __qtablewidgetitem47);
         QTableWidgetItem *__qtablewidgetitem48 = new QTableWidgetItem();
-        RRF_ripple_TblWidget->setVerticalHeaderItem(0, __qtablewidgetitem48);
-        QBrush brush31(QColor(0, 0, 0, 255));
-        brush31.setStyle(Qt::NoBrush);
+        RSMV_harmonic_rms_TblWidget->setVerticalHeaderItem(2, __qtablewidgetitem48);
         QTableWidgetItem *__qtablewidgetitem49 = new QTableWidgetItem();
-        __qtablewidgetitem49->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem49->setFont(font6);
-        __qtablewidgetitem49->setForeground(brush31);
-        __qtablewidgetitem49->setFlags(Qt::NoItemFlags);
-        RRF_ripple_TblWidget->setItem(0, 0, __qtablewidgetitem49);
-        QBrush brush32(QColor(0, 0, 0, 255));
-        brush32.setStyle(Qt::NoBrush);
+        RSMV_harmonic_rms_TblWidget->setVerticalHeaderItem(3, __qtablewidgetitem49);
+        QBrush brush31(QColor(255, 255, 0, 255));
+        brush31.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem50 = new QTableWidgetItem();
         __qtablewidgetitem50->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
         __qtablewidgetitem50->setFont(font6);
-        __qtablewidgetitem50->setForeground(brush32);
+        __qtablewidgetitem50->setForeground(brush31);
         __qtablewidgetitem50->setFlags(Qt::NoItemFlags);
-        RRF_ripple_TblWidget->setItem(0, 1, __qtablewidgetitem50);
-        QBrush brush33(QColor(0, 0, 0, 255));
-        brush33.setStyle(Qt::NoBrush);
+        RSMV_harmonic_rms_TblWidget->setItem(0, 0, __qtablewidgetitem50);
+        QBrush brush32(QColor(255, 255, 0, 255));
+        brush32.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem51 = new QTableWidgetItem();
         __qtablewidgetitem51->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem51->setForeground(brush33);
-        RRF_ripple_TblWidget->setItem(0, 2, __qtablewidgetitem51);
-        QBrush brush34(QColor(0, 0, 0, 255));
-        brush34.setStyle(Qt::NoBrush);
+        __qtablewidgetitem51->setFont(font6);
+        __qtablewidgetitem51->setForeground(brush32);
+        __qtablewidgetitem51->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(0, 1, __qtablewidgetitem51);
+        QBrush brush33(QColor(255, 255, 0, 255));
+        brush33.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem52 = new QTableWidgetItem();
         __qtablewidgetitem52->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem52->setForeground(brush34);
-        RRF_ripple_TblWidget->setItem(0, 3, __qtablewidgetitem52);
-        QBrush brush35(QColor(0, 0, 0, 255));
-        brush35.setStyle(Qt::NoBrush);
+        __qtablewidgetitem52->setForeground(brush33);
+        RSMV_harmonic_rms_TblWidget->setItem(0, 2, __qtablewidgetitem52);
+        QBrush brush34(QColor(255, 255, 0, 255));
+        brush34.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem53 = new QTableWidgetItem();
         __qtablewidgetitem53->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem53->setForeground(brush35);
-        RRF_ripple_TblWidget->setItem(0, 4, __qtablewidgetitem53);
-        QBrush brush36(QColor(0, 0, 0, 255));
-        brush36.setStyle(Qt::NoBrush);
-        QBrush brush37(QColor(255, 255, 255, 255));
-        brush37.setStyle(Qt::NoBrush);
+        __qtablewidgetitem53->setForeground(brush34);
+        RSMV_harmonic_rms_TblWidget->setItem(0, 3, __qtablewidgetitem53);
+        QBrush brush35(QColor(0, 255, 0, 255));
+        brush35.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem54 = new QTableWidgetItem();
         __qtablewidgetitem54->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem54->setBackground(brush37);
-        __qtablewidgetitem54->setForeground(brush36);
-        RRF_ripple_TblWidget->setItem(0, 5, __qtablewidgetitem54);
-        RRF_ripple_TblWidget->setObjectName(QString::fromUtf8("RRF_ripple_TblWidget"));
-        sizePolicy3.setHeightForWidth(RRF_ripple_TblWidget->sizePolicy().hasHeightForWidth());
-        RRF_ripple_TblWidget->setSizePolicy(sizePolicy3);
-        RRF_ripple_TblWidget->setMinimumSize(QSize(455, 0));
-        RRF_ripple_TblWidget->setStyleSheet(QString::fromUtf8(""));
-        RRF_ripple_TblWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
-        RRF_ripple_TblWidget->setSelectionMode(QAbstractItemView::SingleSelection);
-        RRF_ripple_TblWidget->horizontalHeader()->setVisible(false);
-        RRF_ripple_TblWidget->horizontalHeader()->setDefaultSectionSize(120);
-        RRF_ripple_TblWidget->horizontalHeader()->setHighlightSections(true);
-        RRF_ripple_TblWidget->verticalHeader()->setVisible(false);
-        RRF_ripple_TblWidget->verticalHeader()->setDefaultSectionSize(43);
+        __qtablewidgetitem54->setForeground(brush35);
+        __qtablewidgetitem54->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(1, 0, __qtablewidgetitem54);
+        QBrush brush36(QColor(0, 255, 0, 255));
+        brush36.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem55 = new QTableWidgetItem();
+        __qtablewidgetitem55->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem55->setForeground(brush36);
+        __qtablewidgetitem55->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(1, 1, __qtablewidgetitem55);
+        QBrush brush37(QColor(0, 255, 0, 255));
+        brush37.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem56 = new QTableWidgetItem();
+        __qtablewidgetitem56->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem56->setForeground(brush37);
+        RSMV_harmonic_rms_TblWidget->setItem(1, 2, __qtablewidgetitem56);
+        QBrush brush38(QColor(0, 255, 0, 255));
+        brush38.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem57 = new QTableWidgetItem();
+        __qtablewidgetitem57->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem57->setForeground(brush38);
+        RSMV_harmonic_rms_TblWidget->setItem(1, 3, __qtablewidgetitem57);
+        QBrush brush39(QColor(250, 0, 0, 255));
+        brush39.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
+        __qtablewidgetitem58->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem58->setForeground(brush39);
+        __qtablewidgetitem58->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(2, 0, __qtablewidgetitem58);
+        QBrush brush40(QColor(250, 0, 0, 255));
+        brush40.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem59 = new QTableWidgetItem();
+        __qtablewidgetitem59->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem59->setForeground(brush40);
+        __qtablewidgetitem59->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(2, 1, __qtablewidgetitem59);
+        QBrush brush41(QColor(250, 0, 0, 255));
+        brush41.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem60 = new QTableWidgetItem();
+        __qtablewidgetitem60->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem60->setForeground(brush41);
+        __qtablewidgetitem60->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(2, 2, __qtablewidgetitem60);
+        QBrush brush42(QColor(250, 0, 0, 255));
+        brush42.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem61 = new QTableWidgetItem();
+        __qtablewidgetitem61->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem61->setForeground(brush42);
+        __qtablewidgetitem61->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(2, 3, __qtablewidgetitem61);
+        QTableWidgetItem *__qtablewidgetitem62 = new QTableWidgetItem();
+        __qtablewidgetitem62->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem62->setForeground(brush26);
+        __qtablewidgetitem62->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(3, 0, __qtablewidgetitem62);
+        QBrush brush43(QColor(0, 170, 255, 255));
+        brush43.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem63 = new QTableWidgetItem();
+        __qtablewidgetitem63->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem63->setForeground(brush43);
+        RSMV_harmonic_rms_TblWidget->setItem(3, 1, __qtablewidgetitem63);
+        QBrush brush44(QColor(0, 170, 255, 255));
+        brush44.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem64 = new QTableWidgetItem();
+        __qtablewidgetitem64->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem64->setForeground(brush44);
+        RSMV_harmonic_rms_TblWidget->setItem(3, 2, __qtablewidgetitem64);
+        QBrush brush45(QColor(0, 170, 255, 255));
+        brush45.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem65 = new QTableWidgetItem();
+        __qtablewidgetitem65->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem65->setForeground(brush45);
+        RSMV_harmonic_rms_TblWidget->setItem(3, 3, __qtablewidgetitem65);
+        RSMV_harmonic_rms_TblWidget->setObjectName(QString::fromUtf8("RSMV_harmonic_rms_TblWidget"));
+        sizePolicy3.setHeightForWidth(RSMV_harmonic_rms_TblWidget->sizePolicy().hasHeightForWidth());
+        RSMV_harmonic_rms_TblWidget->setSizePolicy(sizePolicy3);
+        RSMV_harmonic_rms_TblWidget->setMinimumSize(QSize(455, 0));
+        RSMV_harmonic_rms_TblWidget->setStyleSheet(QString::fromUtf8("gridline-color: rgb(18, 220, 200);\n"
+"background-color: rgb(0, 0, 0);\n"
+""));
+        RSMV_harmonic_rms_TblWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        RSMV_harmonic_rms_TblWidget->setSelectionMode(QAbstractItemView::SingleSelection);
+        RSMV_harmonic_rms_TblWidget->horizontalHeader()->setVisible(false);
+        RSMV_harmonic_rms_TblWidget->horizontalHeader()->setDefaultSectionSize(112);
+        RSMV_harmonic_rms_TblWidget->horizontalHeader()->setHighlightSections(true);
+        RSMV_harmonic_rms_TblWidget->verticalHeader()->setVisible(false);
+        RSMV_harmonic_rms_TblWidget->verticalHeader()->setDefaultSectionSize(57);
 
-        gridLayout_11->addWidget(RRF_ripple_TblWidget, 2, 0, 1, 1);
+        gridLayout_3->addWidget(RSMV_harmonic_rms_TblWidget, 2, 0, 1, 1);
+
+        RSMV_Harmonic_TblWidget = new QTableWidget(test_ripple_Page);
+        if (RSMV_Harmonic_TblWidget->columnCount() < 2)
+            RSMV_Harmonic_TblWidget->setColumnCount(2);
+        QTableWidgetItem *__qtablewidgetitem66 = new QTableWidgetItem();
+        RSMV_Harmonic_TblWidget->setHorizontalHeaderItem(0, __qtablewidgetitem66);
+        QTableWidgetItem *__qtablewidgetitem67 = new QTableWidgetItem();
+        RSMV_Harmonic_TblWidget->setHorizontalHeaderItem(1, __qtablewidgetitem67);
+        if (RSMV_Harmonic_TblWidget->rowCount() < 3)
+            RSMV_Harmonic_TblWidget->setRowCount(3);
+        QTableWidgetItem *__qtablewidgetitem68 = new QTableWidgetItem();
+        RSMV_Harmonic_TblWidget->setVerticalHeaderItem(0, __qtablewidgetitem68);
+        QTableWidgetItem *__qtablewidgetitem69 = new QTableWidgetItem();
+        RSMV_Harmonic_TblWidget->setVerticalHeaderItem(1, __qtablewidgetitem69);
+        QTableWidgetItem *__qtablewidgetitem70 = new QTableWidgetItem();
+        RSMV_Harmonic_TblWidget->setVerticalHeaderItem(2, __qtablewidgetitem70);
+        RSMV_Harmonic_TblWidget->setObjectName(QString::fromUtf8("RSMV_Harmonic_TblWidget"));
+        RSMV_Harmonic_TblWidget->setStyleSheet(QString::fromUtf8("color: rgb(0, 170, 255);\n"
+"gridline-color: rgb(18, 220, 200);\n"
+"background-color: rgb(0, 0, 0);\n"
+""));
+        RSMV_Harmonic_TblWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        RSMV_Harmonic_TblWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        RSMV_Harmonic_TblWidget->setSelectionMode(QAbstractItemView::NoSelection);
+        RSMV_Harmonic_TblWidget->horizontalHeader()->setVisible(false);
+        RSMV_Harmonic_TblWidget->horizontalHeader()->setDefaultSectionSize(126);
+        RSMV_Harmonic_TblWidget->horizontalHeader()->setHighlightSections(true);
+        RSMV_Harmonic_TblWidget->verticalHeader()->setVisible(false);
+        RSMV_Harmonic_TblWidget->verticalHeader()->setDefaultSectionSize(30);
+
+        gridLayout_3->addWidget(RSMV_Harmonic_TblWidget, 2, 1, 1, 1);
 
         main_SkWidget->addWidget(test_ripple_Page);
         from_Page = new QWidget();
@@ -1277,135 +1472,135 @@ public:
         from_information_TbWidget = new QTableWidget(from_Page);
         if (from_information_TbWidget->columnCount() < 4)
             from_information_TbWidget->setColumnCount(4);
-        QTableWidgetItem *__qtablewidgetitem55 = new QTableWidgetItem();
-        from_information_TbWidget->setHorizontalHeaderItem(0, __qtablewidgetitem55);
-        QTableWidgetItem *__qtablewidgetitem56 = new QTableWidgetItem();
-        from_information_TbWidget->setHorizontalHeaderItem(1, __qtablewidgetitem56);
-        QTableWidgetItem *__qtablewidgetitem57 = new QTableWidgetItem();
-        from_information_TbWidget->setHorizontalHeaderItem(2, __qtablewidgetitem57);
-        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
-        from_information_TbWidget->setHorizontalHeaderItem(3, __qtablewidgetitem58);
+        QTableWidgetItem *__qtablewidgetitem71 = new QTableWidgetItem();
+        from_information_TbWidget->setHorizontalHeaderItem(0, __qtablewidgetitem71);
+        QTableWidgetItem *__qtablewidgetitem72 = new QTableWidgetItem();
+        from_information_TbWidget->setHorizontalHeaderItem(1, __qtablewidgetitem72);
+        QTableWidgetItem *__qtablewidgetitem73 = new QTableWidgetItem();
+        from_information_TbWidget->setHorizontalHeaderItem(2, __qtablewidgetitem73);
+        QTableWidgetItem *__qtablewidgetitem74 = new QTableWidgetItem();
+        from_information_TbWidget->setHorizontalHeaderItem(3, __qtablewidgetitem74);
         if (from_information_TbWidget->rowCount() < 13)
             from_information_TbWidget->setRowCount(13);
-        QTableWidgetItem *__qtablewidgetitem59 = new QTableWidgetItem();
-        from_information_TbWidget->setVerticalHeaderItem(0, __qtablewidgetitem59);
-        QTableWidgetItem *__qtablewidgetitem60 = new QTableWidgetItem();
-        from_information_TbWidget->setVerticalHeaderItem(1, __qtablewidgetitem60);
-        QTableWidgetItem *__qtablewidgetitem61 = new QTableWidgetItem();
-        from_information_TbWidget->setVerticalHeaderItem(2, __qtablewidgetitem61);
-        QTableWidgetItem *__qtablewidgetitem62 = new QTableWidgetItem();
-        from_information_TbWidget->setVerticalHeaderItem(3, __qtablewidgetitem62);
-        QTableWidgetItem *__qtablewidgetitem63 = new QTableWidgetItem();
-        from_information_TbWidget->setVerticalHeaderItem(4, __qtablewidgetitem63);
-        QTableWidgetItem *__qtablewidgetitem64 = new QTableWidgetItem();
-        from_information_TbWidget->setVerticalHeaderItem(5, __qtablewidgetitem64);
-        QTableWidgetItem *__qtablewidgetitem65 = new QTableWidgetItem();
-        from_information_TbWidget->setVerticalHeaderItem(6, __qtablewidgetitem65);
-        QTableWidgetItem *__qtablewidgetitem66 = new QTableWidgetItem();
-        from_information_TbWidget->setVerticalHeaderItem(7, __qtablewidgetitem66);
-        QTableWidgetItem *__qtablewidgetitem67 = new QTableWidgetItem();
-        from_information_TbWidget->setVerticalHeaderItem(8, __qtablewidgetitem67);
-        QTableWidgetItem *__qtablewidgetitem68 = new QTableWidgetItem();
-        from_information_TbWidget->setVerticalHeaderItem(9, __qtablewidgetitem68);
-        QTableWidgetItem *__qtablewidgetitem69 = new QTableWidgetItem();
-        from_information_TbWidget->setVerticalHeaderItem(10, __qtablewidgetitem69);
-        QTableWidgetItem *__qtablewidgetitem70 = new QTableWidgetItem();
-        from_information_TbWidget->setVerticalHeaderItem(11, __qtablewidgetitem70);
-        QTableWidgetItem *__qtablewidgetitem71 = new QTableWidgetItem();
-        from_information_TbWidget->setVerticalHeaderItem(12, __qtablewidgetitem71);
-        QTableWidgetItem *__qtablewidgetitem72 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(0, 0, __qtablewidgetitem72);
-        QTableWidgetItem *__qtablewidgetitem73 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(0, 1, __qtablewidgetitem73);
-        QTableWidgetItem *__qtablewidgetitem74 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(0, 2, __qtablewidgetitem74);
         QTableWidgetItem *__qtablewidgetitem75 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(0, 3, __qtablewidgetitem75);
+        from_information_TbWidget->setVerticalHeaderItem(0, __qtablewidgetitem75);
         QTableWidgetItem *__qtablewidgetitem76 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(1, 0, __qtablewidgetitem76);
+        from_information_TbWidget->setVerticalHeaderItem(1, __qtablewidgetitem76);
         QTableWidgetItem *__qtablewidgetitem77 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(1, 1, __qtablewidgetitem77);
+        from_information_TbWidget->setVerticalHeaderItem(2, __qtablewidgetitem77);
         QTableWidgetItem *__qtablewidgetitem78 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(1, 2, __qtablewidgetitem78);
+        from_information_TbWidget->setVerticalHeaderItem(3, __qtablewidgetitem78);
         QTableWidgetItem *__qtablewidgetitem79 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(1, 3, __qtablewidgetitem79);
+        from_information_TbWidget->setVerticalHeaderItem(4, __qtablewidgetitem79);
         QTableWidgetItem *__qtablewidgetitem80 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(2, 0, __qtablewidgetitem80);
+        from_information_TbWidget->setVerticalHeaderItem(5, __qtablewidgetitem80);
         QTableWidgetItem *__qtablewidgetitem81 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(2, 1, __qtablewidgetitem81);
+        from_information_TbWidget->setVerticalHeaderItem(6, __qtablewidgetitem81);
         QTableWidgetItem *__qtablewidgetitem82 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(2, 2, __qtablewidgetitem82);
+        from_information_TbWidget->setVerticalHeaderItem(7, __qtablewidgetitem82);
         QTableWidgetItem *__qtablewidgetitem83 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(2, 3, __qtablewidgetitem83);
+        from_information_TbWidget->setVerticalHeaderItem(8, __qtablewidgetitem83);
         QTableWidgetItem *__qtablewidgetitem84 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(3, 0, __qtablewidgetitem84);
+        from_information_TbWidget->setVerticalHeaderItem(9, __qtablewidgetitem84);
         QTableWidgetItem *__qtablewidgetitem85 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(3, 1, __qtablewidgetitem85);
+        from_information_TbWidget->setVerticalHeaderItem(10, __qtablewidgetitem85);
         QTableWidgetItem *__qtablewidgetitem86 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(3, 2, __qtablewidgetitem86);
+        from_information_TbWidget->setVerticalHeaderItem(11, __qtablewidgetitem86);
         QTableWidgetItem *__qtablewidgetitem87 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(3, 3, __qtablewidgetitem87);
+        from_information_TbWidget->setVerticalHeaderItem(12, __qtablewidgetitem87);
         QTableWidgetItem *__qtablewidgetitem88 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(4, 0, __qtablewidgetitem88);
+        from_information_TbWidget->setItem(0, 0, __qtablewidgetitem88);
         QTableWidgetItem *__qtablewidgetitem89 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(4, 1, __qtablewidgetitem89);
+        from_information_TbWidget->setItem(0, 1, __qtablewidgetitem89);
         QTableWidgetItem *__qtablewidgetitem90 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(4, 2, __qtablewidgetitem90);
+        from_information_TbWidget->setItem(0, 2, __qtablewidgetitem90);
         QTableWidgetItem *__qtablewidgetitem91 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(4, 3, __qtablewidgetitem91);
+        from_information_TbWidget->setItem(0, 3, __qtablewidgetitem91);
         QTableWidgetItem *__qtablewidgetitem92 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(5, 0, __qtablewidgetitem92);
+        from_information_TbWidget->setItem(1, 0, __qtablewidgetitem92);
         QTableWidgetItem *__qtablewidgetitem93 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(5, 1, __qtablewidgetitem93);
+        from_information_TbWidget->setItem(1, 1, __qtablewidgetitem93);
         QTableWidgetItem *__qtablewidgetitem94 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(5, 2, __qtablewidgetitem94);
+        from_information_TbWidget->setItem(1, 2, __qtablewidgetitem94);
         QTableWidgetItem *__qtablewidgetitem95 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(5, 3, __qtablewidgetitem95);
+        from_information_TbWidget->setItem(1, 3, __qtablewidgetitem95);
         QTableWidgetItem *__qtablewidgetitem96 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(6, 0, __qtablewidgetitem96);
+        from_information_TbWidget->setItem(2, 0, __qtablewidgetitem96);
         QTableWidgetItem *__qtablewidgetitem97 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(6, 1, __qtablewidgetitem97);
+        from_information_TbWidget->setItem(2, 1, __qtablewidgetitem97);
         QTableWidgetItem *__qtablewidgetitem98 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(6, 2, __qtablewidgetitem98);
+        from_information_TbWidget->setItem(2, 2, __qtablewidgetitem98);
         QTableWidgetItem *__qtablewidgetitem99 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(6, 3, __qtablewidgetitem99);
+        from_information_TbWidget->setItem(2, 3, __qtablewidgetitem99);
         QTableWidgetItem *__qtablewidgetitem100 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(7, 0, __qtablewidgetitem100);
+        from_information_TbWidget->setItem(3, 0, __qtablewidgetitem100);
         QTableWidgetItem *__qtablewidgetitem101 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(7, 1, __qtablewidgetitem101);
+        from_information_TbWidget->setItem(3, 1, __qtablewidgetitem101);
         QTableWidgetItem *__qtablewidgetitem102 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(7, 2, __qtablewidgetitem102);
+        from_information_TbWidget->setItem(3, 2, __qtablewidgetitem102);
         QTableWidgetItem *__qtablewidgetitem103 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(7, 3, __qtablewidgetitem103);
+        from_information_TbWidget->setItem(3, 3, __qtablewidgetitem103);
         QTableWidgetItem *__qtablewidgetitem104 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(8, 0, __qtablewidgetitem104);
+        from_information_TbWidget->setItem(4, 0, __qtablewidgetitem104);
         QTableWidgetItem *__qtablewidgetitem105 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(8, 1, __qtablewidgetitem105);
+        from_information_TbWidget->setItem(4, 1, __qtablewidgetitem105);
         QTableWidgetItem *__qtablewidgetitem106 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(9, 0, __qtablewidgetitem106);
+        from_information_TbWidget->setItem(4, 2, __qtablewidgetitem106);
         QTableWidgetItem *__qtablewidgetitem107 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(9, 1, __qtablewidgetitem107);
+        from_information_TbWidget->setItem(4, 3, __qtablewidgetitem107);
         QTableWidgetItem *__qtablewidgetitem108 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(9, 2, __qtablewidgetitem108);
+        from_information_TbWidget->setItem(5, 0, __qtablewidgetitem108);
         QTableWidgetItem *__qtablewidgetitem109 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(9, 3, __qtablewidgetitem109);
+        from_information_TbWidget->setItem(5, 1, __qtablewidgetitem109);
         QTableWidgetItem *__qtablewidgetitem110 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(10, 0, __qtablewidgetitem110);
+        from_information_TbWidget->setItem(5, 2, __qtablewidgetitem110);
         QTableWidgetItem *__qtablewidgetitem111 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(10, 1, __qtablewidgetitem111);
+        from_information_TbWidget->setItem(5, 3, __qtablewidgetitem111);
         QTableWidgetItem *__qtablewidgetitem112 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(10, 2, __qtablewidgetitem112);
+        from_information_TbWidget->setItem(6, 0, __qtablewidgetitem112);
         QTableWidgetItem *__qtablewidgetitem113 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(11, 0, __qtablewidgetitem113);
+        from_information_TbWidget->setItem(6, 1, __qtablewidgetitem113);
         QTableWidgetItem *__qtablewidgetitem114 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(11, 1, __qtablewidgetitem114);
+        from_information_TbWidget->setItem(6, 2, __qtablewidgetitem114);
         QTableWidgetItem *__qtablewidgetitem115 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(11, 2, __qtablewidgetitem115);
+        from_information_TbWidget->setItem(6, 3, __qtablewidgetitem115);
         QTableWidgetItem *__qtablewidgetitem116 = new QTableWidgetItem();
-        from_information_TbWidget->setItem(12, 0, __qtablewidgetitem116);
+        from_information_TbWidget->setItem(7, 0, __qtablewidgetitem116);
         QTableWidgetItem *__qtablewidgetitem117 = new QTableWidgetItem();
-        __qtablewidgetitem117->setCheckState(Qt::Checked);
-        from_information_TbWidget->setItem(12, 1, __qtablewidgetitem117);
+        from_information_TbWidget->setItem(7, 1, __qtablewidgetitem117);
+        QTableWidgetItem *__qtablewidgetitem118 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(7, 2, __qtablewidgetitem118);
+        QTableWidgetItem *__qtablewidgetitem119 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(7, 3, __qtablewidgetitem119);
+        QTableWidgetItem *__qtablewidgetitem120 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(8, 0, __qtablewidgetitem120);
+        QTableWidgetItem *__qtablewidgetitem121 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(8, 1, __qtablewidgetitem121);
+        QTableWidgetItem *__qtablewidgetitem122 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(9, 0, __qtablewidgetitem122);
+        QTableWidgetItem *__qtablewidgetitem123 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(9, 1, __qtablewidgetitem123);
+        QTableWidgetItem *__qtablewidgetitem124 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(9, 2, __qtablewidgetitem124);
+        QTableWidgetItem *__qtablewidgetitem125 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(9, 3, __qtablewidgetitem125);
+        QTableWidgetItem *__qtablewidgetitem126 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(10, 0, __qtablewidgetitem126);
+        QTableWidgetItem *__qtablewidgetitem127 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(10, 1, __qtablewidgetitem127);
+        QTableWidgetItem *__qtablewidgetitem128 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(10, 2, __qtablewidgetitem128);
+        QTableWidgetItem *__qtablewidgetitem129 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(11, 0, __qtablewidgetitem129);
+        QTableWidgetItem *__qtablewidgetitem130 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(11, 1, __qtablewidgetitem130);
+        QTableWidgetItem *__qtablewidgetitem131 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(11, 2, __qtablewidgetitem131);
+        QTableWidgetItem *__qtablewidgetitem132 = new QTableWidgetItem();
+        from_information_TbWidget->setItem(12, 0, __qtablewidgetitem132);
+        QTableWidgetItem *__qtablewidgetitem133 = new QTableWidgetItem();
+        __qtablewidgetitem133->setCheckState(Qt::Checked);
+        from_information_TbWidget->setItem(12, 1, __qtablewidgetitem133);
         from_information_TbWidget->setObjectName(QString::fromUtf8("from_information_TbWidget"));
         from_information_TbWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         from_information_TbWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -1549,11 +1744,11 @@ public:
 
         serPort_shortcut_GpBox = new QGroupBox(serPort_send_GpBox);
         serPort_shortcut_GpBox->setObjectName(QString::fromUtf8("serPort_shortcut_GpBox"));
-        QSizePolicy sizePolicy11(QSizePolicy::Preferred, QSizePolicy::Expanding);
-        sizePolicy11.setHorizontalStretch(0);
-        sizePolicy11.setVerticalStretch(0);
-        sizePolicy11.setHeightForWidth(serPort_shortcut_GpBox->sizePolicy().hasHeightForWidth());
-        serPort_shortcut_GpBox->setSizePolicy(sizePolicy11);
+        QSizePolicy sizePolicy13(QSizePolicy::Preferred, QSizePolicy::Expanding);
+        sizePolicy13.setHorizontalStretch(0);
+        sizePolicy13.setVerticalStretch(0);
+        sizePolicy13.setHeightForWidth(serPort_shortcut_GpBox->sizePolicy().hasHeightForWidth());
+        serPort_shortcut_GpBox->setSizePolicy(sizePolicy13);
         serPort_shortcut_GpBox->setMinimumSize(QSize(0, 90));
         serPort_shortcut_GpBox->setStyleSheet(QString::fromUtf8(" QGroupBox::title {\n"
 "     subcontrol-origin: margin;\n"
@@ -1611,10 +1806,10 @@ public:
 
         gridLayout_4->addWidget(serPort_AV_PsBtn, 1, 4, 1, 1);
 
-        serPort_RD_PsBtn = new QPushButton(serPort_shortcut_GpBox);
-        serPort_RD_PsBtn->setObjectName(QString::fromUtf8("serPort_RD_PsBtn"));
+        serPort_RBAT_PsBtn = new QPushButton(serPort_shortcut_GpBox);
+        serPort_RBAT_PsBtn->setObjectName(QString::fromUtf8("serPort_RBAT_PsBtn"));
 
-        gridLayout_4->addWidget(serPort_RD_PsBtn, 2, 4, 1, 1);
+        gridLayout_4->addWidget(serPort_RBAT_PsBtn, 2, 4, 1, 1);
 
 
         gridLayout_8->addWidget(serPort_shortcut_GpBox, 4, 0, 1, 6);
@@ -1655,80 +1850,80 @@ public:
         serPort_read_SP_PsBtn = new QPushButton(serPort_SP_GpBox);
         serPort_read_SP_PsBtn->setObjectName(QString::fromUtf8("serPort_read_SP_PsBtn"));
 
-        gridLayout_17->addWidget(serPort_read_SP_PsBtn, 2, 2, 1, 1);
+        gridLayout_17->addWidget(serPort_read_SP_PsBtn, 2, 3, 1, 1);
 
         serPort_write_SP_PsBtn = new QPushButton(serPort_SP_GpBox);
         serPort_write_SP_PsBtn->setObjectName(QString::fromUtf8("serPort_write_SP_PsBtn"));
 
-        gridLayout_17->addWidget(serPort_write_SP_PsBtn, 2, 1, 1, 1);
+        gridLayout_17->addWidget(serPort_write_SP_PsBtn, 2, 2, 1, 1);
 
         serPort_SP_HlSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_17->addItem(serPort_SP_HlSpacer, 2, 0, 1, 1);
+        gridLayout_17->addItem(serPort_SP_HlSpacer, 2, 1, 1, 1);
 
         serPort_SP_TabWidget = new QTableWidget(serPort_SP_GpBox);
         if (serPort_SP_TabWidget->columnCount() < 4)
             serPort_SP_TabWidget->setColumnCount(4);
-        QTableWidgetItem *__qtablewidgetitem118 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setHorizontalHeaderItem(0, __qtablewidgetitem118);
-        QTableWidgetItem *__qtablewidgetitem119 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setHorizontalHeaderItem(1, __qtablewidgetitem119);
-        QTableWidgetItem *__qtablewidgetitem120 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setHorizontalHeaderItem(2, __qtablewidgetitem120);
-        QTableWidgetItem *__qtablewidgetitem121 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setHorizontalHeaderItem(3, __qtablewidgetitem121);
+        QTableWidgetItem *__qtablewidgetitem134 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setHorizontalHeaderItem(0, __qtablewidgetitem134);
+        QTableWidgetItem *__qtablewidgetitem135 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setHorizontalHeaderItem(1, __qtablewidgetitem135);
+        QTableWidgetItem *__qtablewidgetitem136 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setHorizontalHeaderItem(2, __qtablewidgetitem136);
+        QTableWidgetItem *__qtablewidgetitem137 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setHorizontalHeaderItem(3, __qtablewidgetitem137);
         if (serPort_SP_TabWidget->rowCount() < 5)
             serPort_SP_TabWidget->setRowCount(5);
-        QTableWidgetItem *__qtablewidgetitem122 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setVerticalHeaderItem(0, __qtablewidgetitem122);
-        QTableWidgetItem *__qtablewidgetitem123 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setVerticalHeaderItem(1, __qtablewidgetitem123);
-        QTableWidgetItem *__qtablewidgetitem124 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setVerticalHeaderItem(2, __qtablewidgetitem124);
-        QTableWidgetItem *__qtablewidgetitem125 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setVerticalHeaderItem(3, __qtablewidgetitem125);
-        QTableWidgetItem *__qtablewidgetitem126 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setVerticalHeaderItem(4, __qtablewidgetitem126);
-        QTableWidgetItem *__qtablewidgetitem127 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(0, 0, __qtablewidgetitem127);
-        QTableWidgetItem *__qtablewidgetitem128 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(0, 1, __qtablewidgetitem128);
-        QTableWidgetItem *__qtablewidgetitem129 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(0, 2, __qtablewidgetitem129);
-        QTableWidgetItem *__qtablewidgetitem130 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(0, 3, __qtablewidgetitem130);
-        QTableWidgetItem *__qtablewidgetitem131 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(1, 0, __qtablewidgetitem131);
-        QTableWidgetItem *__qtablewidgetitem132 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(1, 1, __qtablewidgetitem132);
-        QTableWidgetItem *__qtablewidgetitem133 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(1, 2, __qtablewidgetitem133);
-        QTableWidgetItem *__qtablewidgetitem134 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(1, 3, __qtablewidgetitem134);
-        QTableWidgetItem *__qtablewidgetitem135 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(2, 0, __qtablewidgetitem135);
-        QTableWidgetItem *__qtablewidgetitem136 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(2, 1, __qtablewidgetitem136);
-        QTableWidgetItem *__qtablewidgetitem137 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(2, 2, __qtablewidgetitem137);
         QTableWidgetItem *__qtablewidgetitem138 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(2, 3, __qtablewidgetitem138);
+        serPort_SP_TabWidget->setVerticalHeaderItem(0, __qtablewidgetitem138);
         QTableWidgetItem *__qtablewidgetitem139 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(3, 0, __qtablewidgetitem139);
+        serPort_SP_TabWidget->setVerticalHeaderItem(1, __qtablewidgetitem139);
         QTableWidgetItem *__qtablewidgetitem140 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(3, 1, __qtablewidgetitem140);
+        serPort_SP_TabWidget->setVerticalHeaderItem(2, __qtablewidgetitem140);
         QTableWidgetItem *__qtablewidgetitem141 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(3, 2, __qtablewidgetitem141);
+        serPort_SP_TabWidget->setVerticalHeaderItem(3, __qtablewidgetitem141);
         QTableWidgetItem *__qtablewidgetitem142 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(3, 3, __qtablewidgetitem142);
+        serPort_SP_TabWidget->setVerticalHeaderItem(4, __qtablewidgetitem142);
         QTableWidgetItem *__qtablewidgetitem143 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(4, 0, __qtablewidgetitem143);
+        serPort_SP_TabWidget->setItem(0, 0, __qtablewidgetitem143);
         QTableWidgetItem *__qtablewidgetitem144 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(4, 1, __qtablewidgetitem144);
+        serPort_SP_TabWidget->setItem(0, 1, __qtablewidgetitem144);
         QTableWidgetItem *__qtablewidgetitem145 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(4, 2, __qtablewidgetitem145);
+        serPort_SP_TabWidget->setItem(0, 2, __qtablewidgetitem145);
         QTableWidgetItem *__qtablewidgetitem146 = new QTableWidgetItem();
-        serPort_SP_TabWidget->setItem(4, 3, __qtablewidgetitem146);
+        serPort_SP_TabWidget->setItem(0, 3, __qtablewidgetitem146);
+        QTableWidgetItem *__qtablewidgetitem147 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(1, 0, __qtablewidgetitem147);
+        QTableWidgetItem *__qtablewidgetitem148 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(1, 1, __qtablewidgetitem148);
+        QTableWidgetItem *__qtablewidgetitem149 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(1, 2, __qtablewidgetitem149);
+        QTableWidgetItem *__qtablewidgetitem150 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(1, 3, __qtablewidgetitem150);
+        QTableWidgetItem *__qtablewidgetitem151 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(2, 0, __qtablewidgetitem151);
+        QTableWidgetItem *__qtablewidgetitem152 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(2, 1, __qtablewidgetitem152);
+        QTableWidgetItem *__qtablewidgetitem153 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(2, 2, __qtablewidgetitem153);
+        QTableWidgetItem *__qtablewidgetitem154 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(2, 3, __qtablewidgetitem154);
+        QTableWidgetItem *__qtablewidgetitem155 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(3, 0, __qtablewidgetitem155);
+        QTableWidgetItem *__qtablewidgetitem156 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(3, 1, __qtablewidgetitem156);
+        QTableWidgetItem *__qtablewidgetitem157 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(3, 2, __qtablewidgetitem157);
+        QTableWidgetItem *__qtablewidgetitem158 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(3, 3, __qtablewidgetitem158);
+        QTableWidgetItem *__qtablewidgetitem159 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(4, 0, __qtablewidgetitem159);
+        QTableWidgetItem *__qtablewidgetitem160 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(4, 1, __qtablewidgetitem160);
+        QTableWidgetItem *__qtablewidgetitem161 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(4, 2, __qtablewidgetitem161);
+        QTableWidgetItem *__qtablewidgetitem162 = new QTableWidgetItem();
+        serPort_SP_TabWidget->setItem(4, 3, __qtablewidgetitem162);
         serPort_SP_TabWidget->setObjectName(QString::fromUtf8("serPort_SP_TabWidget"));
         sizePolicy3.setHeightForWidth(serPort_SP_TabWidget->sizePolicy().hasHeightForWidth());
         serPort_SP_TabWidget->setSizePolicy(sizePolicy3);
@@ -1740,7 +1935,7 @@ public:
         serPort_SP_TabWidget->verticalHeader()->setVisible(false);
         serPort_SP_TabWidget->verticalHeader()->setDefaultSectionSize(31);
 
-        gridLayout_17->addWidget(serPort_SP_TabWidget, 1, 0, 1, 5);
+        gridLayout_17->addWidget(serPort_SP_TabWidget, 1, 0, 1, 6);
 
 
         gridLayout_8->addWidget(serPort_SP_GpBox, 5, 0, 1, 6);
@@ -1774,11 +1969,11 @@ public:
         gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
         serPort_portName_Label = new QLabel(serPort_Settings_GpBox);
         serPort_portName_Label->setObjectName(QString::fromUtf8("serPort_portName_Label"));
-        QSizePolicy sizePolicy12(QSizePolicy::Fixed, QSizePolicy::Preferred);
-        sizePolicy12.setHorizontalStretch(0);
-        sizePolicy12.setVerticalStretch(0);
-        sizePolicy12.setHeightForWidth(serPort_portName_Label->sizePolicy().hasHeightForWidth());
-        serPort_portName_Label->setSizePolicy(sizePolicy12);
+        QSizePolicy sizePolicy14(QSizePolicy::Fixed, QSizePolicy::Preferred);
+        sizePolicy14.setHorizontalStretch(0);
+        sizePolicy14.setVerticalStretch(0);
+        sizePolicy14.setHeightForWidth(serPort_portName_Label->sizePolicy().hasHeightForWidth());
+        serPort_portName_Label->setSizePolicy(sizePolicy14);
         serPort_portName_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_5->addWidget(serPort_portName_Label, 0, 0, 1, 1);
@@ -1790,8 +1985,8 @@ public:
 
         serPort_parity_Label = new QLabel(serPort_Settings_GpBox);
         serPort_parity_Label->setObjectName(QString::fromUtf8("serPort_parity_Label"));
-        sizePolicy12.setHeightForWidth(serPort_parity_Label->sizePolicy().hasHeightForWidth());
-        serPort_parity_Label->setSizePolicy(sizePolicy12);
+        sizePolicy14.setHeightForWidth(serPort_parity_Label->sizePolicy().hasHeightForWidth());
+        serPort_parity_Label->setSizePolicy(sizePolicy14);
         serPort_parity_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_5->addWidget(serPort_parity_Label, 0, 4, 1, 1);
@@ -1803,8 +1998,8 @@ public:
 
         serPort_baudRate_Label = new QLabel(serPort_Settings_GpBox);
         serPort_baudRate_Label->setObjectName(QString::fromUtf8("serPort_baudRate_Label"));
-        sizePolicy12.setHeightForWidth(serPort_baudRate_Label->sizePolicy().hasHeightForWidth());
-        serPort_baudRate_Label->setSizePolicy(sizePolicy12);
+        sizePolicy14.setHeightForWidth(serPort_baudRate_Label->sizePolicy().hasHeightForWidth());
+        serPort_baudRate_Label->setSizePolicy(sizePolicy14);
         serPort_baudRate_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_5->addWidget(serPort_baudRate_Label, 0, 2, 1, 1);
@@ -1816,8 +2011,8 @@ public:
 
         serPort_dataBit_Label = new QLabel(serPort_Settings_GpBox);
         serPort_dataBit_Label->setObjectName(QString::fromUtf8("serPort_dataBit_Label"));
-        sizePolicy12.setHeightForWidth(serPort_dataBit_Label->sizePolicy().hasHeightForWidth());
-        serPort_dataBit_Label->setSizePolicy(sizePolicy12);
+        sizePolicy14.setHeightForWidth(serPort_dataBit_Label->sizePolicy().hasHeightForWidth());
+        serPort_dataBit_Label->setSizePolicy(sizePolicy14);
         serPort_dataBit_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_5->addWidget(serPort_dataBit_Label, 1, 0, 1, 1);
@@ -1829,8 +2024,8 @@ public:
 
         serPort_stopBit_Label = new QLabel(serPort_Settings_GpBox);
         serPort_stopBit_Label->setObjectName(QString::fromUtf8("serPort_stopBit_Label"));
-        sizePolicy12.setHeightForWidth(serPort_stopBit_Label->sizePolicy().hasHeightForWidth());
-        serPort_stopBit_Label->setSizePolicy(sizePolicy12);
+        sizePolicy14.setHeightForWidth(serPort_stopBit_Label->sizePolicy().hasHeightForWidth());
+        serPort_stopBit_Label->setSizePolicy(sizePolicy14);
         serPort_stopBit_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_5->addWidget(serPort_stopBit_Label, 1, 2, 1, 1);
@@ -1842,8 +2037,8 @@ public:
 
         serPort_flowCtl_Label = new QLabel(serPort_Settings_GpBox);
         serPort_flowCtl_Label->setObjectName(QString::fromUtf8("serPort_flowCtl_Label"));
-        sizePolicy12.setHeightForWidth(serPort_flowCtl_Label->sizePolicy().hasHeightForWidth());
-        serPort_flowCtl_Label->setSizePolicy(sizePolicy12);
+        sizePolicy14.setHeightForWidth(serPort_flowCtl_Label->sizePolicy().hasHeightForWidth());
+        serPort_flowCtl_Label->setSizePolicy(sizePolicy14);
         serPort_flowCtl_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_5->addWidget(serPort_flowCtl_Label, 1, 4, 1, 1);
@@ -1941,11 +2136,11 @@ public:
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         sideBar_TlBtn_3 = new QToolButton(sideBar_right_Page);
         sideBar_TlBtn_3->setObjectName(QString::fromUtf8("sideBar_TlBtn_3"));
-        QSizePolicy sizePolicy13(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        sizePolicy13.setHorizontalStretch(0);
-        sizePolicy13.setVerticalStretch(0);
-        sizePolicy13.setHeightForWidth(sideBar_TlBtn_3->sizePolicy().hasHeightForWidth());
-        sideBar_TlBtn_3->setSizePolicy(sizePolicy13);
+        QSizePolicy sizePolicy15(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy15.setHorizontalStretch(0);
+        sizePolicy15.setVerticalStretch(0);
+        sizePolicy15.setHeightForWidth(sideBar_TlBtn_3->sizePolicy().hasHeightForWidth());
+        sideBar_TlBtn_3->setSizePolicy(sizePolicy15);
         sideBar_TlBtn_3->setFont(font);
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/pic/from.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -1957,8 +2152,8 @@ public:
 
         sideBar_TlBtn_2 = new QToolButton(sideBar_right_Page);
         sideBar_TlBtn_2->setObjectName(QString::fromUtf8("sideBar_TlBtn_2"));
-        sizePolicy13.setHeightForWidth(sideBar_TlBtn_2->sizePolicy().hasHeightForWidth());
-        sideBar_TlBtn_2->setSizePolicy(sizePolicy13);
+        sizePolicy15.setHeightForWidth(sideBar_TlBtn_2->sizePolicy().hasHeightForWidth());
+        sideBar_TlBtn_2->setSizePolicy(sizePolicy15);
         sideBar_TlBtn_2->setFont(font);
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/pic/harmonic.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -1970,8 +2165,8 @@ public:
 
         sideBar_TlBtn_4 = new QToolButton(sideBar_right_Page);
         sideBar_TlBtn_4->setObjectName(QString::fromUtf8("sideBar_TlBtn_4"));
-        sizePolicy13.setHeightForWidth(sideBar_TlBtn_4->sizePolicy().hasHeightForWidth());
-        sideBar_TlBtn_4->setSizePolicy(sizePolicy13);
+        sizePolicy15.setHeightForWidth(sideBar_TlBtn_4->sizePolicy().hasHeightForWidth());
+        sideBar_TlBtn_4->setSizePolicy(sizePolicy15);
         sideBar_TlBtn_4->setFont(font);
         sideBar_TlBtn_4->setStyleSheet(QString::fromUtf8("#sideBar_TlBtn_4 {\n"
 "\n"
@@ -1998,8 +2193,8 @@ public:
         sideBar_TlBtn_1 = new QToolButton(sideBar_right_Page);
         sideBar_TlBtn_1->setObjectName(QString::fromUtf8("sideBar_TlBtn_1"));
         sideBar_TlBtn_1->setEnabled(true);
-        sizePolicy13.setHeightForWidth(sideBar_TlBtn_1->sizePolicy().hasHeightForWidth());
-        sideBar_TlBtn_1->setSizePolicy(sizePolicy13);
+        sizePolicy15.setHeightForWidth(sideBar_TlBtn_1->sizePolicy().hasHeightForWidth());
+        sideBar_TlBtn_1->setSizePolicy(sizePolicy15);
         sideBar_TlBtn_1->setMaximumSize(QSize(16777214, 16777215));
         sideBar_TlBtn_1->setFont(font);
         sideBar_TlBtn_1->setStyleSheet(QString::fromUtf8(""));
@@ -2056,8 +2251,8 @@ public:
 
         retranslateUi(MainWidget);
 
-        main_SkWidget->setCurrentIndex(2);
-        ES_TbWidget->setCurrentIndex(1);
+        main_SkWidget->setCurrentIndex(0);
+        ES_TbWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWidget);
@@ -2066,14 +2261,15 @@ public:
     void retranslateUi(QWidget *MainWidget)
     {
         MainWidget->setWindowTitle(QApplication::translate("MainWidget", "XL.903.\344\272\244\346\265\201\345\205\205\347\224\265\346\241\251\346\243\200\346\265\213\350\243\205\347\275\256", 0, QApplication::UnicodeUTF8));
+        RS_maxCur_Label->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        RS_maxCur_tag_Label->setText(QApplication::translate("MainWidget", "\346\234\200\345\244\247\350\276\223\345\207\272\347\224\265\346\265\201.A: ", 0, QApplication::UnicodeUTF8));
         runTime_Label->setText(QApplication::translate("MainWidget", "\350\277\220\350\241\214\346\227\266\351\227\264:  ", 0, QApplication::UnicodeUTF8));
         runTime_LnEdit->setText(QApplication::translate("MainWidget", "00:00:00", 0, QApplication::UnicodeUTF8));
         battery_Label->setText(QString());
         keyBoard_PsBtn->setText(QApplication::translate("MainWidget", "\351\224\256\347\233\230", 0, QApplication::UnicodeUTF8));
         BMS_cntState_tag_Label->setText(QApplication::translate("MainWidget", "\351\223\276\346\216\245\347\212\266\346\200\201: ", 0, QApplication::UnicodeUTF8));
-        RS_maxCur_tag_Label->setText(QApplication::translate("MainWidget", "\346\234\200\345\244\247\350\276\223\345\207\272\347\224\265\346\265\201.A: ", 0, QApplication::UnicodeUTF8));
-        RS_maxCur_Label->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
         BMS_cntState_Label->setText(QApplication::translate("MainWidget", "\346\226\255\345\274\200", 0, QApplication::UnicodeUTF8));
+        lock_RdBtn->setText(QApplication::translate("MainWidget", "\344\270\212\351\224\201", 0, QApplication::UnicodeUTF8));
         ES_PE_zoomOut_PsBtn->setText(QApplication::translate("MainWidget", "\346\224\276\345\244\247", 0, QApplication::UnicodeUTF8));
         ES_PE_zoomIn_PsBtn->setText(QApplication::translate("MainWidget", "\347\274\251\345\260\217", 0, QApplication::UnicodeUTF8));
         ES_TbWidget->setTabText(ES_TbWidget->indexOf(ES_PE_tab), QApplication::translate("MainWidget", "\347\224\265\350\203\275\350\257\257\345\267\256", 0, QApplication::UnicodeUTF8));
@@ -2184,43 +2380,88 @@ public:
         ES_TE_LnEdit->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
         ES_PE_Label->setText(QApplication::translate("MainWidget", "\347\224\265\350\203\275\350\257\257\345\267\256: ", 0, QApplication::UnicodeUTF8));
         ES_PE_LnEdit->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        RRF_ripple_chl_Label->setText(QApplication::translate("MainWidget", "\346\265\213\350\257\225\351\241\271:  ", 0, QApplication::UnicodeUTF8));
-        RRF_ripple_chl_CbBox->clear();
-        RRF_ripple_chl_CbBox->insertItems(0, QStringList()
-         << QApplication::translate("MainWidget", "\347\224\265\345\216\213", 0, QApplication::UnicodeUTF8)
-         << QApplication::translate("MainWidget", "\347\224\265\346\265\201", 0, QApplication::UnicodeUTF8)
+        RSMV_Harmonic_Phase_Label->setText(QApplication::translate("MainWidget", "\346\265\213\350\257\225\351\241\271:  ", 0, QApplication::UnicodeUTF8));
+        RSMV_Harmonic_Phase_CbBox->clear();
+        RSMV_Harmonic_Phase_CbBox->insertItems(0, QStringList()
+         << QApplication::translate("MainWidget", "Ua", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWidget", "Ub", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWidget", "Uc", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWidget", "Ia", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWidget", "Ib", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWidget", "Ic", 0, QApplication::UnicodeUTF8)
         );
-        QTableWidgetItem *___qtablewidgetitem42 = RRF_ripple_TblWidget->horizontalHeaderItem(0);
+        RSMV_Harmonic_Times_Label->setText(QApplication::translate("MainWidget", "\350\260\220\346\263\242\346\254\241\346\225\260:  ", 0, QApplication::UnicodeUTF8));
+        RSMV_Harmonic_Times_CbBox->clear();
+        RSMV_Harmonic_Times_CbBox->insertItems(0, QStringList()
+         << QApplication::translate("MainWidget", "21", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWidget", "32", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("MainWidget", "40", 0, QApplication::UnicodeUTF8)
+        );
+        RSMV_Harmonic_Range_Label->setText(QApplication::translate("MainWidget", "\351\230\200\345\200\274(%):  ", 0, QApplication::UnicodeUTF8));
+        RSMV_Harmonic_LnEdit_Range->setText(QApplication::translate("MainWidget", "0.1", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem42 = RSMV_harmonic_rms_TblWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem42->setText(QApplication::translate("MainWidget", "\351\241\271\347\233\256", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem43 = RRF_ripple_TblWidget->horizontalHeaderItem(1);
+        QTableWidgetItem *___qtablewidgetitem43 = RSMV_harmonic_rms_TblWidget->horizontalHeaderItem(1);
         ___qtablewidgetitem43->setText(QApplication::translate("MainWidget", "\345\200\274", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem44 = RRF_ripple_TblWidget->horizontalHeaderItem(2);
+        QTableWidgetItem *___qtablewidgetitem44 = RSMV_harmonic_rms_TblWidget->horizontalHeaderItem(2);
         ___qtablewidgetitem44->setText(QApplication::translate("MainWidget", "\351\241\271\347\233\256", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem45 = RRF_ripple_TblWidget->horizontalHeaderItem(3);
+        QTableWidgetItem *___qtablewidgetitem45 = RSMV_harmonic_rms_TblWidget->horizontalHeaderItem(3);
         ___qtablewidgetitem45->setText(QApplication::translate("MainWidget", "\345\200\274", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem46 = RRF_ripple_TblWidget->horizontalHeaderItem(4);
-        ___qtablewidgetitem46->setText(QApplication::translate("MainWidget", "\351\241\271\347\233\256", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem47 = RRF_ripple_TblWidget->horizontalHeaderItem(5);
-        ___qtablewidgetitem47->setText(QApplication::translate("MainWidget", "\345\200\274", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem48 = RRF_ripple_TblWidget->verticalHeaderItem(0);
-        ___qtablewidgetitem48->setText(QApplication::translate("MainWidget", "1", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem46 = RSMV_harmonic_rms_TblWidget->verticalHeaderItem(0);
+        ___qtablewidgetitem46->setText(QApplication::translate("MainWidget", "1", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem47 = RSMV_harmonic_rms_TblWidget->verticalHeaderItem(1);
+        ___qtablewidgetitem47->setText(QApplication::translate("MainWidget", "2", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem48 = RSMV_harmonic_rms_TblWidget->verticalHeaderItem(2);
+        ___qtablewidgetitem48->setText(QApplication::translate("MainWidget", "3", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem49 = RSMV_harmonic_rms_TblWidget->verticalHeaderItem(3);
+        ___qtablewidgetitem49->setText(QApplication::translate("MainWidget", "4", 0, QApplication::UnicodeUTF8));
 
-        const bool __sortingEnabled1 = RRF_ripple_TblWidget->isSortingEnabled();
-        RRF_ripple_TblWidget->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem49 = RRF_ripple_TblWidget->item(0, 0);
-        ___qtablewidgetitem49->setText(QApplication::translate("MainWidget", "\347\272\271\346\263\242\347\263\273\346\225\260.%", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem50 = RRF_ripple_TblWidget->item(0, 1);
-        ___qtablewidgetitem50->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem51 = RRF_ripple_TblWidget->item(0, 2);
-        ___qtablewidgetitem51->setText(QApplication::translate("MainWidget", "\347\272\271\346\263\242\345\244\247\345\260\217.V", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem52 = RRF_ripple_TblWidget->item(0, 3);
-        ___qtablewidgetitem52->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem53 = RRF_ripple_TblWidget->item(0, 4);
-        ___qtablewidgetitem53->setText(QApplication::translate("MainWidget", "\345\237\272\346\263\242\345\244\247\345\260\217.V", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem54 = RRF_ripple_TblWidget->item(0, 5);
-        ___qtablewidgetitem54->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        RRF_ripple_TblWidget->setSortingEnabled(__sortingEnabled1);
+        const bool __sortingEnabled1 = RSMV_harmonic_rms_TblWidget->isSortingEnabled();
+        RSMV_harmonic_rms_TblWidget->setSortingEnabled(false);
+        QTableWidgetItem *___qtablewidgetitem50 = RSMV_harmonic_rms_TblWidget->item(0, 0);
+        ___qtablewidgetitem50->setText(QApplication::translate("MainWidget", "Ua(V)", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem51 = RSMV_harmonic_rms_TblWidget->item(0, 1);
+        ___qtablewidgetitem51->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem52 = RSMV_harmonic_rms_TblWidget->item(0, 2);
+        ___qtablewidgetitem52->setText(QApplication::translate("MainWidget", "Ia(A)", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem53 = RSMV_harmonic_rms_TblWidget->item(0, 3);
+        ___qtablewidgetitem53->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem54 = RSMV_harmonic_rms_TblWidget->item(1, 0);
+        ___qtablewidgetitem54->setText(QApplication::translate("MainWidget", "Ub(V)", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem55 = RSMV_harmonic_rms_TblWidget->item(1, 1);
+        ___qtablewidgetitem55->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem56 = RSMV_harmonic_rms_TblWidget->item(1, 2);
+        ___qtablewidgetitem56->setText(QApplication::translate("MainWidget", "Ib(A)", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem57 = RSMV_harmonic_rms_TblWidget->item(1, 3);
+        ___qtablewidgetitem57->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem58 = RSMV_harmonic_rms_TblWidget->item(2, 0);
+        ___qtablewidgetitem58->setText(QApplication::translate("MainWidget", "Uc(V)", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem59 = RSMV_harmonic_rms_TblWidget->item(2, 1);
+        ___qtablewidgetitem59->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem60 = RSMV_harmonic_rms_TblWidget->item(2, 2);
+        ___qtablewidgetitem60->setText(QApplication::translate("MainWidget", "Ic(A)", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem61 = RSMV_harmonic_rms_TblWidget->item(2, 3);
+        ___qtablewidgetitem61->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem62 = RSMV_harmonic_rms_TblWidget->item(3, 0);
+        ___qtablewidgetitem62->setText(QApplication::translate("MainWidget", "\351\242\221\347\216\207", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem63 = RSMV_harmonic_rms_TblWidget->item(3, 1);
+        ___qtablewidgetitem63->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem64 = RSMV_harmonic_rms_TblWidget->item(3, 2);
+        ___qtablewidgetitem64->setText(QApplication::translate("MainWidget", "\350\260\220\346\263\242\346\200\273\345\220\253\346\234\211\347\216\207", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem65 = RSMV_harmonic_rms_TblWidget->item(3, 3);
+        ___qtablewidgetitem65->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        RSMV_harmonic_rms_TblWidget->setSortingEnabled(__sortingEnabled1);
 
+        QTableWidgetItem *___qtablewidgetitem66 = RSMV_Harmonic_TblWidget->horizontalHeaderItem(0);
+        ___qtablewidgetitem66->setText(QApplication::translate("MainWidget", "\346\254\241\346\225\260", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem67 = RSMV_Harmonic_TblWidget->horizontalHeaderItem(1);
+        ___qtablewidgetitem67->setText(QApplication::translate("MainWidget", "\345\220\253\346\234\211\347\216\207(%)", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem68 = RSMV_Harmonic_TblWidget->verticalHeaderItem(0);
+        ___qtablewidgetitem68->setText(QApplication::translate("MainWidget", "1", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem69 = RSMV_Harmonic_TblWidget->verticalHeaderItem(1);
+        ___qtablewidgetitem69->setText(QApplication::translate("MainWidget", "2", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem70 = RSMV_Harmonic_TblWidget->verticalHeaderItem(2);
+        ___qtablewidgetitem70->setText(QApplication::translate("MainWidget", "3", 0, QApplication::UnicodeUTF8));
         from_information_Label->setText(QApplication::translate("MainWidget", "\350\241\250\346\240\274\344\277\241\346\201\257", 0, QApplication::UnicodeUTF8));
         from_ctl_GpBox->setTitle(QApplication::translate("MainWidget", "\346\243\200\345\256\232\346\223\215\344\275\234", 0, QApplication::UnicodeUTF8));
         RSMV_clearFrom_PsBtn->setText(QApplication::translate("MainWidget", "\346\270\205\347\251\272\346\212\245\350\241\250", 0, QApplication::UnicodeUTF8));
@@ -2228,133 +2469,133 @@ public:
         RSMV_buildFrom_PsBtn->setText(QApplication::translate("MainWidget", "\347\224\237\346\210\220\350\257\201\344\271\246", 0, QApplication::UnicodeUTF8));
         RSMV_saveFormMsg_PsBtn->setText(QApplication::translate("MainWidget", "\347\224\237\346\210\220\346\212\245\350\241\250", 0, QApplication::UnicodeUTF8));
         from_error_Label->setText(QApplication::translate("MainWidget", "\350\257\257\345\267\256\350\256\260\345\275\225", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem55 = from_information_TbWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem55->setText(QApplication::translate("MainWidget", "1", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem56 = from_information_TbWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem56->setText(QApplication::translate("MainWidget", "2", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem57 = from_information_TbWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem57->setText(QApplication::translate("MainWidget", "3", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem58 = from_information_TbWidget->horizontalHeaderItem(3);
-        ___qtablewidgetitem58->setText(QApplication::translate("MainWidget", "4", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem59 = from_information_TbWidget->verticalHeaderItem(0);
-        ___qtablewidgetitem59->setText(QApplication::translate("MainWidget", "1", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem60 = from_information_TbWidget->verticalHeaderItem(1);
-        ___qtablewidgetitem60->setText(QApplication::translate("MainWidget", "2", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem61 = from_information_TbWidget->verticalHeaderItem(2);
-        ___qtablewidgetitem61->setText(QApplication::translate("MainWidget", "3", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem62 = from_information_TbWidget->verticalHeaderItem(3);
-        ___qtablewidgetitem62->setText(QApplication::translate("MainWidget", "4", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem63 = from_information_TbWidget->verticalHeaderItem(4);
-        ___qtablewidgetitem63->setText(QApplication::translate("MainWidget", "5", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem64 = from_information_TbWidget->verticalHeaderItem(5);
-        ___qtablewidgetitem64->setText(QApplication::translate("MainWidget", "6", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem65 = from_information_TbWidget->verticalHeaderItem(6);
-        ___qtablewidgetitem65->setText(QApplication::translate("MainWidget", "7", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem66 = from_information_TbWidget->verticalHeaderItem(7);
-        ___qtablewidgetitem66->setText(QApplication::translate("MainWidget", "8", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem67 = from_information_TbWidget->verticalHeaderItem(8);
-        ___qtablewidgetitem67->setText(QApplication::translate("MainWidget", "9", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem68 = from_information_TbWidget->verticalHeaderItem(9);
-        ___qtablewidgetitem68->setText(QApplication::translate("MainWidget", "10", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem69 = from_information_TbWidget->verticalHeaderItem(10);
-        ___qtablewidgetitem69->setText(QApplication::translate("MainWidget", "11", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem70 = from_information_TbWidget->verticalHeaderItem(11);
-        ___qtablewidgetitem70->setText(QApplication::translate("MainWidget", "12", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem71 = from_information_TbWidget->verticalHeaderItem(12);
-        ___qtablewidgetitem71->setText(QApplication::translate("MainWidget", "13", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem71 = from_information_TbWidget->horizontalHeaderItem(0);
+        ___qtablewidgetitem71->setText(QApplication::translate("MainWidget", "1", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem72 = from_information_TbWidget->horizontalHeaderItem(1);
+        ___qtablewidgetitem72->setText(QApplication::translate("MainWidget", "2", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem73 = from_information_TbWidget->horizontalHeaderItem(2);
+        ___qtablewidgetitem73->setText(QApplication::translate("MainWidget", "3", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem74 = from_information_TbWidget->horizontalHeaderItem(3);
+        ___qtablewidgetitem74->setText(QApplication::translate("MainWidget", "4", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem75 = from_information_TbWidget->verticalHeaderItem(0);
+        ___qtablewidgetitem75->setText(QApplication::translate("MainWidget", "1", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem76 = from_information_TbWidget->verticalHeaderItem(1);
+        ___qtablewidgetitem76->setText(QApplication::translate("MainWidget", "2", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem77 = from_information_TbWidget->verticalHeaderItem(2);
+        ___qtablewidgetitem77->setText(QApplication::translate("MainWidget", "3", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem78 = from_information_TbWidget->verticalHeaderItem(3);
+        ___qtablewidgetitem78->setText(QApplication::translate("MainWidget", "4", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem79 = from_information_TbWidget->verticalHeaderItem(4);
+        ___qtablewidgetitem79->setText(QApplication::translate("MainWidget", "5", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem80 = from_information_TbWidget->verticalHeaderItem(5);
+        ___qtablewidgetitem80->setText(QApplication::translate("MainWidget", "6", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem81 = from_information_TbWidget->verticalHeaderItem(6);
+        ___qtablewidgetitem81->setText(QApplication::translate("MainWidget", "7", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem82 = from_information_TbWidget->verticalHeaderItem(7);
+        ___qtablewidgetitem82->setText(QApplication::translate("MainWidget", "8", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem83 = from_information_TbWidget->verticalHeaderItem(8);
+        ___qtablewidgetitem83->setText(QApplication::translate("MainWidget", "9", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem84 = from_information_TbWidget->verticalHeaderItem(9);
+        ___qtablewidgetitem84->setText(QApplication::translate("MainWidget", "10", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem85 = from_information_TbWidget->verticalHeaderItem(10);
+        ___qtablewidgetitem85->setText(QApplication::translate("MainWidget", "11", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem86 = from_information_TbWidget->verticalHeaderItem(11);
+        ___qtablewidgetitem86->setText(QApplication::translate("MainWidget", "12", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem87 = from_information_TbWidget->verticalHeaderItem(12);
+        ___qtablewidgetitem87->setText(QApplication::translate("MainWidget", "13", 0, QApplication::UnicodeUTF8));
 
         const bool __sortingEnabled2 = from_information_TbWidget->isSortingEnabled();
         from_information_TbWidget->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem72 = from_information_TbWidget->item(0, 0);
-        ___qtablewidgetitem72->setText(QApplication::translate("MainWidget", "\345\247\224\346\211\230\345\215\225\344\275\215", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem73 = from_information_TbWidget->item(0, 1);
-        ___qtablewidgetitem73->setText(QApplication::translate("MainWidget", "\346\267\261\345\234\263\346\230\237\351\276\231\347\247\221\346\212\200\350\202\241\344\273\275\346\234\211\351\231\220\345\205\254\345\217\270", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem74 = from_information_TbWidget->item(0, 2);
-        ___qtablewidgetitem74->setText(QApplication::translate("MainWidget", "\345\215\225\344\275\215\345\234\260\345\235\200", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem75 = from_information_TbWidget->item(0, 3);
-        ___qtablewidgetitem75->setText(QApplication::translate("MainWidget", "\346\267\261\345\234\263\345\270\202\345\215\227\345\261\261\345\214\272", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem76 = from_information_TbWidget->item(1, 0);
-        ___qtablewidgetitem76->setText(QApplication::translate("MainWidget", "\344\273\252\345\231\250\345\220\215\347\247\260", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem77 = from_information_TbWidget->item(1, 1);
-        ___qtablewidgetitem77->setText(QApplication::translate("MainWidget", "\347\233\264\346\265\201\345\205\205\347\224\265\346\241\251", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem78 = from_information_TbWidget->item(1, 2);
-        ___qtablewidgetitem78->setText(QApplication::translate("MainWidget", "\345\210\266\351\200\240\345\216\202\345\220\215 ", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem79 = from_information_TbWidget->item(1, 3);
-        ___qtablewidgetitem79->setText(QApplication::translate("MainWidget", " \346\267\261\345\234\263\346\230\237\351\276\231", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem80 = from_information_TbWidget->item(2, 0);
-        ___qtablewidgetitem80->setText(QApplication::translate("MainWidget", "\345\236\213      \345\217\267", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem81 = from_information_TbWidget->item(2, 1);
-        ___qtablewidgetitem81->setText(QApplication::translate("MainWidget", "20151210", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem82 = from_information_TbWidget->item(2, 2);
-        ___qtablewidgetitem82->setText(QApplication::translate("MainWidget", "\347\224\237\344\272\247\346\227\245\346\234\237", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem83 = from_information_TbWidget->item(2, 3);
-        ___qtablewidgetitem83->setText(QApplication::translate("MainWidget", "20151210", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem84 = from_information_TbWidget->item(3, 0);
-        ___qtablewidgetitem84->setText(QApplication::translate("MainWidget", "\345\207\272\345\216\202\347\274\226\345\217\267", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem85 = from_information_TbWidget->item(3, 1);
-        ___qtablewidgetitem85->setText(QApplication::translate("MainWidget", "20151210", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem86 = from_information_TbWidget->item(3, 2);
-        ___qtablewidgetitem86->setText(QApplication::translate("MainWidget", "\345\207\206\347\241\256\345\272\246\347\255\211\347\272\247", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem87 = from_information_TbWidget->item(3, 3);
-        ___qtablewidgetitem87->setText(QApplication::translate("MainWidget", "0.05", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem88 = from_information_TbWidget->item(4, 0);
-        ___qtablewidgetitem88->setText(QApplication::translate("MainWidget", "\351\242\235\345\256\232\350\276\223\345\207\272\347\224\265\345\216\213\350\214\203\345\233\264(V)", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem89 = from_information_TbWidget->item(4, 1);
-        ___qtablewidgetitem89->setText(QApplication::translate("MainWidget", "100", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem90 = from_information_TbWidget->item(4, 2);
-        ___qtablewidgetitem90->setText(QApplication::translate("MainWidget", "\351\242\235\345\256\232\350\276\223\345\207\272\347\224\265\346\265\201\350\214\203\345\233\264(A)", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem91 = from_information_TbWidget->item(4, 3);
-        ___qtablewidgetitem91->setText(QApplication::translate("MainWidget", "10", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem92 = from_information_TbWidget->item(5, 0);
-        ___qtablewidgetitem92->setText(QApplication::translate("MainWidget", "\351\242\235\345\256\232\350\276\223\345\207\272\345\270\270\346\225\260\350\214\203\345\233\264", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem93 = from_information_TbWidget->item(5, 1);
-        ___qtablewidgetitem93->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem94 = from_information_TbWidget->item(5, 2);
-        ___qtablewidgetitem94->setText(QApplication::translate("MainWidget", "\346\243\200\345\256\232\344\276\235\346\215\256", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem95 = from_information_TbWidget->item(5, 3);
-        ___qtablewidgetitem95->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem96 = from_information_TbWidget->item(6, 0);
-        ___qtablewidgetitem96->setText(QApplication::translate("MainWidget", "\346\243\200\345\256\232\346\227\245\346\234\237", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem97 = from_information_TbWidget->item(6, 1);
+        QTableWidgetItem *___qtablewidgetitem88 = from_information_TbWidget->item(0, 0);
+        ___qtablewidgetitem88->setText(QApplication::translate("MainWidget", "\345\247\224\346\211\230\345\215\225\344\275\215", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem89 = from_information_TbWidget->item(0, 1);
+        ___qtablewidgetitem89->setText(QApplication::translate("MainWidget", "\346\267\261\345\234\263\346\230\237\351\276\231\347\247\221\346\212\200\350\202\241\344\273\275\346\234\211\351\231\220\345\205\254\345\217\270", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem90 = from_information_TbWidget->item(0, 2);
+        ___qtablewidgetitem90->setText(QApplication::translate("MainWidget", "\345\215\225\344\275\215\345\234\260\345\235\200", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem91 = from_information_TbWidget->item(0, 3);
+        ___qtablewidgetitem91->setText(QApplication::translate("MainWidget", "\346\267\261\345\234\263\345\270\202\345\215\227\345\261\261\345\214\272", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem92 = from_information_TbWidget->item(1, 0);
+        ___qtablewidgetitem92->setText(QApplication::translate("MainWidget", "\344\273\252\345\231\250\345\220\215\347\247\260", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem93 = from_information_TbWidget->item(1, 1);
+        ___qtablewidgetitem93->setText(QApplication::translate("MainWidget", "\347\233\264\346\265\201\345\205\205\347\224\265\346\241\251", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem94 = from_information_TbWidget->item(1, 2);
+        ___qtablewidgetitem94->setText(QApplication::translate("MainWidget", "\345\210\266\351\200\240\345\216\202\345\220\215 ", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem95 = from_information_TbWidget->item(1, 3);
+        ___qtablewidgetitem95->setText(QApplication::translate("MainWidget", " \346\267\261\345\234\263\346\230\237\351\276\231", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem96 = from_information_TbWidget->item(2, 0);
+        ___qtablewidgetitem96->setText(QApplication::translate("MainWidget", "\345\236\213      \345\217\267", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem97 = from_information_TbWidget->item(2, 1);
         ___qtablewidgetitem97->setText(QApplication::translate("MainWidget", "20151210", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem98 = from_information_TbWidget->item(6, 2);
-        ___qtablewidgetitem98->setText(QApplication::translate("MainWidget", "\346\234\211 \346\225\210 \346\234\237", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem99 = from_information_TbWidget->item(6, 3);
-        ___qtablewidgetitem99->setText(QApplication::translate("MainWidget", "20161210", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem100 = from_information_TbWidget->item(7, 0);
-        ___qtablewidgetitem100->setText(QApplication::translate("MainWidget", "\346\270\251    \345\272\246(\342\204\203)", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem101 = from_information_TbWidget->item(7, 1);
-        ___qtablewidgetitem101->setText(QApplication::translate("MainWidget", "30", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem102 = from_information_TbWidget->item(7, 2);
-        ___qtablewidgetitem102->setText(QApplication::translate("MainWidget", "\347\233\270\345\257\271\346\271\277\345\272\246(%)", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem103 = from_information_TbWidget->item(7, 3);
-        ___qtablewidgetitem103->setText(QApplication::translate("MainWidget", "12", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem104 = from_information_TbWidget->item(8, 0);
-        ___qtablewidgetitem104->setText(QApplication::translate("MainWidget", "\346\243\200\345\256\232\345\234\260\347\202\271", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem105 = from_information_TbWidget->item(8, 1);
-        ___qtablewidgetitem105->setText(QApplication::translate("MainWidget", "\346\267\261\345\234\263\345\270\202\345\215\227\345\261\261\345\214\272", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem106 = from_information_TbWidget->item(9, 0);
-        ___qtablewidgetitem106->setText(QApplication::translate("MainWidget", "\346\240\207\345\207\206\345\231\250\345\220\215\347\247\260", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem107 = from_information_TbWidget->item(9, 1);
-        ___qtablewidgetitem107->setText(QApplication::translate("MainWidget", "\344\272\244\346\265\201\345\205\205\347\224\265\346\241\251", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem108 = from_information_TbWidget->item(9, 2);
-        ___qtablewidgetitem108->setText(QApplication::translate("MainWidget", "\347\211\271     \345\276\201", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem109 = from_information_TbWidget->item(10, 0);
-        ___qtablewidgetitem109->setText(QApplication::translate("MainWidget", "\350\256\276\345\244\207\347\274\226\345\217\267", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem110 = from_information_TbWidget->item(10, 1);
-        ___qtablewidgetitem110->setText(QApplication::translate("MainWidget", "2016", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem111 = from_information_TbWidget->item(10, 2);
-        ___qtablewidgetitem111->setText(QApplication::translate("MainWidget", "\346\243\200\345\256\232/\346\240\241\345\207\206\350\257\201\344\271\246\345\217\267", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem112 = from_information_TbWidget->item(11, 0);
-        ___qtablewidgetitem112->setText(QApplication::translate("MainWidget", "\346\234\211\346\225\210\346\234\237", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem113 = from_information_TbWidget->item(11, 1);
-        ___qtablewidgetitem113->setText(QApplication::translate("MainWidget", "20161210", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem114 = from_information_TbWidget->item(11, 2);
-        ___qtablewidgetitem114->setText(QApplication::translate("MainWidget", "\344\275\277\347\224\250\345\211\215\345\220\216\347\212\266\346\200\201", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem115 = from_information_TbWidget->item(12, 0);
-        ___qtablewidgetitem115->setText(QApplication::translate("MainWidget", " \345\244\226\350\247\202\346\243\200\346\237\245", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem116 = from_information_TbWidget->item(12, 1);
-        ___qtablewidgetitem116->setText(QApplication::translate("MainWidget", "\345\220\210\346\240\274", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem98 = from_information_TbWidget->item(2, 2);
+        ___qtablewidgetitem98->setText(QApplication::translate("MainWidget", "\347\224\237\344\272\247\346\227\245\346\234\237", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem99 = from_information_TbWidget->item(2, 3);
+        ___qtablewidgetitem99->setText(QApplication::translate("MainWidget", "20151210", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem100 = from_information_TbWidget->item(3, 0);
+        ___qtablewidgetitem100->setText(QApplication::translate("MainWidget", "\345\207\272\345\216\202\347\274\226\345\217\267", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem101 = from_information_TbWidget->item(3, 1);
+        ___qtablewidgetitem101->setText(QApplication::translate("MainWidget", "20151210", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem102 = from_information_TbWidget->item(3, 2);
+        ___qtablewidgetitem102->setText(QApplication::translate("MainWidget", "\345\207\206\347\241\256\345\272\246\347\255\211\347\272\247", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem103 = from_information_TbWidget->item(3, 3);
+        ___qtablewidgetitem103->setText(QApplication::translate("MainWidget", "0.05", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem104 = from_information_TbWidget->item(4, 0);
+        ___qtablewidgetitem104->setText(QApplication::translate("MainWidget", "\351\242\235\345\256\232\350\276\223\345\207\272\347\224\265\345\216\213\350\214\203\345\233\264(V)", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem105 = from_information_TbWidget->item(4, 1);
+        ___qtablewidgetitem105->setText(QApplication::translate("MainWidget", "100", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem106 = from_information_TbWidget->item(4, 2);
+        ___qtablewidgetitem106->setText(QApplication::translate("MainWidget", "\351\242\235\345\256\232\350\276\223\345\207\272\347\224\265\346\265\201\350\214\203\345\233\264(A)", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem107 = from_information_TbWidget->item(4, 3);
+        ___qtablewidgetitem107->setText(QApplication::translate("MainWidget", "10", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem108 = from_information_TbWidget->item(5, 0);
+        ___qtablewidgetitem108->setText(QApplication::translate("MainWidget", "\351\242\235\345\256\232\350\276\223\345\207\272\345\270\270\346\225\260\350\214\203\345\233\264", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem109 = from_information_TbWidget->item(5, 1);
+        ___qtablewidgetitem109->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem110 = from_information_TbWidget->item(5, 2);
+        ___qtablewidgetitem110->setText(QApplication::translate("MainWidget", "\346\243\200\345\256\232\344\276\235\346\215\256", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem111 = from_information_TbWidget->item(5, 3);
+        ___qtablewidgetitem111->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem112 = from_information_TbWidget->item(6, 0);
+        ___qtablewidgetitem112->setText(QApplication::translate("MainWidget", "\346\243\200\345\256\232\346\227\245\346\234\237", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem113 = from_information_TbWidget->item(6, 1);
+        ___qtablewidgetitem113->setText(QApplication::translate("MainWidget", "20151210", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem114 = from_information_TbWidget->item(6, 2);
+        ___qtablewidgetitem114->setText(QApplication::translate("MainWidget", "\346\234\211 \346\225\210 \346\234\237", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem115 = from_information_TbWidget->item(6, 3);
+        ___qtablewidgetitem115->setText(QApplication::translate("MainWidget", "20161210", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem116 = from_information_TbWidget->item(7, 0);
+        ___qtablewidgetitem116->setText(QApplication::translate("MainWidget", "\346\270\251    \345\272\246(\342\204\203)", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem117 = from_information_TbWidget->item(7, 1);
+        ___qtablewidgetitem117->setText(QApplication::translate("MainWidget", "30", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem118 = from_information_TbWidget->item(7, 2);
+        ___qtablewidgetitem118->setText(QApplication::translate("MainWidget", "\347\233\270\345\257\271\346\271\277\345\272\246(%)", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem119 = from_information_TbWidget->item(7, 3);
+        ___qtablewidgetitem119->setText(QApplication::translate("MainWidget", "12", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem120 = from_information_TbWidget->item(8, 0);
+        ___qtablewidgetitem120->setText(QApplication::translate("MainWidget", "\346\243\200\345\256\232\345\234\260\347\202\271", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem121 = from_information_TbWidget->item(8, 1);
+        ___qtablewidgetitem121->setText(QApplication::translate("MainWidget", "\346\267\261\345\234\263\345\270\202\345\215\227\345\261\261\345\214\272", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem122 = from_information_TbWidget->item(9, 0);
+        ___qtablewidgetitem122->setText(QApplication::translate("MainWidget", "\346\240\207\345\207\206\345\231\250\345\220\215\347\247\260", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem123 = from_information_TbWidget->item(9, 1);
+        ___qtablewidgetitem123->setText(QApplication::translate("MainWidget", "\344\272\244\346\265\201\345\205\205\347\224\265\346\241\251", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem124 = from_information_TbWidget->item(9, 2);
+        ___qtablewidgetitem124->setText(QApplication::translate("MainWidget", "\347\211\271     \345\276\201", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem125 = from_information_TbWidget->item(10, 0);
+        ___qtablewidgetitem125->setText(QApplication::translate("MainWidget", "\350\256\276\345\244\207\347\274\226\345\217\267", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem126 = from_information_TbWidget->item(10, 1);
+        ___qtablewidgetitem126->setText(QApplication::translate("MainWidget", "2016", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem127 = from_information_TbWidget->item(10, 2);
+        ___qtablewidgetitem127->setText(QApplication::translate("MainWidget", "\346\243\200\345\256\232/\346\240\241\345\207\206\350\257\201\344\271\246\345\217\267", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem128 = from_information_TbWidget->item(11, 0);
+        ___qtablewidgetitem128->setText(QApplication::translate("MainWidget", "\346\234\211\346\225\210\346\234\237", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem129 = from_information_TbWidget->item(11, 1);
+        ___qtablewidgetitem129->setText(QApplication::translate("MainWidget", "20161210", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem130 = from_information_TbWidget->item(11, 2);
+        ___qtablewidgetitem130->setText(QApplication::translate("MainWidget", "\344\275\277\347\224\250\345\211\215\345\220\216\347\212\266\346\200\201", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem131 = from_information_TbWidget->item(12, 0);
+        ___qtablewidgetitem131->setText(QApplication::translate("MainWidget", " \345\244\226\350\247\202\346\243\200\346\237\245", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem132 = from_information_TbWidget->item(12, 1);
+        ___qtablewidgetitem132->setText(QApplication::translate("MainWidget", "\345\220\210\346\240\274", 0, QApplication::UnicodeUTF8));
         from_information_TbWidget->setSortingEnabled(__sortingEnabled2);
 
         from_error_TxEdit->setHtml(QApplication::translate("MainWidget", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -2377,71 +2618,71 @@ public:
         serPort_RS_PsBtn->setText(QApplication::translate("MainWidget", "RS", 0, QApplication::UnicodeUTF8));
         serPort_RSM_PsBtn->setText(QApplication::translate("MainWidget", "RSM", 0, QApplication::UnicodeUTF8));
         serPort_AV_PsBtn->setText(QApplication::translate("MainWidget", "\347\211\210\346\234\254", 0, QApplication::UnicodeUTF8));
-        serPort_RD_PsBtn->setText(QApplication::translate("MainWidget", "RD", 0, QApplication::UnicodeUTF8));
+        serPort_RBAT_PsBtn->setText(QApplication::translate("MainWidget", "RBAT", 0, QApplication::UnicodeUTF8));
         serPort_SP_GpBox->setTitle(QApplication::translate("MainWidget", "\345\217\202\346\225\260\350\256\276\347\275\256", 0, QApplication::UnicodeUTF8));
         serPort_read_SP_PsBtn->setText(QApplication::translate("MainWidget", "\350\257\273\345\217\226", 0, QApplication::UnicodeUTF8));
         serPort_write_SP_PsBtn->setText(QApplication::translate("MainWidget", "\345\206\231\345\205\245", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem117 = serPort_SP_TabWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem117->setText(QApplication::translate("MainWidget", "\351\200\211\351\241\271", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem118 = serPort_SP_TabWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem118->setText(QApplication::translate("MainWidget", "\345\200\274", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem119 = serPort_SP_TabWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem119->setText(QApplication::translate("MainWidget", "\351\200\211\351\241\271", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem120 = serPort_SP_TabWidget->horizontalHeaderItem(3);
-        ___qtablewidgetitem120->setText(QApplication::translate("MainWidget", "\345\200\274", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem121 = serPort_SP_TabWidget->verticalHeaderItem(0);
-        ___qtablewidgetitem121->setText(QApplication::translate("MainWidget", "1", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem122 = serPort_SP_TabWidget->verticalHeaderItem(1);
-        ___qtablewidgetitem122->setText(QApplication::translate("MainWidget", "2", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem123 = serPort_SP_TabWidget->verticalHeaderItem(2);
-        ___qtablewidgetitem123->setText(QApplication::translate("MainWidget", "3", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem124 = serPort_SP_TabWidget->verticalHeaderItem(3);
-        ___qtablewidgetitem124->setText(QApplication::translate("MainWidget", "4", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem125 = serPort_SP_TabWidget->verticalHeaderItem(4);
-        ___qtablewidgetitem125->setText(QApplication::translate("MainWidget", "5", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem133 = serPort_SP_TabWidget->horizontalHeaderItem(0);
+        ___qtablewidgetitem133->setText(QApplication::translate("MainWidget", "\351\200\211\351\241\271", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem134 = serPort_SP_TabWidget->horizontalHeaderItem(1);
+        ___qtablewidgetitem134->setText(QApplication::translate("MainWidget", "\345\200\274", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem135 = serPort_SP_TabWidget->horizontalHeaderItem(2);
+        ___qtablewidgetitem135->setText(QApplication::translate("MainWidget", "\351\200\211\351\241\271", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem136 = serPort_SP_TabWidget->horizontalHeaderItem(3);
+        ___qtablewidgetitem136->setText(QApplication::translate("MainWidget", "\345\200\274", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem137 = serPort_SP_TabWidget->verticalHeaderItem(0);
+        ___qtablewidgetitem137->setText(QApplication::translate("MainWidget", "1", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem138 = serPort_SP_TabWidget->verticalHeaderItem(1);
+        ___qtablewidgetitem138->setText(QApplication::translate("MainWidget", "2", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem139 = serPort_SP_TabWidget->verticalHeaderItem(2);
+        ___qtablewidgetitem139->setText(QApplication::translate("MainWidget", "3", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem140 = serPort_SP_TabWidget->verticalHeaderItem(3);
+        ___qtablewidgetitem140->setText(QApplication::translate("MainWidget", "4", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem141 = serPort_SP_TabWidget->verticalHeaderItem(4);
+        ___qtablewidgetitem141->setText(QApplication::translate("MainWidget", "5", 0, QApplication::UnicodeUTF8));
 
         const bool __sortingEnabled3 = serPort_SP_TabWidget->isSortingEnabled();
         serPort_SP_TabWidget->setSortingEnabled(false);
-        QTableWidgetItem *___qtablewidgetitem126 = serPort_SP_TabWidget->item(0, 0);
-        ___qtablewidgetitem126->setText(QApplication::translate("MainWidget", "\351\207\207\346\240\267\347\202\271\346\225\260", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem127 = serPort_SP_TabWidget->item(0, 1);
-        ___qtablewidgetitem127->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem128 = serPort_SP_TabWidget->item(0, 2);
-        ___qtablewidgetitem128->setText(QApplication::translate("MainWidget", "\345\216\202\345\256\266", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem129 = serPort_SP_TabWidget->item(0, 3);
-        ___qtablewidgetitem129->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem130 = serPort_SP_TabWidget->item(1, 0);
-        ___qtablewidgetitem130->setText(QApplication::translate("MainWidget", "\345\205\205\347\224\265\347\261\273\345\236\213", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem131 = serPort_SP_TabWidget->item(1, 1);
-        ___qtablewidgetitem131->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem132 = serPort_SP_TabWidget->item(1, 2);
-        ___qtablewidgetitem132->setText(QApplication::translate("MainWidget", "\350\264\237\350\275\275\346\226\271\345\274\217", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem133 = serPort_SP_TabWidget->item(1, 3);
-        ___qtablewidgetitem133->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem134 = serPort_SP_TabWidget->item(2, 0);
-        ___qtablewidgetitem134->setText(QApplication::translate("MainWidget", "\347\224\265\345\216\213\351\207\217\347\250\213.V", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem135 = serPort_SP_TabWidget->item(2, 1);
-        ___qtablewidgetitem135->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem136 = serPort_SP_TabWidget->item(2, 2);
-        ___qtablewidgetitem136->setText(QApplication::translate("MainWidget", "\347\224\265\346\265\201\351\207\217\347\250\213.A", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem137 = serPort_SP_TabWidget->item(2, 3);
-        ___qtablewidgetitem137->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem138 = serPort_SP_TabWidget->item(3, 0);
-        ___qtablewidgetitem138->setText(QApplication::translate("MainWidget", "\350\204\211\345\206\262\345\270\270\346\225\260", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem139 = serPort_SP_TabWidget->item(3, 1);
-        ___qtablewidgetitem139->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem140 = serPort_SP_TabWidget->item(3, 2);
-        ___qtablewidgetitem140->setText(QApplication::translate("MainWidget", "\347\224\265\350\241\250\345\270\270\346\225\260", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem141 = serPort_SP_TabWidget->item(3, 3);
-        ___qtablewidgetitem141->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem142 = serPort_SP_TabWidget->item(4, 0);
-        ___qtablewidgetitem142->setText(QApplication::translate("MainWidget", "\347\224\265\350\264\271\345\215\225\344\273\267.\302\245", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem143 = serPort_SP_TabWidget->item(4, 1);
+        QTableWidgetItem *___qtablewidgetitem142 = serPort_SP_TabWidget->item(0, 0);
+        ___qtablewidgetitem142->setText(QApplication::translate("MainWidget", "\351\207\207\346\240\267\347\202\271\346\225\260", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem143 = serPort_SP_TabWidget->item(0, 1);
         ___qtablewidgetitem143->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem144 = serPort_SP_TabWidget->item(4, 2);
-        ___qtablewidgetitem144->setText(QApplication::translate("MainWidget", "\346\265\213\351\207\217\346\250\241\345\274\217", 0, QApplication::UnicodeUTF8));
-        QTableWidgetItem *___qtablewidgetitem145 = serPort_SP_TabWidget->item(4, 3);
+        QTableWidgetItem *___qtablewidgetitem144 = serPort_SP_TabWidget->item(0, 2);
+        ___qtablewidgetitem144->setText(QApplication::translate("MainWidget", "\345\216\202\345\256\266", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem145 = serPort_SP_TabWidget->item(0, 3);
         ___qtablewidgetitem145->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem146 = serPort_SP_TabWidget->item(1, 0);
+        ___qtablewidgetitem146->setText(QApplication::translate("MainWidget", "\345\205\205\347\224\265\347\261\273\345\236\213", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem147 = serPort_SP_TabWidget->item(1, 1);
+        ___qtablewidgetitem147->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem148 = serPort_SP_TabWidget->item(1, 2);
+        ___qtablewidgetitem148->setText(QApplication::translate("MainWidget", "\350\264\237\350\275\275\346\226\271\345\274\217", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem149 = serPort_SP_TabWidget->item(1, 3);
+        ___qtablewidgetitem149->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem150 = serPort_SP_TabWidget->item(2, 0);
+        ___qtablewidgetitem150->setText(QApplication::translate("MainWidget", "\347\224\265\345\216\213\351\207\217\347\250\213.V", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem151 = serPort_SP_TabWidget->item(2, 1);
+        ___qtablewidgetitem151->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem152 = serPort_SP_TabWidget->item(2, 2);
+        ___qtablewidgetitem152->setText(QApplication::translate("MainWidget", "\347\224\265\346\265\201\351\207\217\347\250\213.A", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem153 = serPort_SP_TabWidget->item(2, 3);
+        ___qtablewidgetitem153->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem154 = serPort_SP_TabWidget->item(3, 0);
+        ___qtablewidgetitem154->setText(QApplication::translate("MainWidget", "\350\204\211\345\206\262\345\270\270\346\225\260", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem155 = serPort_SP_TabWidget->item(3, 1);
+        ___qtablewidgetitem155->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem156 = serPort_SP_TabWidget->item(3, 2);
+        ___qtablewidgetitem156->setText(QApplication::translate("MainWidget", "\347\224\265\350\241\250\345\270\270\346\225\260", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem157 = serPort_SP_TabWidget->item(3, 3);
+        ___qtablewidgetitem157->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem158 = serPort_SP_TabWidget->item(4, 0);
+        ___qtablewidgetitem158->setText(QApplication::translate("MainWidget", "\347\224\265\350\264\271\345\215\225\344\273\267.\302\245", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem159 = serPort_SP_TabWidget->item(4, 1);
+        ___qtablewidgetitem159->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem160 = serPort_SP_TabWidget->item(4, 2);
+        ___qtablewidgetitem160->setText(QApplication::translate("MainWidget", "\346\265\213\351\207\217\346\250\241\345\274\217", 0, QApplication::UnicodeUTF8));
+        QTableWidgetItem *___qtablewidgetitem161 = serPort_SP_TabWidget->item(4, 3);
+        ___qtablewidgetitem161->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
         serPort_SP_TabWidget->setSortingEnabled(__sortingEnabled3);
 
         serPort_Settings_GpBox->setTitle(QString());

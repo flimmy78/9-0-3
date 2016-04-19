@@ -22,7 +22,7 @@ static const uint qt_meta_data_MainWidget[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      34,   14, // methods
+      35,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -64,6 +64,7 @@ static const uint qt_meta_data_MainWidget[] = {
     1001,   11,   11,   11, 0x08,
     1034,   11,   11,   11, 0x08,
     1062,   11,   11,   11, 0x08,
+    1095,  477,   11,   11, 0x08,
 
        0        // eod
 };
@@ -99,6 +100,7 @@ static const char qt_meta_stringdata_MainWidget[] = {
     "on_ES_PE_zoomOut_PsBtn_clicked()\0"
     "on_keyBoard_PsBtn_clicked()\0"
     "on_ES_insertForm_PsBtn_clicked()\0"
+    "on_lock_RdBtn_clicked(bool)\0"
 };
 
 void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -141,6 +143,7 @@ void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 31: _t->on_ES_PE_zoomOut_PsBtn_clicked(); break;
         case 32: _t->on_keyBoard_PsBtn_clicked(); break;
         case 33: _t->on_ES_insertForm_PsBtn_clicked(); break;
+        case 34: _t->on_lock_RdBtn_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -178,9 +181,9 @@ int MainWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 34)
+        if (_id < 35)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 34;
+        _id -= 35;
     }
     return _id;
 }

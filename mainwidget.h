@@ -118,10 +118,14 @@ private slots:
 
     void on_RSMV_saveFormMsg_PsBtn_clicked();
     void on_ES_PE_zoomIn_PsBtn_clicked();
+
     void on_ES_PE_zoomOut_PsBtn_clicked();
     void on_keyBoard_PsBtn_clicked();
 
+
     void on_ES_insertForm_PsBtn_clicked();
+
+    void on_lock_RdBtn_clicked(bool checked);
 
 private:
     QComboBox       *SP_chargeType_cbbox;

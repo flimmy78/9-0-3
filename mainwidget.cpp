@@ -155,3 +155,30 @@ void MainWidget::on_ES_insertForm_PsBtn_clicked()
 
     ui->from_error_TxEdit->append(strESTD+strPE);
 }
+
+void MainWidget::on_lock_RdBtn_clicked(bool checked)
+{
+   QString Message ="LOCK\n\rSTATE;0";
+
+   if(checked)
+   {
+      Message ="LOCK\n\rSTATE;1";
+   }
+
+    if (ui->serPort_CR_CkBox->checkState() == Qt::Checked) //Retour a la ligne
+    Message += "\x0D";
+
+
+    if (ui->serPort_LF_CkBox->checkState() == Qt::Checked)//Saut de ligne
+    Message += "\x0A";
+
+
+    if(timeThreadTimer.transmitsSimply((UINT8*)Message.toLatin1().data())==false )
+    {
+        show_MsBox(QString::fromUtf8("设置失败"),3000);
+        return ;
+    }
+
+
+}
+

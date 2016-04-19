@@ -58,7 +58,7 @@ void MainWidget::init_serPort()
     serPort_shorCut_list.append(ui->serPort_RSM_PsBtn);
     serPort_shorCut_list.append(ui->serPort_ME_PsBtn);
     serPort_shorCut_list.append(ui->serPort_RS_PsBtn);
-    serPort_shorCut_list.append(ui->serPort_RD_PsBtn);
+    serPort_shorCut_list.append(ui->serPort_RBAT_PsBtn);
 
     foreach (QPushButton *serPort_shorCut_PsBtn, serPort_shorCut_list) {
         connect(serPort_shorCut_PsBtn, SIGNAL(clicked()), this, SLOT(slot_serPort_shorCut_PsBtn()));
@@ -154,6 +154,7 @@ void MainWidget::on_serPort_Send_PsBtn_clicked()
 {
     QString Message;
 
+    ui->serPort_Rec_TxEdit->clear();
     Message = ui->serPort_Send_TxEdit->toPlainText() ;
 
     if (ui->serPort_CR_CkBox->checkState() == Qt::Checked) //Retour a la ligne
@@ -223,9 +224,9 @@ void MainWidget::slot_serPort_shorCut_PsBtn()
     {
         strTemp  = "RS";
     }
-    else if(serPort_shorCut_PsBtn==ui->serPort_RD_PsBtn)
+    else if(serPort_shorCut_PsBtn==ui->serPort_RBAT_PsBtn)
     {
-        strTemp  = "RD";
+        strTemp  = "RBAT";
     }
 
     ui->serPort_Send_TxEdit->setText(strTemp);

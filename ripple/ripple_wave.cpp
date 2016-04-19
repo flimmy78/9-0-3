@@ -10,10 +10,10 @@ void MainWidget::startRRF(void)
 void MainWidget::slt_RRF_update(pRRFTYPE pRRFTYPE_Temp)
 {
     double  floatTemp;
-   ui->RRF_ripple_TblWidget->item(0,1)->setText(QString ::number(pRRFTYPE_Temp->RF,'d',4));
-   ui->RRF_ripple_TblWidget->item(0,3)->setText(QString ::number(pRRFTYPE_Temp->RV,'d',4));
+   ui->RSMV_harmonic_rms_TblWidget->item(0,1)->setText(QString ::number(pRRFTYPE_Temp->RF,'d',4));
+   ui->RSMV_harmonic_rms_TblWidget->item(0,3)->setText(QString ::number(pRRFTYPE_Temp->RV,'d',4));
    floatTemp =(float)(pRRFTYPE_Temp->RV)/(pRRFTYPE_Temp->RF);
-   ui->RRF_ripple_TblWidget->item(0,5)->setText(QString ::number(floatTemp,'d',4));  //纹波基数:（纹波大小/纹波系数）
+   ui->RSMV_harmonic_rms_TblWidget->item(0,5)->setText(QString ::number(floatTemp,'d',4));  //纹波基数:（纹波大小/纹波系数）
 //   qDebug()<<"slt_RRF_update"<<QString ::number(pRRFTYPE_Temp->RF,'d',4);
 //   qDebug("%04f",pRRFTYPE_Temp->RF);
 }
@@ -53,7 +53,7 @@ void MainWidget::slt_wave_update( )
 #if 1
     UINT16 sampleCnt = 256 ;
 
-    ui->ripple_wave_QwtPlot->setAxisScale(QwtPlot::yLeft  ,-timeThreadTimer.RSMV_arrayTemp[3]*1.5,timeThreadTimer.RSMV_arrayTemp[3]*1.5,timeThreadTimer.RSMV_arrayTemp[3]*1.5);
+    ui->RSMV_Harmonic_QwtPlot->setAxisScale(QwtPlot::yLeft  ,-timeThreadTimer.RSMV_arrayTemp[3]*1.5,timeThreadTimer.RSMV_arrayTemp[3]*1.5,timeThreadTimer.RSMV_arrayTemp[3]*1.5);
 
     RSMV.wave_vmax_marker->setLabel(QString::number(timeThreadTimer.RSMV_arrayTemp[3]));
     RSMV.wave_vmin_marker->setLabel(QString::number(-timeThreadTimer.RSMV_arrayTemp[3]));
@@ -70,7 +70,7 @@ void MainWidget::slt_wave_update( )
 //    {
 //        qDebug("%d",timeThreadTimer.RSMV_wave_axesY[0][i]);
 //    }
-    ui->ripple_wave_QwtPlot->replot();
+    ui->RSMV_Harmonic_QwtPlot->replot();
     //timeThreadTimer.mutexUpdate.unlock();
 #endif
 
