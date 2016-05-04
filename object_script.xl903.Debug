@@ -26,6 +26,8 @@ INPUT(
 ./debug\RS_update.o
 ./debug\init_class.o
 ./debug\ME_init_Phasor.o
+./debug\HAR_harmonic.o
+./debug\HAR_init_Harmonic.o
 ./debug\moc_mainwidget.o
 ./debug\moc_xl618.o
 ./debug\moc_ManageSerialPort.o

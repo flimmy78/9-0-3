@@ -15,12 +15,13 @@ class timeThread : public QThread
 
 public:
     timeThread();
-    void  RRF_setArg(const bool, const UINT32 channelTemp,const  UINT32 H1Temp, const UINT32 H2Temp);
+    void  HAR_setArg(const bool, const UINT32 channelTemp,const  UINT32 H1Temp, const UINT32 H2Temp);
     void  Serial_getFD(const int fdSerial);
 
 
     INT32  search_maxIntValue( INT32 *,INT32 );
     double  search_maxDoubleValue( double *Temp,INT32 len);
+    void RSMV_harmonic_setArg( const bool mode,const UINT32 chlNum,const  UINT32 H1, const UINT32 H2);
 
     int     timerNum;
     bool    m_waitStart;
@@ -28,7 +29,7 @@ public:
     void    run();
     double   RSMV_wave_axesY[6][260];
     //double  gwave_Yval_Cur[3][260];
-    double  RSMV_arrayTemp[40];
+    double  RSMV_arrayTemp[128];
 
     UINT32  RSMV_waveall_sampleCnt  ;//采样点数目
     UINT32  RSMV_waveall_chlIndex  ;//索引通道
@@ -62,6 +63,7 @@ signals:
 
     void sig_SSMV_rms_update(pMETYPE) ;
 
+    void sig_RSMV_harmonic_update();
     void sig_ME_update(pMETYPE) ;
     void sig_ES_update(pESTYPE) ;
     void sig_ESTD_update(pESTDTYPE);
@@ -71,7 +73,7 @@ signals:
     void sig_RSMV_waveall_update();
     void sig_RSMV_phasor_update(pMETYPE) ;
 
-    void sig_RRF_update(pRRFTYPE);
+    void sig_HAR_update(pHARTYPE);
     void sig_RD_update(pRDTYPE);
     void sig_RS_update(pRSTYPE);
 
@@ -85,7 +87,7 @@ private slots:
     void slt_RSMV_wave_timeDone();
     void slt_RSMV_phasor_timeDone();
     void slt_RS_timeDone();
-    void slt_RRF_timeDone();
+    void slt_HAR_timeDone();
     void slt_RD_timeDone();
     void slt_RFT3_timeDone();
 
@@ -122,9 +124,9 @@ private slots:
    {
         enableItem(RS);
    }
-   void set_RRF_Arg()
+   void set_HAR_Arg()
    {
-        enableItem(RRF);
+        enableItem(HAR);
    }
    void set_RD_Arg()
    {
@@ -162,7 +164,7 @@ private slots:
     QTimer     *RSMV_Waveall_Timer;
     QTimer     *RSMV_Phasor_Timer ;
 
-    QTimer     *RRF_Timer ;
+    QTimer     *HAR_Timer ;
     QTimer     *RD_Timer ;
     QTimer     *RFT3_Timer;
     QTimer     *RS_Timer ;
@@ -198,7 +200,7 @@ private:
     bool IsRSMV_WAVEALL;
     bool IsRSMV_PHASOR;
     bool IsRS;
-    bool IsRRF;
+    bool IsHAR;
     bool IsRD;
     bool IsRFT3;
     bool IsES;

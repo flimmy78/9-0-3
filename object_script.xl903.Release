@@ -26,6 +26,8 @@ INPUT(
 ./release\RS_update.o
 ./release\init_class.o
 ./release\ME_init_Phasor.o
+./release\HAR_harmonic.o
+./release\HAR_init_Harmonic.o
 ./release\moc_mainwidget.o
 ./release\moc_xl618.o
 ./release\moc_ManageSerialPort.o

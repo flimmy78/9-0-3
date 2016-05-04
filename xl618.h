@@ -29,7 +29,7 @@ public:
     UINT8 getRD(pRDTYPE data);                                                                            //读取数据
     UINT8 getRS(pRSTYPE data);
 
-    UINT8 getRRF(pRRFTYPE data);
+    UINT8 getHAR(pHARTYPE data);
     UINT8 getES(pESTYPE data);
 
     UINT8 getESTD(pESTDTYPE data);
@@ -65,7 +65,7 @@ public:
     UINT8 setHRVirtual(SET_HARMONIC_TYPE *harmonic);//谐波设置
     UINT8 setFramerr(pSETFRAMERR_TYPE data);//丢帧
 
-    UINT8 getHRN(UINT8 channel,pHARMONIC_TYPE data,UINT32 H1,UINT32 H2); //谐波读取
+    UINT8 getHRN(UINT8 channel,pHARTYPE data,UINT32 H1,UINT32 H2); //谐波读取
     pHARMONIC_TYPE newHRNBuf(UINT16 cnt) ;
     void deleteHRNBuf(pHARMONIC_TYPE lkl);
     UINT8 muTest(pMUTYPE mu);

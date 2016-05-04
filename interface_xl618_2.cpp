@@ -10,7 +10,7 @@ UINT8 xl618::getKL(UINT8 type,pRKLTYPE data)
     {
 
         char *pSend = (char*)sendBuf;
-//        strcpy(pSend,STR_KL);
+//      strcpy(pSend,STR_KL);
 //        pSend += strlen(STR_KL);
 
         strcpy(pSend,"KL\n\rCHANNAL;U1R"CR);
@@ -584,80 +584,57 @@ UINT8 xl618::setFramerr(pSETFRAMERR_TYPE data)
         return retValue;
 }
 
-UINT8 xl618::getHRN(UINT8 channel,pHARMONIC_TYPE data,UINT32 H1,UINT32 H2)
+UINT8 xl618::getHRN(UINT8 channel,pHARTYPE data,UINT32 H1,UINT32 H2)
 {
+     QString  str;
+    UINT8 retValue = ERR_UNIVERSAL;
+    char tempBuf[10];
 
-        UINT8 retValue = ERR_UNIVERSAL;
-        char tempBuf[10];
-
-        if(data && data->fN && data->qN && *(data->fN) && *(data->qN))
+    if(channel >= 1 && channel <= 6)
+    {
+        char *pSend = (char*)sendBuf;
+        if(channel == 4)
         {
+            pSend += sprintf(pSend,"HAR\n\rChannel;I" CR "H1;%d"CR"H2;%d"CR,H1,H2);
+        }
+        else
+        {
+           pSend += sprintf(pSend,"HAR\n\rChannel;U" CR "H1;%d"CR"H2;%d"CR,H1,H2);
+        }
 
-                if(channel >= 1 && channel <= 6)
+
+            char* temp;
+            //UINT32 tempSam = data->samdot;
+
+            UINT16 frameSize = pSend - (char*)sendBuf;
+
+            if((retValue = readOneFrame(frameSize,(char*)"HAR",NULL,(char*)"HARACK",2500)) == ERR_RIGHT)
+            {//解析帧
+
+//                qDebug("retValue----%s",recvBuf);
+                temp = (char*)recvBuf;
+                for(UINT32 i = H1; i <= H2; i ++)
                 {
-                        char *pSend = (char*)sendBuf;
-                        pSend += sprintf(pSend,STR_HRN"%d"CR"H1;%d"CR"H2;%d"CR,channel,H1,H2);
+#if 1
+                    sprintf(tempBuf,"%d;",i);
+                    temp = strstr(temp,tempBuf);
+                    //qDebug()<<"------------->"<<QString(tempBuf);
+                    if(temp)
+                    {
+                            data->order[i] = (FLOAT32)atof(&temp[strlen(tempBuf)]);
+                            //qDebug("--->%d,%f",i,data->order[i]);
 
-                        FLOAT32 *f = (*(data->fN))->elt;
-                        FLOAT32 *q = (*(data->qN))->elt;
+                    }else
+                    {
+                        break;
+                    }
+ #endif
+                }
 
-                        char* temp;
-                        //UINT32 tempSam = data->samdot;
+            }
+     }
 
-                        UINT16 frameSize = pSend - (char*)sendBuf;
-
-                        if((retValue = readOneFrame(frameSize,(char*)"HRN",NULL,(char*)"HRNACK",1000)) == ERR_RIGHT)
-                        {//解析帧
-                                temp = (char*)recvBuf;
-
-                                temp = strstr(temp,"RMS;");
-                                if(temp)
-                                        data->rms = (FLOAT32)atof(&temp[strlen("RMS;")]);
-
-                                temp = strstr(temp,"RMS1;");
-                                if(temp)
-                                        data->rms1 = (FLOAT32)atof(&temp[strlen("RMS1;")]);
-
-                                temp = strstr(temp,"SAMDOT;");
-                                if(temp)
-                                        data->samdot = atoi(&temp[strlen("SAMDOT;")]);
-
-//                                if(data->samdot > tempSam)
-//                                {
-//                                        retValue = ERR_BUFFER;
-
-//                                        return retValue;
-//                                }
-
-                                //UINT32 size = data->samdot / 2 - 1;
-                                for(UINT32 i = H1; i <= H2; i ++)
-                                {
-                                        sprintf(tempBuf,"F%d;",i);
-                                        temp = strstr(temp,tempBuf);
-                                        if(temp)
-                                        {
-                                                f[i - H1] = (FLOAT32)atof(&temp[strlen(tempBuf)]);
-
-                                                sprintf(tempBuf,"Q%d;",i);
-                                                temp = strstr(temp,tempBuf);
-                                                if(temp)
-                                                {
-                                                        q[i - H1] = (FLOAT32)atof(&temp[strlen(tempBuf)]);
-                                                }else
-                                                        break;
-                                        }else
-                                                break;
-                                }
-                                retValue = ERR_RIGHT;
-                        }
-
-                }else
-                        retValue = ERR_PARA;
-        }else
-                retValue = ERR_BUFFER;
-
-        qDebug("retValue----%d",retValue);
-        return retValue;
+    return retValue;
 }
 
 pHARMONIC_TYPE xl618:: newHRNBuf(UINT16 cnt)

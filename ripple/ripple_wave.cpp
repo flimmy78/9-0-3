@@ -1,22 +1,7 @@
 #include "mainwidget.h"
 #include "ui_mainwidget.h"
 
-//读纹波系数
-void MainWidget::startRRF(void)
-{
-   timeThreadTimer.run(RRF);
-}
 
-void MainWidget::slt_RRF_update(pRRFTYPE pRRFTYPE_Temp)
-{
-    double  floatTemp;
-   ui->RSMV_harmonic_rms_TblWidget->item(0,1)->setText(QString ::number(pRRFTYPE_Temp->RF,'d',4));
-   ui->RSMV_harmonic_rms_TblWidget->item(0,3)->setText(QString ::number(pRRFTYPE_Temp->RV,'d',4));
-   floatTemp =(float)(pRRFTYPE_Temp->RV)/(pRRFTYPE_Temp->RF);
-   ui->RSMV_harmonic_rms_TblWidget->item(0,5)->setText(QString ::number(floatTemp,'d',4));  //纹波基数:（纹波大小/纹波系数）
-//   qDebug()<<"slt_RRF_update"<<QString ::number(pRRFTYPE_Temp->RF,'d',4);
-//   qDebug("%04f",pRRFTYPE_Temp->RF);
-}
 
 
 //KL

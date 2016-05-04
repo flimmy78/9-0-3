@@ -38,6 +38,50 @@ bool timeThread:: getSP(pSPTYPE pSPTYPE_Temp)
     return true;
 }
 
+
+
+void timeThread::slt_HAR_timeDone()
+{
+    qDebug()<<"slt_HAR_timeDone";
+#if 0
+    if(mutexUpdate.tryLock()==false)
+    {
+        qDebug()<<"ME_locked";
+        return ;
+    }
+#endif
+
+#if 1
+    pHARTYPE   pHARTYPE_Temp =NULL;
+
+    if((pHARTYPE_Temp=(pHARTYPE)calloc(1,sizeof(HARTYPE)))==NULL)
+    {
+        free(pHARTYPE_Temp);
+        pHARTYPE_Temp=NULL;
+        return ;
+    }
+
+    if( (driver_619->getHRN( SMV_harmonic_ChlNum, pHARTYPE_Temp, SMV_harmonic_H1, SMV_harmonic_H2) == ERR_RIGHT) )
+    {
+#if 1
+        RSMV_arrayTemp[0]=0;
+        RSMV_arrayTemp[1]=100;
+        for( uint i=SMV_harmonic_H1;i<=(SMV_harmonic_H2-SMV_harmonic_H1);i++)
+        {
+            RSMV_arrayTemp[i]=pHARTYPE_Temp->order[i];
+            //qDebug("RSMV_arrayTemp==%f",RSMV_arrayTemp[i]);
+        }
+        emit sig_RSMV_harmonic_update();
+#endif
+    }
+
+
+    free(pHARTYPE_Temp);
+    pHARTYPE_Temp=NULL;
+     //timeThreadTimer.mutexUpdate.unlock();
+   // mutexUpdate.unlock();
+#endif
+}
 //QStringList getRCR();
 //QStringList getRVR();
 
@@ -93,8 +137,8 @@ QStringList timeThread:: getRCR()
 //ME
 void timeThread::slt_ME_timeDone()
 {
-    qDebug()<<"slt_ME_timeDone";
-#if 0
+   // qDebug()<<"slt_ME_timeDone";
+#if 1
     if(mutexUpdate.tryLock()==false)
     {
         qDebug()<<"ME_locked";
@@ -109,9 +153,40 @@ void timeThread::slt_ME_timeDone()
          emit sig_ME_update(driver_619->pMETYPE_Data);
     }
 #endif
-   // mutexUpdate.unlock();
+    mutexUpdate.unlock();
  }
 
+void timeThread::slt_RS_timeDone()
+{
+    //qDebug()<<"slt_RS_timeDone";
+
+    if(mutexUpdate.tryLock()==false)
+    {
+        qDebug()<<"RS_locked";
+        return ;
+    }
+#if 1
+    pRSTYPE  pRSTYPE_Temp =NULL;
+
+    if((pRSTYPE_Temp=(pRSTYPE)calloc(1,sizeof(RSTYPE)))==NULL)
+    {
+        free(pRSTYPE_Temp);
+        pRSTYPE_Temp=NULL;
+        return ;
+    }
+
+    if( driver_619->getRS(pRSTYPE_Temp) == ERR_RIGHT )
+    {
+      //qDebug()<<"slt_RS_timeDone"<<QString::number(pRSTYPE_Temp->CURRENCEOUT,'d',4);
+       emit sig_RS_update(pRSTYPE_Temp);
+    }
+
+    free(pRSTYPE_Temp);
+    pRSTYPE_Temp=NULL;
+#endif
+
+    mutexUpdate.unlock();
+}
 
 
 void timeThread::slt_RSMV_wave_timeDone()
@@ -161,44 +236,13 @@ void timeThread::slt_RSMV_wave_timeDone()
     free(pRKLTYPE_Temp);
     pRKLTYPE_Temp=NULL;
 //    mutexUpdate.unlock();
-
- }
-
-void timeThread::slt_RRF_timeDone()
-{
-    qDebug()<<"slt_RRF_timeDone";
-
-#if 0
-    if(mutexUpdate.tryLock()==false)
-    {
-        qDebug()<<"ME_locked";
-        return ;
-    }
-#endif
-    pRRFTYPE   pRRFTYPE_Temp =NULL;
-    pRRFTYPE_Temp=(pRRFTYPE)calloc(1,sizeof(RRFTYPE));
-
-#if 1
-    if( driver_619->getRRF(pRRFTYPE_Temp) == 1 )
-    {
-         // qDebug()<<"slt_RRF_timeDone"<<QString ::number(pRRFTYPE_Temp->RV,'d',4);
-          emit sig_RRF_update(pRRFTYPE_Temp);
-    }
-
-
-    free(pRRFTYPE_Temp);
-    pRRFTYPE_Temp=NULL;
-     //timeThreadTimer.mutexUpdate.unlock();
-   // mutexUpdate.unlock();
-#endif
-
  }
 
 
 void timeThread::slt_ES_timeDone()
 {
-    qDebug()<<"slt_ES_timeDone";
-#if 0
+    //qDebug()<<"slt_ES_timeDone";
+#if 1
     if(mutexUpdate.tryLock()==false)
     {
         qDebug()<<"ME_locked";
@@ -219,7 +263,7 @@ void timeThread::slt_ES_timeDone()
     free(pESTYPE_Temp);
     pESTYPE_Temp=NULL;
      //timeThreadTimer.mutexUpdate.unlock();
-   // mutexUpdate.unlock();
+    mutexUpdate.unlock();
 #endif
 }
 

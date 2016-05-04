@@ -32,6 +32,7 @@ void  xl618::slt_serPort_RecDataToUI(const QByteArray &serRecAllBtArray,int intR
 {
      const char *dataTemp=NULL;
 
+     //qDebug()<<serRecAllBtArray;
       if(isToUI)//判断是否直接显示到串口通信界面上
       {
           emit sig_serPort_RecDataToUI(serRecAllBtArray, intReturn);
@@ -77,7 +78,7 @@ UINT8 xl618::readOneFrame(UINT32 sendToBufSize,char *frameHead,char *errorHead,c
     }while(readTimes<3);
 
     //qDebug()<<"readTimes"<<QString::number(readTimes)<<isSerRecAll;
-//    qDebug("recvBuf==%s\n",recvBuf);
+    //qDebug("recvBuf==%s\n",recvBuf);
 //    qDebug("intSerRecReturn==%d\n",intSerRecReturn);
    return intSerRecReturn;
 }
@@ -107,10 +108,11 @@ UINT8 xl618::getRS(pRSTYPE data)
         temp = strstr((char*)recvBuf,(char*)"STATE;");
         if(temp)
             data->STATE = (UINT8)atof(&temp[sizeof("STATE;")-1]);
-
-        temp = strstr(temp,(char*)"CURRENCEOUT;");
+#if 1
+        temp = strstr((char*)recvBuf,(char*)"CURRENCEOUT;");
         if(temp)
-            data->CURRENCEOUT = (UINT8)atof(&temp[sizeof("CURRENCEOUT;")-1]);
+            data->CURRENCEOUT = (FLOAT32)atof(&temp[sizeof("CURRENCEOUT;")-1]);
+   #endif
     }
     return retValue;
 }
@@ -243,17 +245,20 @@ UINT8 xl618::getRCR(pVRCRTYPE CRtype)
 }
 
 
-UINT8 xl618::getRRF(pRRFTYPE data)
+UINT8 xl618::getHAR(pHARTYPE data)
 {
+
+    qDebug()<<"getHAR";
     UINT8 retValue = ERR_UNIVERSAL;
+#if 0
     char *pSend = (char*)sendBuf;
-    strcpy(pSend,STR_RRF CR);
-    pSend += strlen(STR_RRF CR);
+    strcpy(pSend,STR_HAR CR);
+    pSend += strlen(STR_HAR CR);
     char *temp;
 
     UINT16 frameSize = pSend - (char*)sendBuf;
 
-    if((retValue = readOneFrame(frameSize,(char*)"RRF",NULL,(char*)"RRFACK",500)) == ERR_RIGHT)
+    if((retValue = readOneFrame(frameSize,(char*)"HAR",NULL,(char*)"HARACK",500)) == ERR_RIGHT)
     {//解析帧
         temp = strstr((char *)recvBuf,"RF;");
         if(temp)
@@ -263,7 +268,9 @@ UINT8 xl618::getRRF(pRRFTYPE data)
         if(temp)
             data->RV = (FLOAT32)atof(&temp[sizeof("RV;")-1]);
     }
+    #endif
     return retValue;
+
 }
 
 
@@ -798,35 +805,35 @@ UINT8 xl618::getME(pMETYPE data)
             char *temp;
             temp = strstr((char*)recvBuf,(char*)"U1;");
             if(temp)
-                data->U1 = (UINT8)atof(&temp[sizeof("U1;")-1]);
+                data->U1 = (FLOAT32)atof(&temp[sizeof("U1;")-1]);
 
             temp = strstr((char*)recvBuf,(char*)"I1;");
             if(temp)
-                data->I1 = (UINT8)atof(&temp[sizeof("I1;")-1]);
+                data->I1 = (FLOAT32)atof(&temp[sizeof("I1;")-1]);
 
             temp = strstr((char*)recvBuf,(char*)"W;");
             if(temp)
-                data->W = (UINT8)atof(&temp[sizeof("W;")-1]);
+                data->W = (FLOAT32)atof(&temp[sizeof("W;")-1]);
 
             temp = strstr((char*)recvBuf,(char*)"WC;");
             if(temp)
-                data->WC = (UINT8)atof(&temp[sizeof("WC;")-1]);
+                data->WC = (FLOAT32)atof(&temp[sizeof("WC;")-1]);
 
             temp = strstr((char*)recvBuf,(char*)"Time;");
             if(temp)
-                data->Time = (UINT8)atof(&temp[sizeof("Time;")-1]);
+                data->Time = (FLOAT32)atof(&temp[sizeof("Time;")-1]);
 
             temp = strstr((char*)recvBuf,(char*)"U1Freq;");
             if(temp)
-                data->U1Freq = (UINT8)atof(&temp[sizeof("U1Freq;")-1]);
+                data->U1Freq = (FLOAT32)atof(&temp[sizeof("U1Freq;")-1]);
 
             temp = strstr((char*)recvBuf,(char*)"I1Freq;");
             if(temp)
-                data->I1Freq = (UINT8)atof(&temp[sizeof("I1Freq;")-1]);
+                data->I1Freq = (FLOAT32)atof(&temp[sizeof("I1Freq;")-1]);
 
             temp = strstr((char*)recvBuf,(char*)"Phase;");
             if(temp)
-                data->Phase = (UINT8)atof(&temp[sizeof("Phase;")-1]);
+                data->Phase = (FLOAT32)atof(&temp[sizeof("Phase;")-1]);
         }
 
 

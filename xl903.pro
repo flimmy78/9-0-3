@@ -39,7 +39,9 @@ SOURCES += main.cpp \
     ripple/ripple_wave.cpp \
     testPower/RS_update.cpp \
     init_class.cpp \
-    phasor/ME_init_Phasor.cpp
+    phasor/ME_init_Phasor.cpp \
+    harmonic/HAR_harmonic.cpp \
+    harmonic/HAR_init_Harmonic.cpp
 
 HEADERS  += \
     mainwidget.h \
@@ -51,7 +53,8 @@ HEADERS  += \
     SerialPort/ManageSerialPort.h \
     thread/timeThread.h \
     testPower/RSMV_option.h \
-    phasor/ME_initPhasor.h
+    phasor/ME_initPhasor.h \
+    harmonic/HAR_initHarmonic.h
 
 FORMS    += \
     mainwidget.ui

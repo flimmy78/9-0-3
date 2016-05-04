@@ -22,7 +22,7 @@ static const uint qt_meta_data_MainWidget[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      35,   14, // methods
+      37,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -46,25 +46,27 @@ static const uint qt_meta_data_MainWidget[] = {
      375,   11,   11,   11, 0x08,
      408,   11,   11,   11, 0x08,
      426,   11,   11,   11, 0x08,
-     451,   11,   11,   11, 0x08,
-     485,  477,   11,   11, 0x08,
-     514,   11,   11,   11, 0x08,
-     550,   11,   11,   11, 0x08,
-     591,  585,   11,   11, 0x08,
-     632,  585,   11,   11, 0x08,
-     672,  585,   11,   11, 0x08,
-     713,  585,   11,   11, 0x08,
-     753,  585,   11,   11, 0x08,
-     792,  585,   11,   11, 0x08,
-     832,   11,   11,   11, 0x08,
-     866,   11,   11,   11, 0x08,
-     900,   11,   11,   11, 0x08,
-     933,   11,   11,   11, 0x08,
-     969,   11,   11,   11, 0x08,
-    1001,   11,   11,   11, 0x08,
-    1034,   11,   11,   11, 0x08,
-    1062,   11,   11,   11, 0x08,
-    1095,  477,   11,   11, 0x08,
+     453,   11,   11,   11, 0x08,
+     478,   11,   11,   11, 0x08,
+     512,  504,   11,   11, 0x08,
+     541,   11,   11,   11, 0x08,
+     577,   11,   11,   11, 0x08,
+     618,  612,   11,   11, 0x08,
+     659,  612,   11,   11, 0x08,
+     699,  612,   11,   11, 0x08,
+     740,  612,   11,   11, 0x08,
+     780,  612,   11,   11, 0x08,
+     819,  612,   11,   11, 0x08,
+     859,   11,   11,   11, 0x08,
+     893,   11,   11,   11, 0x08,
+     927,   11,   11,   11, 0x08,
+     960,   11,   11,   11, 0x08,
+     996,   11,   11,   11, 0x08,
+    1028,   11,   11,   11, 0x08,
+    1061,   11,   11,   11, 0x08,
+    1089,   11,   11,   11, 0x08,
+    1122,  504,   11,   11, 0x08,
+    1156, 1150,   11,   11, 0x08,
 
        0        // eod
 };
@@ -81,7 +83,8 @@ static const char qt_meta_stringdata_MainWidget[] = {
     "slt_ME_update(pMETYPE)\0slt_ES_update(pESTYPE)\0"
     "slt_ENERGY_PUL_update(pPULSEPOW)\0"
     "slt_ENERGY_STD_update(pPULSEPOW)\0"
-    "slt_wave_update()\0slt_RRF_update(pRRFTYPE)\0"
+    "slt_wave_update()\0slt_RSMV_harmonic_update()\0"
+    "slt_HAR_update(pHARTYPE)\0"
     "slt_elapseTimer_timeout()\0checked\0"
     "on_start_PsBtn_clicked(bool)\0"
     "on_serPort_write_SP_PsBtn_clicked()\0"
@@ -100,7 +103,8 @@ static const char qt_meta_stringdata_MainWidget[] = {
     "on_ES_PE_zoomOut_PsBtn_clicked()\0"
     "on_keyBoard_PsBtn_clicked()\0"
     "on_ES_insertForm_PsBtn_clicked()\0"
-    "on_lock_RdBtn_clicked(bool)\0"
+    "on_lock_RdBtn_clicked(bool)\0value\0"
+    "on_RSMV_Harmonic_Range_HSlider_valueChanged(int)\0"
 };
 
 void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -124,26 +128,28 @@ void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 12: _t->slt_ENERGY_PUL_update((*reinterpret_cast< pPULSEPOW(*)>(_a[1]))); break;
         case 13: _t->slt_ENERGY_STD_update((*reinterpret_cast< pPULSEPOW(*)>(_a[1]))); break;
         case 14: _t->slt_wave_update(); break;
-        case 15: _t->slt_RRF_update((*reinterpret_cast< pRRFTYPE(*)>(_a[1]))); break;
-        case 16: _t->slt_elapseTimer_timeout(); break;
-        case 17: _t->on_start_PsBtn_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 18: _t->on_serPort_write_SP_PsBtn_clicked(); break;
-        case 19: _t->on_serPort_read_SP_PsBtn_clicked(); break;
-        case 20: _t->on_serPort_portName_CbBox_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 21: _t->on_serPort_dataBit_CbBox_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 22: _t->on_serPort_baudRate_CbBox_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 23: _t->on_serPort_stopBit_CbBox_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 24: _t->on_serPort_parity_CbBox_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 25: _t->on_serPort_flowCtl_CbBox_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 26: _t->on_RSMV_clearFrom_PsBtn_clicked(); break;
-        case 27: _t->on_RSMV_buildFrom_PsBtn_clicked(); break;
-        case 28: _t->on_RSMV_readFrom_PsBtn_clicked(); break;
-        case 29: _t->on_RSMV_saveFormMsg_PsBtn_clicked(); break;
-        case 30: _t->on_ES_PE_zoomIn_PsBtn_clicked(); break;
-        case 31: _t->on_ES_PE_zoomOut_PsBtn_clicked(); break;
-        case 32: _t->on_keyBoard_PsBtn_clicked(); break;
-        case 33: _t->on_ES_insertForm_PsBtn_clicked(); break;
-        case 34: _t->on_lock_RdBtn_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 15: _t->slt_RSMV_harmonic_update(); break;
+        case 16: _t->slt_HAR_update((*reinterpret_cast< pHARTYPE(*)>(_a[1]))); break;
+        case 17: _t->slt_elapseTimer_timeout(); break;
+        case 18: _t->on_start_PsBtn_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 19: _t->on_serPort_write_SP_PsBtn_clicked(); break;
+        case 20: _t->on_serPort_read_SP_PsBtn_clicked(); break;
+        case 21: _t->on_serPort_portName_CbBox_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 22: _t->on_serPort_dataBit_CbBox_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 23: _t->on_serPort_baudRate_CbBox_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 24: _t->on_serPort_stopBit_CbBox_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 25: _t->on_serPort_parity_CbBox_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 26: _t->on_serPort_flowCtl_CbBox_activated((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 27: _t->on_RSMV_clearFrom_PsBtn_clicked(); break;
+        case 28: _t->on_RSMV_buildFrom_PsBtn_clicked(); break;
+        case 29: _t->on_RSMV_readFrom_PsBtn_clicked(); break;
+        case 30: _t->on_RSMV_saveFormMsg_PsBtn_clicked(); break;
+        case 31: _t->on_ES_PE_zoomIn_PsBtn_clicked(); break;
+        case 32: _t->on_ES_PE_zoomOut_PsBtn_clicked(); break;
+        case 33: _t->on_keyBoard_PsBtn_clicked(); break;
+        case 34: _t->on_ES_insertForm_PsBtn_clicked(); break;
+        case 35: _t->on_lock_RdBtn_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 36: _t->on_RSMV_Harmonic_Range_HSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -181,9 +187,9 @@ int MainWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 35)
+        if (_id < 37)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 35;
+        _id -= 37;
     }
     return _id;
 }

@@ -9,7 +9,6 @@
  //将按钮放在一个list
 void MainWidget::init_sideBar()
 {
-
     sideBar_BtnList.append(ui->sideBar_TlBtn_1);
     sideBar_BtnList.append(ui->sideBar_TlBtn_2);
     sideBar_BtnList.append(ui->sideBar_TlBtn_3);
@@ -41,7 +40,7 @@ void MainWidget::on_start_PsBtn_clicked(bool checked)
 
         case 0:
                 clean_main_SkWidget_1();//清除界面1的数据
-//                startRD();
+//               startRD();
 
                 startRS();//读状态消息,停止显示保存数据
                 startES();//电能误差
@@ -50,10 +49,11 @@ void MainWidget::on_start_PsBtn_clicked(bool checked)
         break;
 
         case 1:
-               // startRRF();
-                startWAVE();
-               //ripple
+                // startRRF();
+                //startWAVE();
+                //ripple
                 //startRIPPLE();
+                startHAR();//谐波
         break;
         default:
         break;
@@ -83,18 +83,23 @@ void MainWidget::changeButtonStatus() {
        // ui->RS_charger_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::Stretch);
         ui->ES_standard_TblWidget->horizontalHeader()->setResizeMode( QHeaderView::Stretch);
         ui->main_SkWidget->setCurrentIndex(0);
+        ui->start_PsBtn->setEnabled(true);
     }
     if(source==ui->sideBar_TlBtn_2)
     {
-
         ui->main_SkWidget->setCurrentIndex(1);
+        ui->start_PsBtn->setEnabled(true);
+         set_TblWdiget_Header( ui->RSMV_Harmonic_TblWidget ,true,false);
     }
     if(source==ui->sideBar_TlBtn_3)
     {
         ui->main_SkWidget->setCurrentIndex(2);
+        ui->start_PsBtn->setEnabled(true);
     }
     if(source==ui->sideBar_TlBtn_4)
     {
         ui->main_SkWidget->setCurrentIndex(3);
+        ui->start_PsBtn->setEnabled(false);
     }
+
 }

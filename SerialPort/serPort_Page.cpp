@@ -52,13 +52,15 @@ void MainWidget::init_serPort()
     ui->serPort_flowCtl_CbBox->addItem("Hardware", QVariant::fromValue(FLOW_HARDWARE));
     ui->serPort_flowCtl_CbBox->setCurrentIndex(0); //Flow control none
 
-
+//ADW
     serPort_shorCut_list.append(ui->serPort_RP_PsBtn);
     serPort_shorCut_list.append(ui->serPort_AV_PsBtn);
     serPort_shorCut_list.append(ui->serPort_RSM_PsBtn);
     serPort_shorCut_list.append(ui->serPort_ME_PsBtn);
     serPort_shorCut_list.append(ui->serPort_RS_PsBtn);
     serPort_shorCut_list.append(ui->serPort_RBAT_PsBtn);
+    serPort_shorCut_list.append(ui->serPort_HAR_PsBtn);
+    serPort_shorCut_list.append(ui->serPort_ADW_PsBtn);
 
     foreach (QPushButton *serPort_shorCut_PsBtn, serPort_shorCut_list) {
         connect(serPort_shorCut_PsBtn, SIGNAL(clicked()), this, SLOT(slot_serPort_shorCut_PsBtn()));
@@ -164,7 +166,7 @@ void MainWidget::on_serPort_Send_PsBtn_clicked()
     if (ui->serPort_LF_CkBox->checkState() == Qt::Checked)//Saut de ligne
         Message += "\x0A";
 
-    QByteArray temp(Message.toUtf8());
+    QByteArray temp(Message.toUtf8().data());
     timeThreadTimer.driver_619->isToUI=true;
     timeThreadTimer.driver_619->MagSerPort->sendData(temp);
 }
@@ -227,6 +229,14 @@ void MainWidget::slot_serPort_shorCut_PsBtn()
     else if(serPort_shorCut_PsBtn==ui->serPort_RBAT_PsBtn)
     {
         strTemp  = "RBAT";
+    }
+    else if(serPort_shorCut_PsBtn==ui->serPort_HAR_PsBtn)
+    {
+        strTemp  = "HAR\nChannel;U\nOrder;1\nOrder;2\nOrder;3";
+    }
+    else if(serPort_shorCut_PsBtn==ui->serPort_ADW_PsBtn)
+    {
+        strTemp  = "ADWSECRET;XL-903\nRANGE;L1A\n\A;1.0E+0\nQ;1E+0";
     }
 
     ui->serPort_Send_TxEdit->setText(strTemp);

@@ -457,10 +457,9 @@ typedef struct
 
 typedef struct
 {
-    FLOAT32 RF;
-    FLOAT32 RV;
+    FLOAT32 order[128];
     //注意对齐
-}RRFTYPE,*pRRFTYPE,**ppRRFTYPE;
+}HARTYPE,*pHARTYPE,**ppHARTYPE;
 
 
 typedef struct
@@ -505,7 +504,7 @@ typedef struct
 #define STR_EB			"EB"
 #define STR_EE			"EE"
 #define STR_ES			"ES"
-#define STR_RRF			"RRF"
+#define STR_HAR			"HAR\n\rChannel;U"
 #define STR_RD			"RD"
 #define STR_RS			"RS"
 #define STR_EV			"EV"
@@ -657,6 +656,6 @@ typedef QList<int> QIntList;
 #define RD                 71
 #define RS	               72
 
-#define RRF 	           35          //谐波
+#define HAR 	           35          //纹波系数
 
 #endif // STDAFX_H

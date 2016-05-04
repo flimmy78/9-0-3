@@ -10,7 +10,7 @@
 #include "phasor/ME_initPhasor.h"
 
 class QextSerialPort;
-
+class Histogram;
 
 namespace Ui {
 class MainWidget;
@@ -58,6 +58,8 @@ private:
     void init_elapseTime();//定时器时间
     void init_rms_harmonic();
     void init_RSMV_phasor();
+    void init_RSMV_harmonic();
+    void set_RSMV_harmonic_histogram( uint numValues, const double *values);
 
     void startRD();
     void startRS();
@@ -65,7 +67,7 @@ private:
     void startWAVE();
     void startES();
     void startESTD();
-    void startRRF();
+    void startHAR();
     void startELAPSETIME();
     void startENERGY_PUL();
     void startENERGY_STD();
@@ -95,8 +97,9 @@ private slots:
     void slt_ENERGY_PUL_update(pPULSEPOW );
     void slt_ENERGY_STD_update(pPULSEPOW );
     void slt_wave_update();
+    void slt_RSMV_harmonic_update();
 
-    void slt_RRF_update(pRRFTYPE);
+    void slt_HAR_update(pHARTYPE);
 
     void slt_elapseTimer_timeout();
     void on_start_PsBtn_clicked(bool checked);
@@ -127,13 +130,16 @@ private slots:
 
     void on_lock_RdBtn_clicked(bool checked);
 
+    void on_RSMV_Harmonic_Range_HSlider_valueChanged(int value);
+
 private:
     QComboBox       *SP_chargeType_cbbox;
     QComboBox       *SP_loadType_cbbox;
     QComboBox       *SP_measureType_cbbox;
 
-    ReceiveSMV  RSMV;
-    PhasorPaint       *ME_phasorPaint;
+    ReceiveSMV       RSMV;
+    PhasorPaint      *ME_phasorPaint;
+    Histogram        *RSMV_harmonic_histogram;
 };
 
 #endif // WIDGET_H

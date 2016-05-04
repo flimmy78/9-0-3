@@ -21,12 +21,11 @@ MainWidget::MainWidget(QWidget *parent) :
 
     init_timeThreadTimer_connect();
     init_RSMV_phasor();
+    init_RSMV_harmonic();
     init_ES_wave();       //波形图
-    init_ripple_wave();    //纹波
-    init_ESTD_wave();    //标准偏差波形图
-    init_elapseTime();   //运行时间
-
-
+    init_ripple_wave();   //纹波
+    init_ESTD_wave();     //标准偏差波形图
+    init_elapseTime();    //运行时间
 }
 
 MainWidget::~MainWidget()
@@ -82,11 +81,12 @@ void MainWidget::init_timeThreadTimer_connect()
     qRegisterMetaType<pMETYPE>("pMETYPE");
     qRegisterMetaType<QTextCursor>("QTextCursor");
 
-    connect(&timeThreadTimer, SIGNAL(sig_RRF_update(pRRFTYPE)),   this, SLOT(slt_RRF_update(pRRFTYPE)),Qt::DirectConnection);
-    qRegisterMetaType<pRRFTYPE>("pRRFTYPE");
+    connect(&timeThreadTimer, SIGNAL(sig_HAR_update(pHARTYPE)),   this, SLOT(slt_HAR_update(pHARTYPE)),Qt::DirectConnection);
+    qRegisterMetaType<pHARTYPE>("pHARTYPE");
 
     connect(&timeThreadTimer, SIGNAL(sig_wave_update()),          this, SLOT(slt_wave_update()));
 
+     connect(&timeThreadTimer, SIGNAL(sig_RSMV_harmonic_update()),      this, SLOT(slt_RSMV_harmonic_update()));
     #if 0
 
     connect(&timeThreadTimer, SIGNAL(sig_RSMV_ESTD_update(pESTDTYPE)),   this, SLOT(slt_RSMV_ESTD_update(pESTDTYPE)));
@@ -181,4 +181,5 @@ void MainWidget::on_lock_RdBtn_clicked(bool checked)
 
 
 }
+
 

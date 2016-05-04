@@ -29,8 +29,8 @@ timeThread::timeThread()
     RS_Timer =new QTimer(this);
     connect(RS_Timer, SIGNAL(timeout()), this, SLOT(set_RS_Arg()) );
 
-    RRF_Timer =new QTimer(this);
-    connect(RRF_Timer, SIGNAL(timeout()), this, SLOT(set_RRF_Arg()) );
+    HAR_Timer =new QTimer(this);
+    connect(HAR_Timer, SIGNAL(timeout()), this, SLOT(set_HAR_Arg()) );
 
     RD_Timer =new QTimer(this);
     connect(RD_Timer, SIGNAL(timeout()), this, SLOT(set_RD_Arg()) );
@@ -58,7 +58,7 @@ timeThread::timeThread()
     IsRSMV_WAVEALL            = false;
     IsRSMV_PHASOR             = false;
     IsRS               = false;
-    IsRRF           = false;
+    IsHAR           = false;
     IsRD                      = false;
 
     IsENERGY_STD              = false;
@@ -79,7 +79,7 @@ void timeThread::Serial_getFD(const int fdSerial)  //每次发送需要知道串
 *Function:     线程谐波参数设置,收发公用
 *Description:  type 模式，channelTemp，第几通道；H1Temp：开始；结束：H2Temp；
 *******************************************************************************************************/
-void timeThread::RRF_setArg( const bool mode,const UINT32 chlNum,const  UINT32 H1, const UINT32 H2)
+void timeThread::HAR_setArg( const bool mode,const UINT32 chlNum,const  UINT32 H1, const UINT32 H2)
 {
      SMV_harmonic_mode=mode;
      SMV_harmonic_ChlNum=chlNum;
@@ -97,7 +97,7 @@ void timeThread::enableItem(int Item)
         case RSMV_WAVEALL:              this->IsRSMV_WAVEALL           = true; break;
         case RSMV_PHASOR:               this->IsRSMV_PHASOR                     = true; break;
         case RS:                 this->IsRS                       = true; break;
-        case RRF:             this->IsRRF                   = true; break;
+        case HAR:             this->IsHAR                   = true; break;
         case RD:                        this->IsRD              = true; break;
         case RFT3_WAVE:                this->IsRFT3                        = true; break;
         case ES:                   this->IsES             = true; break;
@@ -146,10 +146,10 @@ void timeThread::run()
             IsRS = false;
             slt_RS_timeDone();
         }
-        if (IsRRF == true)
+        if (IsHAR == true)
         {
-            IsRRF = false;
-            slt_RRF_timeDone();
+            IsHAR = false;
+            slt_HAR_timeDone();
         }
         if (IsRD == true)
         {
@@ -240,11 +240,11 @@ void timeThread::run(int timerNum)//定时器不能放在run（）函数里面
 
             }
         break;
-        case RRF:
+        case HAR:
             {
                 timerNum = 0;
-                RRF_Timer->setInterval(1500);
-                RRF_Timer->start();
+                HAR_Timer->setInterval(3000);
+                HAR_Timer->start();
 
             }
         break;
@@ -344,9 +344,9 @@ void timeThread::close_timer(int timerNum)
                        //
      break;
 
-     case RRF:
-                        RRF_Timer->stop();
-                        IsRRF= false;
+     case HAR:
+                        HAR_Timer->stop();
+                        IsHAR= false;
                        //
      break;
 
@@ -386,7 +386,7 @@ void timeThread::close_timer(int timerNum)
     RSMV_Waveall_Timer->stop();
     RSMV_Phasor_Timer->stop();
     RS_Timer->stop();
-    RRF_Timer->stop();
+    HAR_Timer->stop();
     RD_Timer->stop();
     RFT3_Timer->stop();
     ES_Timer->stop();
@@ -400,7 +400,7 @@ void timeThread::close_timer(int timerNum)
     IsRSMV_WAVE       = false;
     IsRSMV_PHASOR     = false;
     IsRS       = false;
-    IsRRF   = false;
+    IsHAR   = false;
     IsRD = false;
     IsRFT3            = false;
     IsES    = false;
@@ -416,6 +416,18 @@ void timeThread::slt_SSMV_rms_timeDone()
 
 
 
+}
+
+/*******************************************************************************************************
+*Function:     线程谐波参数设置,收发公用
+*Description:  type 模式，channelTemp，第几通道；H1Temp：开始；结束：H2Temp；
+*******************************************************************************************************/
+void timeThread::RSMV_harmonic_setArg( const bool mode,const UINT32 chlNum,const  UINT32 H1, const UINT32 H2)
+{
+     SMV_harmonic_mode=mode;
+     SMV_harmonic_ChlNum=chlNum;
+     SMV_harmonic_H1=H1;
+     SMV_harmonic_H2=H2;
 }
 
 
@@ -515,32 +527,6 @@ void timeThread::dealFullData(QString elapsedTime, int *targetRow, int *realLen,
 
 }
 
-void timeThread::slt_RS_timeDone()
-{
-#if 1
-    pRSTYPE  pRSTYPE_Temp =NULL;
-
-    if((pRSTYPE_Temp=(pRSTYPE)calloc(1,sizeof(RSTYPE)))==NULL)
-    {
-        free(pRSTYPE_Temp);
-        pRSTYPE_Temp=NULL;
-        return ;
-    }
-
-    if( driver_619->getRS(pRSTYPE_Temp) == ERR_RIGHT )
-    {
-//     qDebug()<<"slt_RS_timeDone"<<QString::number(pRSTYPE_Temp->CURRENCEOUT,'d',4);
-        emit sig_RS_update(pRSTYPE_Temp);
-    }
-
-    free(pRSTYPE_Temp);
-    pRSTYPE_Temp=NULL;
-#endif
-    qDebug()<<"slt_RD_timeDone";
-}
-
-
-
 void timeThread::slt_RD_timeDone()
 {
 #if 1
@@ -562,8 +548,6 @@ void timeThread::slt_RD_timeDone()
     free(pRDTYPE_Temp);
     pRDTYPE_Temp=NULL;
 #endif
-
-
 }
 /*******************************************************************************************************
 *Fun:     接收有效值、波形数据、波形数据最大值

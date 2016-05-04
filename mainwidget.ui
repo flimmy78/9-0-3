@@ -1568,13 +1568,13 @@ font: 9pt &quot;Kalinga&quot;;
          </property>
          <property name="minimumSize">
           <size>
-           <width>356</width>
+           <width>470</width>
            <height>90</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>202</width>
+           <width>470</width>
            <height>116</height>
           </size>
          </property>
@@ -1794,22 +1794,6 @@ font: 9pt &quot;Kalinga&quot;;
           <property name="spacing">
            <number>5</number>
           </property>
-          <item row="0" column="3">
-           <widget class="QLabel" name="ES_TE_Label">
-            <property name="font">
-             <font>
-              <family>Arial Narrow</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>时钟误差: </string>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="4">
            <widget class="QPushButton" name="serPort_EVT_PsBtn">
             <property name="font">
@@ -1819,31 +1803,6 @@ font: 9pt &quot;Kalinga&quot;;
             </property>
             <property name="text">
              <string>新检定点</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3">
-           <widget class="QPushButton" name="ES_insertForm_PsBtn">
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>记入报表</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="4">
-           <widget class="QLineEdit" name="ES_TE_LnEdit">
-            <property name="font">
-             <font>
-              <family>Arial Narrow</family>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>0</string>
             </property>
            </widget>
           </item>
@@ -1873,6 +1832,47 @@ font: 9pt &quot;Kalinga&quot;;
             </property>
             <property name="text">
              <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="ES_TE_Label">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>时钟误差: </string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="ES_TE_LnEdit">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QPushButton" name="ES_insertForm_PsBtn">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>记入报表</string>
             </property>
            </widget>
           </item>
@@ -2078,6 +2078,11 @@ QScrollBar:vertical
               <string>40</string>
              </property>
             </item>
+            <item>
+             <property name="text">
+              <string>127</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item row="0" column="7">
@@ -2180,7 +2185,7 @@ QScrollBar:vertical
              <string notr="true"/>
             </property>
             <property name="text">
-             <string>0.1</string>
+             <string>0.001</string>
             </property>
             <property name="readOnly">
              <bool>true</bool>
@@ -2612,10 +2617,7 @@ background-color: rgb(0, 0, 0);
        <item row="2" column="1">
         <widget class="QTableWidget" name="RSMV_Harmonic_TblWidget">
          <property name="styleSheet">
-          <string notr="true">color: rgb(0, 170, 255);
-gridline-color: rgb(18, 220, 200);
-background-color: rgb(0, 0, 0);
-</string>
+          <string notr="true"/>
          </property>
          <property name="verticalScrollBarPolicy">
           <enum>Qt::ScrollBarAlwaysOn</enum>
@@ -3501,7 +3503,7 @@ p, li { white-space: pre-wrap; }
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>60</height>
+              <height>80</height>
              </size>
             </property>
             <property name="readOnly">
@@ -3532,6 +3534,7 @@ p, li { white-space: pre-wrap; }
 
 
  }
+
 
  QGroupBox {
     border: 1px solid rgb(18, 220, 200);
@@ -3576,7 +3579,7 @@ p, li { white-space: pre-wrap; }
                </property>
               </widget>
              </item>
-             <item row="1" column="5">
+             <item row="1" column="6">
               <spacer name="horizontalSpacer_17">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -3630,6 +3633,20 @@ p, li { white-space: pre-wrap; }
                </property>
               </widget>
              </item>
+             <item row="2" column="5">
+              <widget class="QPushButton" name="serPort_HAR_PsBtn">
+               <property name="text">
+                <string>HAR</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="5">
+              <widget class="QPushButton" name="serPort_ADW_PsBtn">
+               <property name="text">
+                <string>ADW</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
           </item>
@@ -3657,7 +3674,7 @@ p, li { white-space: pre-wrap; }
             <property name="minimumSize">
              <size>
               <width>300</width>
-              <height>240</height>
+              <height>200</height>
              </size>
             </property>
             <property name="maximumSize">
@@ -3922,6 +3939,18 @@ p, li { white-space: pre-wrap; }
        </item>
        <item row="0" column="0" colspan="2">
         <widget class="QGroupBox" name="serPort_Settings_GpBox">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>70</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true"> QGroupBox::title {
      subcontrol-origin: margin;
@@ -3946,6 +3975,21 @@ p, li { white-space: pre-wrap; }
           <string/>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
+          <property name="leftMargin">
+           <number>6</number>
+          </property>
+          <property name="rightMargin">
+           <number>6</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <property name="horizontalSpacing">
+           <number>6</number>
+          </property>
+          <property name="verticalSpacing">
+           <number>0</number>
+          </property>
           <item row="0" column="0">
            <widget class="QLabel" name="serPort_portName_Label">
             <property name="sizePolicy">
