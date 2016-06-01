@@ -19,8 +19,11 @@ void MainWidget::slt_ME_update(pMETYPE  pMETYPE_Temp)
     ui->ES_standard_TblWidget->item(0,5)->setText(QString::number(pMETYPE_Temp->I1,'d',2));
     ui->ES_standard_TblWidget->item(0,7)->setText(QString::number(pMETYPE_Temp->Phase/60.0000,'d',2));
 
+    ui->ES_standard_TblWidget->item(3,1)->setText(QString::number(pMETYPE_Temp->P1,'d',2));
     ui->ES_standard_TblWidget->item(3,3)->setText(QString::number(pMETYPE_Temp->U1Freq,'d',2));
     ui->ES_standard_TblWidget->item(3,5)->setText(QString::number(pMETYPE_Temp->Time,'d',2));
+    ui->ES_standard_TblWidget->item(3,5)->setText(QString::number(pMETYPE_Temp->Time,'d',2));
+
 
     ui->ME_energy_std_LnEdit->setText(QString::number(pMETYPE_Temp->W,'d',2));//标准电能
     ui->ME_energy_object_LnEdit->setText(QString::number(pMETYPE_Temp->WC,'d',2));//被检电能（0表示没有脉冲输入，需手动输）

@@ -82,8 +82,8 @@ void MainWidget::init_serPort()
     SP_loadType_cbbox->setCurrentIndex(0);
 
     SP_measureType_cbbox = new QComboBox;
-    SP_measureType_cbbox->addItem(QString::fromUtf8("手动"));
     SP_measureType_cbbox->addItem(QString::fromUtf8("自动"));
+    SP_measureType_cbbox->addItem(QString::fromUtf8("手动"));
     SP_measureType_cbbox->addItem(QString::fromUtf8("半自动"));
     SP_measureType_cbbox->setCurrentIndex(0);
 
@@ -174,7 +174,7 @@ void MainWidget::on_serPort_Send_PsBtn_clicked()
 #if 1
 void  MainWidget::slt_serPort_RecDataToUI(const QByteArray &dataReceived,int intReturn)
 {
-    intReturn =0;
+    //intReturn =0;
      //ui->serPort_Rec_TxEdit-
     //qDebug()<<"slot_serPort_RecData";
     //timeThreadTimer.driver_619->serRecAllBtArray += dataReceived;

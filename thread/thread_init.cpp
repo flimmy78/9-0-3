@@ -6,8 +6,6 @@
 *dec:行程定时器刷新读取数据
 *******************************************************************************/
 
-
-
 timeThread::timeThread()
 {
     driver_619= new xl618();
@@ -50,10 +48,15 @@ timeThread::timeThread()
     ENERGY_STD_Timer =new QTimer(this);
     connect(ENERGY_STD_Timer, SIGNAL(timeout()), this, SLOT(set_ENERGY_STD_Arg()) );
 
+    get_battery_Timer=new QTimer(this);
+    connect(get_battery_Timer, SIGNAL(timeout()), this, SLOT(slt_battery_timeDone()) );     //定时接收数据
+    get_battery_Timer->setInterval(3*60*1000);//5分钟读一次
+    get_battery_Timer->start();
+
     runType = 0;
 
     IsSSMV_RMS                = false;
-    IsME                = false;
+    IsME                      = false;
     IsRSMV_WAVE               = false;
     IsRSMV_WAVEALL            = false;
     IsRSMV_PHASOR             = false;

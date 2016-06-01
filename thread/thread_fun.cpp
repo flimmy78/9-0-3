@@ -1,5 +1,6 @@
 #include<mainwidget.h>
 
+
 UINT8 timeThread::transmitsSimply (UINT8 *data)//串口快速发送
 {
     UINT8   retValue = ERR_UNIVERSAL;
@@ -13,7 +14,18 @@ UINT8 timeThread::transmitsSimply (UINT8 *data)//串口快速发送
     free(PtrReadTemp);
     PtrReadTemp = NULL;
 
+    //qDebug()<<QString::number(retValue);
     return retValue;
+}
+
+
+void timeThread::slt_battery_timeDone()
+{
+    QString str;
+    if(driver_619->getRBAT(str) == ERR_RIGHT)
+    {
+        emit sig_battery_update(str);
+    }
 }
 
 
@@ -211,7 +223,7 @@ void timeThread::slt_RSMV_wave_timeDone()
 
     if( (driver_619->getKL(wave_chlNum,pRKLTYPE_Temp) == ERR_RIGHT) )
     {
-#if 1
+#if 0
         for(int i = 0; i <wave_sampleCnt; i++ )  //wave_sampleCnt
         {
 

@@ -8,7 +8,7 @@
 ********************************************************************************************************/
 #include <QtDebug>
 #include "ManageSerialPort.h"
-
+#include "stdafx.h"
 /********************************************************************************************************
 		* Classe ManageSerialPort
 *****************************************************************************************************/
@@ -546,7 +546,7 @@ void ThreadReceive::run()
             if((RecAll_BtArray.right(5)=="ACK\r\n")||(RecAll_BtArray.right(3)=="ACK") )//ACK\n\r 说明帧结束
             {
                 ////qDebug()<<"run-------1111--------------------------";
-                emit newDataReceived(RecAll_BtArray,1);
+                emit newDataReceived(RecAll_BtArray,ERR_RIGHT);                               //发送数据,接收情况
                  //qDebug()<<"run-------333--------------------------";
                 //qDebug()<<"run---------------------------------"<<QString::number(numBytes)<<RecAll_BtArray;
                 RecAll_BtArray.clear();
@@ -556,7 +556,7 @@ void ThreadReceive::run()
             {
                if ((numBytes < 100)&&(numBytes >10))
                {
-                  emit newDataReceived(RecAll_BtArray,0);
+                  emit newDataReceived(RecAll_BtArray,ERR_UNIVERSAL);
                   RecAll_BtArray.clear();
                }
             }

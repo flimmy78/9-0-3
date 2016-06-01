@@ -94,6 +94,14 @@ void MainWidget:: startRS()
 //读取测量值ME
 void MainWidget:: startME()
 {
+    QString Message ="EPI\n\rSTATE;1\n\r";
+
+    if(timeThreadTimer.transmitsSimply((UINT8*)Message.toLatin1().data())!=ERR_RIGHT )
+    {
+         show_MsBox(QString::fromUtf8("解锁失败"),3000);
+         return;
+    }
+
     ME_phasorPaint->isUpdatePhasor=true;//刷新  界面
     ME_phasorPaint->update();
     timeThreadTimer.run(ME);

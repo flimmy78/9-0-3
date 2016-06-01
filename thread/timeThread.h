@@ -63,6 +63,7 @@ signals:
 
     void sig_SSMV_rms_update(pMETYPE) ;
 
+    void sig_battery_update(QString str);
     void sig_RSMV_harmonic_update();
     void sig_ME_update(pMETYPE) ;
     void sig_ES_update(pESTYPE) ;
@@ -81,6 +82,7 @@ signals:
     void sig_RFT3_wave_update(float);
     void sig_RMSG_FrameList_update(QStringList );
 private slots:
+    void slt_battery_timeDone();
     void slt_SSMV_rms_timeDone();
     void slt_ME_timeDone();
     void slt_RSMV_waveall_timeDone();
@@ -157,6 +159,8 @@ private slots:
 
    public:
     xl618      *driver_619;
+    QTimer     *get_battery_Timer;
+
 
     QTimer     *SSMV_RMS_Timer;
     QTimer     *ME_Timer;

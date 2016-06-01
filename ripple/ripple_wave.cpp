@@ -11,7 +11,7 @@
 //读取波形图数据,803r默认为256点
 void MainWidget:: startWAVE()
 {
-    int sampleCnt =256;
+    int sampleCnt =64;
     RSMV.wave_Ua_curve ->setRawSamples( 0,0, 0);
     RSMV.wave_Ub_curve ->setRawSamples( 0,0, 0);
     RSMV.wave_Uc_curve ->setRawSamples( 0,0, 0);

@@ -1,43 +1,55 @@
 #include "xl618.h"
 #include "stdio.h"
 #include "QDebug"
+#include <QTextStream>
 #if 1
 UINT8 xl618::getKL(UINT8 type,pRKLTYPE data)
 {
     FLOAT32 *fData;
     UINT8 retValue = ERR_UNIVERSAL;
-    if(type)
-    {
 
-        char *pSend = (char*)sendBuf;
-//      strcpy(pSend,STR_KL);
-//        pSend += strlen(STR_KL);
+    char *pSend = (char*)sendBuf;
 
-        strcpy(pSend,"KL\n\rCHANNAL;U1R"CR);
-        pSend += strlen("KL\n\rCHANNAL;U1R"CR);
+    strcpy(pSend,"KL\n\rCHANNAL;U1"CR);
+    pSend += strlen("KL\n\rCHANNAL;U1"CR);
+    strcpy(pSend,"CHANNAL;I1"CR);
+    pSend += strlen("CHANNAL;I1"CR);
 
-        UINT16 frameSize = pSend - (char*)sendBuf;
-        char *temp;
+    UINT16 frameSize = pSend - (char*)sendBuf;
+    char *temp;
 
-        if((retValue = readOneFrame(frameSize,(char*)"KL",NULL,(char*)"KLACK",800)) == ERR_RIGHT)
-        {//解析帧
+//   qDebug("pSend==%s\n",sendBuf);
+//   qDebug("pSend");
 
-            temp = strstr((char*)recvBuf,"U1;");
-            if(temp)
-            {
-                 memcpy((char *)&(data->U1), temp,sizeof(float)*256);
+    if((retValue = readOneFrame(frameSize,(char*)"KL",NULL,(char*)"KLACK",800)) == ERR_RIGHT)
+    {//解析帧
 
-            }
+        temp = strstr((char*)recvBuf,"U1;");
+        if(temp)
+        {
+             memcpy((char *)&(data->U1), temp,sizeof(FLOAT32)*70);
 
-            temp = strstr((char*)recvBuf,"I1;");
-            if(temp)
-            {
-                 memcpy((char *)&(data->I1), temp,sizeof(float)*256);
-            }
+        }
 
-            temp = strstr((char*)recvBuf,"U1R;");
-            if(temp)
-            {
+//        temp = strstr((char*)recvBuf,"I1;");
+//        if(temp)
+//        {
+//             memcpy((char *)&(data->I1), temp,sizeof(float)*70);
+//        }
+
+        qDebug("%s",recvBuf);
+        for(UINT32 j = 0; j < 70; j ++)
+        {
+//            sscanf(temp,"%E"CR,&data->U1R[j]); //取到指定字符集为止的字符串
+//            while(*(temp++) != '\n');
+//            qDebug("xxxx%d==%f\n",j,data->U1R[j]);
+            //qDebug("xxxx%d==%f\n",j,data->U1[j]);
+        }
+
+#if 0
+        temp = strstr((char*)recvBuf,"U1R;");
+        if(temp)
+        {
 //                memcpy(data->PRODUCT, temp+strlen("PRODUCT;"),temp1-temp-strlen("PRODUCT;")-1);
 
 //                qDebug()<<QString::number(strlen(temp)-strlen("KLACK;"));
@@ -45,22 +57,22 @@ UINT8 xl618::getKL(UINT8 type,pRKLTYPE data)
 
 //                qDebug("xxxx%s",temp);
 
-                //temp++;
-                for(UINT32 j = 0; j < 256; j ++)
-                {
-                    sscanf(temp,"%E"CR,&data->U1R[j]); //取到指定字符集为止的字符串
-                    while(*(temp++) != '\n');
-                   // qDebug("xxxx%d==%f\n",j,data->U1R[j]);
-                }
-
-            }
-
-            temp = strstr((char*)recvBuf,"I1R;");
-            if(temp)
+            //temp++;
+            for(UINT32 j = 0; j < 256; j ++)
             {
-                 memcpy((char *)&(data->I1R), temp,sizeof(float)*256);
+                sscanf(temp,"%E"CR,&data->U1R[j]); //取到指定字符集为止的字符串
+                while(*(temp++) != '\n');
+               // qDebug("xxxx%d==%f\n",j,data->U1R[j]);
             }
+
         }
+
+        temp = strstr((char*)recvBuf,"I1R;");
+        if(temp)
+        {
+             memcpy((char *)&(data->I1R), temp,sizeof(float)*256);
+        }
+#endif
     }else
         retValue = ERR_RIGHT;
 
@@ -427,69 +439,6 @@ void xl618:: deleteKLBuf(pKLTYPE lkl)
 }
 
 
-UINT8 xl618::IEC61850Frame(pIECTYPE data)
-{
-        UINT8 retValue = ERR_UNIVERSAL;
-        char *pSend = (char*)sendBuf;
-
-        if(data && data->frame)
-        {
-                strcpy(pSend,STR_IEC61850 CR);
-                pSend += strlen(STR_IEC61850 CR);
-                char *temp;
-
-                UINT16 frameSize = pSend - (char*)sendBuf;
-
-                if((retValue = readOneFrame(frameSize,(char*)"IEC61850",NULL,(char*)"IEC61850ACK",1)) == ERR_RIGHT)
-                {//解析帧
-                        temp = strstr((char*)recvBuf,"SAMNUM;");
-                        if(temp)
-                                data->samNum = atoi(&temp[strlen("SAMNUM;")]);
-
-                        temp = strstr((char*)recvBuf,"PRODUCT;");
-                        if(temp)
-                                data->product = (memcmp(&temp[strlen("PRODUCT;")],"WEISHENG",strlen("WEISHENG")) != 0);
-
-                        temp = strstr((char*)recvBuf,"ASDUNUM;");
-                        if(temp)
-                                data->asduNum = atoi(&temp[strlen("ASDUNUM;")]);
-
-                        temp = strstr((char*)recvBuf,"RATEDDELAY;");
-                        if(temp)
-                                data->ratedDelay = atoi(&temp[strlen("RATEDDELAY;")]);
-
-                        temp = strstr((char*)recvBuf,"VOLTAGERANGE;");
-                        if(temp)
-                                data->voltagerange = (FLOAT32)atof(&temp[strlen("VOLTAGERANGE;")]);
-
-                        temp = strstr((char*)recvBuf,"CURRENTRANGE;");
-                        if(temp)
-                                data->currentrange = (FLOAT32)atof(&temp[strlen("CURRENTRANGE;")]);
-
-                        temp = strstr((char*)recvBuf,"MAXSAMCNT;");
-                        if(temp)
-                                data->maxSamcnt = atoi(&temp[strlen("MAXSAMCNT;")]);
-
-                        temp = strstr((char*)recvBuf,"FRAM;");
-
-                        if(temp)
-                        {
-                                INT32 size = dataSize - (temp - (char*)recvBuf) - 18;//不要前面几个字节
-                                if(size <= 3000) //判断是否够存放
-                                {
-                                        memcpy(data->frame,&temp[strlen("FRAM;")+12],size-12);
-                                        data->frame_size=size-12;
-                                }else
-
-                                        retValue = ERR_BUFFER;
-                        }
-
-                }else
-                        retValue = ERR_BUFFER;
-        }
-
-        return retValue;
-}
 
 UINT8 xl618::getAppid(UINT16 *appid)
 {
@@ -601,7 +550,6 @@ UINT8 xl618::getHRN(UINT8 channel,pHARTYPE data,UINT32 H1,UINT32 H2)
         {
            pSend += sprintf(pSend,"HAR\n\rChannel;U" CR "H1;%d"CR"H2;%d"CR,H1,H2);
         }
-
 
             char* temp;
             //UINT32 tempSam = data->samdot;

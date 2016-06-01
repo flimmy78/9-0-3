@@ -22,7 +22,6 @@
 #include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
 #include <QtGui/QPushButton>
-#include <QtGui/QRadioButton>
 #include <QtGui/QSlider>
 #include <QtGui/QSpacerItem>
 #include <QtGui/QStackedWidget>
@@ -41,23 +40,35 @@ public:
     QGridLayout *gridLayout;
     QFrame *sideBar_up_Frame;
     QGridLayout *gridLayout_14;
+    QPushButton *unlock_PsBtn;
     QLabel *RS_maxCur_Label;
     QLabel *RS_maxCur_tag_Label;
-    QLabel *runTime_Label;
-    QSpacerItem *sideBar_up_HlSpacer_2;
     QSpacerItem *sideBar_up_HlSpacer_3;
-    QLineEdit *runTime_LnEdit;
     QLabel *battery_Label;
-    QSpacerItem *sideBar_up_HlSpacer_1;
+    QSpacerItem *sideBar_up_HlSpacer;
+    QLineEdit *runTime_LnEdit;
     QPushButton *keyBoard_PsBtn;
+    QLabel *runTime_Label;
     QLabel *BMS_cntState_tag_Label;
     QLabel *BMS_cntState_Label;
-    QRadioButton *lock_RdBtn;
-    QSpacerItem *horizontalSpacer;
-    QSpacerItem *sideBar_up_HlSpacer;
+    QSpacerItem *sideBar_up_HlSpacer_5;
+    QSpacerItem *sideBar_up_HlSpacer_6;
     QStackedWidget *main_SkWidget;
     QWidget *test_power_Page;
     QGridLayout *gridLayout_16;
+    QGroupBox *ME_energy_GpBox;
+    QGridLayout *gridLayout_22;
+    QLabel *ME_energy_std_Label;
+    QLineEdit *ME_energy_std_LnEdit;
+    QLineEdit *lineEdit_6;
+    QLabel *RSMV_energy_pul_Label_5;
+    QPushButton *RSMV_clearEnergy_PsBtn;
+    QLabel *ME_energy_object_Label;
+    QLineEdit *ME_energy_object_LnEdit;
+    QSpacerItem *horizontalSpacer_5;
+    QGroupBox *ME_phasor_GpBox;
+    QGridLayout *gridLayout_15;
+    QFrame *ME_phasor_Frame;
     QTabWidget *ES_TbWidget;
     QWidget *ES_PE_tab;
     QGridLayout *gridLayout_27;
@@ -74,19 +85,6 @@ public:
     QCheckBox *ES_wave_CkBox;
     QSpacerItem *ES_wave_HlSpacer;
     QwtPlot *ES_wave_QwtPlot;
-    QGroupBox *ME_phasor_GpBox;
-    QGridLayout *gridLayout_15;
-    QFrame *ME_phasor_Frame;
-    QTableWidget *ES_standard_TblWidget;
-    QGroupBox *ME_energy_GpBox;
-    QGridLayout *gridLayout_22;
-    QLabel *ME_energy_std_Label;
-    QLineEdit *ME_energy_std_LnEdit;
-    QLineEdit *lineEdit_6;
-    QLabel *RSMV_energy_pul_Label_5;
-    QPushButton *RSMV_clearEnergy_PsBtn;
-    QLabel *ME_energy_object_Label;
-    QLineEdit *ME_energy_object_LnEdit;
     QGroupBox *ES_value_GpBox;
     QGridLayout *gridLayout_23;
     QPushButton *serPort_EVT_PsBtn;
@@ -95,12 +93,13 @@ public:
     QLabel *ES_TE_Label;
     QLineEdit *ES_TE_LnEdit;
     QPushButton *ES_insertForm_PsBtn;
+    QSpacerItem *horizontalSpacer;
+    QTableWidget *ES_standard_TblWidget;
     QWidget *test_ripple_Page;
     QGridLayout *gridLayout_3;
     QwtPlot *RSMV_Harmonic_QwtPlot;
     QFrame *RSMV_harmonic_Frame;
     QGridLayout *gridLayout_10;
-    QLabel *RSMV_Harmonic_Phase_Label;
     QComboBox *RSMV_Harmonic_Phase_CbBox;
     QLabel *RSMV_Harmonic_Times_Label;
     QComboBox *RSMV_Harmonic_Times_CbBox;
@@ -111,6 +110,7 @@ public:
     QLineEdit *RSMV_Harmonic_LnEdit_Range;
     QSpacerItem *horizontalSpacer_11;
     QSpacerItem *horizontalSpacer_12;
+    QLabel *RSMV_Harmonic_Phase_Label;
     QTableWidget *RSMV_harmonic_rms_TblWidget;
     QTableWidget *RSMV_Harmonic_TblWidget;
     QWidget *from_Page;
@@ -142,31 +142,31 @@ public:
     QLabel *label_3;
     QGroupBox *serPort_send_GpBox;
     QGridLayout *gridLayout_8;
-    QPushButton *serPort_CleanSend_PsBtn;
-    QCheckBox *serPort_LF_CkBox;
-    QLabel *label_5;
-    QPushButton *serPort_Send_PsBtn;
-    QCheckBox *serPort_CR_CkBox;
-    QTextEdit *serPort_Send_TxEdit;
-    QGroupBox *serPort_shortcut_GpBox;
-    QGridLayout *gridLayout_4;
-    QPushButton *serPort_RP_PsBtn;
-    QPushButton *serPort_ME_PsBtn;
-    QSpacerItem *horizontalSpacer_17;
-    QSpacerItem *horizontalSpacer_16;
-    QPushButton *serPort_RS_PsBtn;
-    QPushButton *serPort_RSM_PsBtn;
-    QPushButton *serPort_AV_PsBtn;
-    QPushButton *serPort_RBAT_PsBtn;
-    QPushButton *serPort_HAR_PsBtn;
-    QPushButton *serPort_ADW_PsBtn;
-    QSpacerItem *horizontalSpacer_19;
     QGroupBox *serPort_SP_GpBox;
     QGridLayout *gridLayout_17;
     QPushButton *serPort_read_SP_PsBtn;
     QPushButton *serPort_write_SP_PsBtn;
     QSpacerItem *serPort_SP_HlSpacer;
     QTableWidget *serPort_SP_TabWidget;
+    QPushButton *serPort_CleanSend_PsBtn;
+    QCheckBox *serPort_LF_CkBox;
+    QLabel *label_5;
+    QPushButton *serPort_Send_PsBtn;
+    QCheckBox *serPort_CR_CkBox;
+    QTextEdit *serPort_Send_TxEdit;
+    QSpacerItem *horizontalSpacer_19;
+    QGroupBox *serPort_shortcut_GpBox;
+    QGridLayout *gridLayout_4;
+    QPushButton *serPort_HAR_PsBtn;
+    QPushButton *serPort_RBAT_PsBtn;
+    QSpacerItem *horizontalSpacer_16;
+    QPushButton *serPort_RSM_PsBtn;
+    QPushButton *serPort_AV_PsBtn;
+    QPushButton *serPort_RP_PsBtn;
+    QSpacerItem *horizontalSpacer_17;
+    QPushButton *serPort_RS_PsBtn;
+    QPushButton *serPort_ADW_PsBtn;
+    QPushButton *serPort_ME_PsBtn;
     QGroupBox *serPort_Settings_GpBox;
     QGridLayout *gridLayout_5;
     QLabel *serPort_portName_Label;
@@ -217,8 +217,8 @@ public:
         sideBar_up_Frame->setObjectName(QString::fromUtf8("sideBar_up_Frame"));
         sizePolicy.setHeightForWidth(sideBar_up_Frame->sizePolicy().hasHeightForWidth());
         sideBar_up_Frame->setSizePolicy(sizePolicy);
-        sideBar_up_Frame->setMinimumSize(QSize(800, 30));
-        sideBar_up_Frame->setMaximumSize(QSize(800, 30));
+        sideBar_up_Frame->setMinimumSize(QSize(800, 34));
+        sideBar_up_Frame->setMaximumSize(QSize(800, 34));
         QFont font;
         font.setFamily(QString::fromUtf8("Arial Narrow"));
         font.setPointSize(12);
@@ -237,15 +237,45 @@ public:
         gridLayout_14->setSpacing(0);
         gridLayout_14->setContentsMargins(0, 0, 0, 0);
         gridLayout_14->setObjectName(QString::fromUtf8("gridLayout_14"));
+        unlock_PsBtn = new QPushButton(sideBar_up_Frame);
+        unlock_PsBtn->setObjectName(QString::fromUtf8("unlock_PsBtn"));
+        unlock_PsBtn->setMaximumSize(QSize(46, 16777215));
+        QFont font1;
+        font1.setPointSize(12);
+        font1.setKerning(true);
+        unlock_PsBtn->setFont(font1);
+        unlock_PsBtn->setStyleSheet(QString::fromUtf8("QPushButton#unlock_PsBtn \n"
+"{\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius:5px;\n"
+"	min-width:2em;	\n"
+"	padding:4px;\n"
+"	border-image: url(:/pic/toolBtn2.png);\n"
+"}\n"
+"\n"
+"QPushButton#unlock_PsBtn:pressed\n"
+"{\n"
+"	border-style: inset;\n"
+"	border-image: url(:/pic/MessBtn1.png);\n"
+"}"));
+
+        gridLayout_14->addWidget(unlock_PsBtn, 0, 5, 1, 1);
+
         RS_maxCur_Label = new QLabel(sideBar_up_Frame);
         RS_maxCur_Label->setObjectName(QString::fromUtf8("RS_maxCur_Label"));
         sizePolicy.setHeightForWidth(RS_maxCur_Label->sizePolicy().hasHeightForWidth());
         RS_maxCur_Label->setSizePolicy(sizePolicy);
+        RS_maxCur_Label->setMinimumSize(QSize(0, 24));
         RS_maxCur_Label->setFont(font);
         RS_maxCur_Label->setContextMenuPolicy(Qt::NoContextMenu);
-        RS_maxCur_Label->setStyleSheet(QString::fromUtf8("color: rgb(0, 255, 0);"));
+        RS_maxCur_Label->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
+"border-width:2px;\n"
+"border-color: beige;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgba(23, 147, 255, 255);\n"
+""));
 
-        gridLayout_14->addWidget(RS_maxCur_Label, 0, 10, 1, 1);
+        gridLayout_14->addWidget(RS_maxCur_Label, 0, 15, 1, 1);
 
         RS_maxCur_tag_Label = new QLabel(sideBar_up_Frame);
         RS_maxCur_tag_Label->setObjectName(QString::fromUtf8("RS_maxCur_tag_Label"));
@@ -253,64 +283,96 @@ public:
         RS_maxCur_tag_Label->setSizePolicy(sizePolicy);
         RS_maxCur_tag_Label->setFont(font);
         RS_maxCur_tag_Label->setContextMenuPolicy(Qt::NoContextMenu);
-        RS_maxCur_tag_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+        RS_maxCur_tag_Label->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
+"border-width:2px;\n"
+"border-radius:10px;\n"
+"border-color: beige;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgba(23, 147, 255, 255);\n"
+"\n"
+""));
 
-        gridLayout_14->addWidget(RS_maxCur_tag_Label, 0, 9, 1, 1);
+        gridLayout_14->addWidget(RS_maxCur_tag_Label, 0, 14, 1, 1);
 
-        runTime_Label = new QLabel(sideBar_up_Frame);
-        runTime_Label->setObjectName(QString::fromUtf8("runTime_Label"));
-        runTime_Label->setFont(font);
-        runTime_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+        sideBar_up_HlSpacer_3 = new QSpacerItem(190, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        gridLayout_14->addWidget(runTime_Label, 0, 3, 1, 1);
-
-        sideBar_up_HlSpacer_2 = new QSpacerItem(30, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_14->addItem(sideBar_up_HlSpacer_2, 0, 5, 1, 1);
-
-        sideBar_up_HlSpacer_3 = new QSpacerItem(30, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_14->addItem(sideBar_up_HlSpacer_3, 0, 15, 1, 1);
-
-        runTime_LnEdit = new QLineEdit(sideBar_up_Frame);
-        runTime_LnEdit->setObjectName(QString::fromUtf8("runTime_LnEdit"));
-        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(runTime_LnEdit->sizePolicy().hasHeightForWidth());
-        runTime_LnEdit->setSizePolicy(sizePolicy1);
-        runTime_LnEdit->setMinimumSize(QSize(70, 0));
-        runTime_LnEdit->setMaximumSize(QSize(70, 16777215));
-        runTime_LnEdit->setFont(font);
-        runTime_LnEdit->setReadOnly(true);
-
-        gridLayout_14->addWidget(runTime_LnEdit, 0, 4, 1, 1);
+        gridLayout_14->addItem(sideBar_up_HlSpacer_3, 0, 20, 1, 1);
 
         battery_Label = new QLabel(sideBar_up_Frame);
         battery_Label->setObjectName(QString::fromUtf8("battery_Label"));
-        QSizePolicy sizePolicy2(QSizePolicy::MinimumExpanding, QSizePolicy::Minimum);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(battery_Label->sizePolicy().hasHeightForWidth());
-        battery_Label->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy1(QSizePolicy::MinimumExpanding, QSizePolicy::Minimum);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(battery_Label->sizePolicy().hasHeightForWidth());
+        battery_Label->setSizePolicy(sizePolicy1);
         battery_Label->setMinimumSize(QSize(45, 29));
         battery_Label->setMaximumSize(QSize(25, 33));
         battery_Label->setFont(font);
         battery_Label->setStyleSheet(QString::fromUtf8("border-image: url(:/pic/battery_1.png);"));
 
-        gridLayout_14->addWidget(battery_Label, 0, 18, 1, 1);
+        gridLayout_14->addWidget(battery_Label, 0, 23, 1, 1);
 
-        sideBar_up_HlSpacer_1 = new QSpacerItem(30, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        sideBar_up_HlSpacer = new QSpacerItem(10, 16, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        gridLayout_14->addItem(sideBar_up_HlSpacer_1, 0, 1, 1, 1);
+        gridLayout_14->addItem(sideBar_up_HlSpacer, 0, 13, 1, 1);
+
+        runTime_LnEdit = new QLineEdit(sideBar_up_Frame);
+        runTime_LnEdit->setObjectName(QString::fromUtf8("runTime_LnEdit"));
+        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(runTime_LnEdit->sizePolicy().hasHeightForWidth());
+        runTime_LnEdit->setSizePolicy(sizePolicy2);
+        runTime_LnEdit->setMinimumSize(QSize(0, 0));
+        runTime_LnEdit->setMaximumSize(QSize(70, 16777215));
+        runTime_LnEdit->setFont(font);
+        runTime_LnEdit->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
+"border-width:2px;\n"
+"border-color: beige;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgba(23, 147, 255, 255);\n"
+""));
+        runTime_LnEdit->setReadOnly(true);
+
+        gridLayout_14->addWidget(runTime_LnEdit, 0, 22, 1, 1);
 
         keyBoard_PsBtn = new QPushButton(sideBar_up_Frame);
         keyBoard_PsBtn->setObjectName(QString::fromUtf8("keyBoard_PsBtn"));
-        QFont font1;
-        font1.setPointSize(12);
-        keyBoard_PsBtn->setFont(font1);
+        keyBoard_PsBtn->setMaximumSize(QSize(53, 16777215));
+        QFont font2;
+        font2.setPointSize(12);
+        keyBoard_PsBtn->setFont(font2);
+        keyBoard_PsBtn->setStyleSheet(QString::fromUtf8("QPushButton#keyBoard_PsBtn \n"
+"{\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius:5px;\n"
+"	min-width:2em;	\n"
+"	padding:4px;\n"
+"	border-image: url(:/pic/toolBtn2.png);\n"
+"}\n"
+"\n"
+"QPushButton#keyBoard_PsBtn:pressed\n"
+"{\n"
+"	border-style: inset;\n"
+"	border-image: url(:/pic/MessBtn1.png);\n"
+"}"));
 
         gridLayout_14->addWidget(keyBoard_PsBtn, 0, 0, 1, 1);
+
+        runTime_Label = new QLabel(sideBar_up_Frame);
+        runTime_Label->setObjectName(QString::fromUtf8("runTime_Label"));
+        runTime_Label->setFont(font);
+        runTime_Label->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
+"border-width:2px;\n"
+"border-radius:10px;\n"
+"border-color: beige;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgba(23, 147, 255, 255);\n"
+"\n"
+"\n"
+""));
+
+        gridLayout_14->addWidget(runTime_Label, 0, 21, 1, 1);
 
         BMS_cntState_tag_Label = new QLabel(sideBar_up_Frame);
         BMS_cntState_tag_Label->setObjectName(QString::fromUtf8("BMS_cntState_tag_Label"));
@@ -318,65 +380,225 @@ public:
         BMS_cntState_tag_Label->setSizePolicy(sizePolicy);
         BMS_cntState_tag_Label->setFont(font);
         BMS_cntState_tag_Label->setContextMenuPolicy(Qt::NoContextMenu);
-        BMS_cntState_tag_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+        BMS_cntState_tag_Label->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
+"border-width:2px;\n"
+"border-radius:10px;\n"
+"border-color: beige;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgba(23, 147, 255, 255);\n"
+"\n"
+""));
 
-        gridLayout_14->addWidget(BMS_cntState_tag_Label, 0, 6, 1, 1);
+        gridLayout_14->addWidget(BMS_cntState_tag_Label, 0, 2, 1, 1);
 
         BMS_cntState_Label = new QLabel(sideBar_up_Frame);
         BMS_cntState_Label->setObjectName(QString::fromUtf8("BMS_cntState_Label"));
-        BMS_cntState_Label->setMinimumSize(QSize(20, 20));
+        QSizePolicy sizePolicy3(QSizePolicy::Fixed, QSizePolicy::Preferred);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(BMS_cntState_Label->sizePolicy().hasHeightForWidth());
+        BMS_cntState_Label->setSizePolicy(sizePolicy3);
+        BMS_cntState_Label->setMinimumSize(QSize(40, 20));
+        BMS_cntState_Label->setMaximumSize(QSize(40, 16777215));
         BMS_cntState_Label->setFont(font);
-        BMS_cntState_Label->setStyleSheet(QString::fromUtf8("color: rgb(0, 255, 0);"));
+        BMS_cntState_Label->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
+"border-width:2px;\n"
+"border-color: beige;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgba(23, 147, 255, 255);\n"
+""));
 
-        gridLayout_14->addWidget(BMS_cntState_Label, 0, 7, 1, 1);
+        gridLayout_14->addWidget(BMS_cntState_Label, 0, 3, 1, 1);
 
-        lock_RdBtn = new QRadioButton(sideBar_up_Frame);
-        lock_RdBtn->setObjectName(QString::fromUtf8("lock_RdBtn"));
-        sizePolicy.setHeightForWidth(lock_RdBtn->sizePolicy().hasHeightForWidth());
-        lock_RdBtn->setSizePolicy(sizePolicy);
-        lock_RdBtn->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+        sideBar_up_HlSpacer_5 = new QSpacerItem(10, 0, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        gridLayout_14->addWidget(lock_RdBtn, 0, 16, 1, 1);
+        gridLayout_14->addItem(sideBar_up_HlSpacer_5, 0, 1, 1, 1);
 
-        horizontalSpacer = new QSpacerItem(52, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        sideBar_up_HlSpacer_6 = new QSpacerItem(2, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        gridLayout_14->addItem(horizontalSpacer, 0, 17, 1, 1);
-
-        sideBar_up_HlSpacer = new QSpacerItem(30, 16, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_14->addItem(sideBar_up_HlSpacer, 0, 8, 1, 1);
+        gridLayout_14->addItem(sideBar_up_HlSpacer_6, 0, 4, 1, 1);
 
 
         gridLayout->addWidget(sideBar_up_Frame, 0, 0, 1, 2);
 
         main_SkWidget = new QStackedWidget(MainWidget);
         main_SkWidget->setObjectName(QString::fromUtf8("main_SkWidget"));
-        QSizePolicy sizePolicy3(QSizePolicy::Expanding, QSizePolicy::Minimum);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(main_SkWidget->sizePolicy().hasHeightForWidth());
-        main_SkWidget->setSizePolicy(sizePolicy3);
+        QSizePolicy sizePolicy4(QSizePolicy::Expanding, QSizePolicy::Minimum);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(main_SkWidget->sizePolicy().hasHeightForWidth());
+        main_SkWidget->setSizePolicy(sizePolicy4);
         main_SkWidget->setMaximumSize(QSize(16777215, 531));
         main_SkWidget->setFont(font);
         main_SkWidget->setLineWidth(0);
         test_power_Page = new QWidget();
         test_power_Page->setObjectName(QString::fromUtf8("test_power_Page"));
-        QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Expanding);
-        sizePolicy4.setHorizontalStretch(0);
-        sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(test_power_Page->sizePolicy().hasHeightForWidth());
-        test_power_Page->setSizePolicy(sizePolicy4);
+        QSizePolicy sizePolicy5(QSizePolicy::Minimum, QSizePolicy::Expanding);
+        sizePolicy5.setHorizontalStretch(0);
+        sizePolicy5.setVerticalStretch(0);
+        sizePolicy5.setHeightForWidth(test_power_Page->sizePolicy().hasHeightForWidth());
+        test_power_Page->setSizePolicy(sizePolicy5);
         gridLayout_16 = new QGridLayout(test_power_Page);
         gridLayout_16->setSpacing(0);
         gridLayout_16->setContentsMargins(0, 0, 0, 0);
         gridLayout_16->setObjectName(QString::fromUtf8("gridLayout_16"));
+        ME_energy_GpBox = new QGroupBox(test_power_Page);
+        ME_energy_GpBox->setObjectName(QString::fromUtf8("ME_energy_GpBox"));
+        QSizePolicy sizePolicy6(QSizePolicy::Fixed, QSizePolicy::Minimum);
+        sizePolicy6.setHorizontalStretch(0);
+        sizePolicy6.setVerticalStretch(1);
+        sizePolicy6.setHeightForWidth(ME_energy_GpBox->sizePolicy().hasHeightForWidth());
+        ME_energy_GpBox->setSizePolicy(sizePolicy6);
+        ME_energy_GpBox->setMinimumSize(QSize(425, 90));
+        ME_energy_GpBox->setMaximumSize(QSize(425, 116));
+        ME_energy_GpBox->setFont(font);
+        ME_energy_GpBox->setStyleSheet(QString::fromUtf8(" QGroupBox::title {\n"
+"     subcontrol-origin: margin;\n"
+"    \n"
+"     padding: 0 3px;\n"
+"	 color: rgb(255, 255, 255);\n"
+"\n"
+"\n"
+" }\n"
+"\n"
+" QGroupBox {\n"
+"    border: 1px solid rgb(18, 220, 200);\n"
+"    border-radius: 5px;\n"
+"    margin-top: 0ex; /* leave space at the top for the title */\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                     stop:0 rgba(7, 85, 75, 255),\n"
+"                     stop:1 rgba(10, 100, 75, 255));\n"
+" }\n"
+""));
+        gridLayout_22 = new QGridLayout(ME_energy_GpBox);
+        gridLayout_22->setSpacing(5);
+        gridLayout_22->setContentsMargins(11, 11, 11, 11);
+        gridLayout_22->setObjectName(QString::fromUtf8("gridLayout_22"));
+        gridLayout_22->setContentsMargins(2, 19, 2, 2);
+        ME_energy_std_Label = new QLabel(ME_energy_GpBox);
+        ME_energy_std_Label->setObjectName(QString::fromUtf8("ME_energy_std_Label"));
+        ME_energy_std_Label->setFont(font);
+        ME_energy_std_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        gridLayout_22->addWidget(ME_energy_std_Label, 0, 0, 1, 1);
+
+        ME_energy_std_LnEdit = new QLineEdit(ME_energy_GpBox);
+        ME_energy_std_LnEdit->setObjectName(QString::fromUtf8("ME_energy_std_LnEdit"));
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("Arial Narrow"));
+        font3.setPointSize(10);
+        ME_energy_std_LnEdit->setFont(font3);
+
+        gridLayout_22->addWidget(ME_energy_std_LnEdit, 0, 1, 1, 1);
+
+        lineEdit_6 = new QLineEdit(ME_energy_GpBox);
+        lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
+        lineEdit_6->setFont(font3);
+
+        gridLayout_22->addWidget(lineEdit_6, 0, 5, 1, 1);
+
+        RSMV_energy_pul_Label_5 = new QLabel(ME_energy_GpBox);
+        RSMV_energy_pul_Label_5->setObjectName(QString::fromUtf8("RSMV_energy_pul_Label_5"));
+        RSMV_energy_pul_Label_5->setFont(font);
+        RSMV_energy_pul_Label_5->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        gridLayout_22->addWidget(RSMV_energy_pul_Label_5, 0, 3, 1, 1);
+
+        RSMV_clearEnergy_PsBtn = new QPushButton(ME_energy_GpBox);
+        RSMV_clearEnergy_PsBtn->setObjectName(QString::fromUtf8("RSMV_clearEnergy_PsBtn"));
+        RSMV_clearEnergy_PsBtn->setFont(font);
+
+        gridLayout_22->addWidget(RSMV_clearEnergy_PsBtn, 1, 5, 1, 1);
+
+        ME_energy_object_Label = new QLabel(ME_energy_GpBox);
+        ME_energy_object_Label->setObjectName(QString::fromUtf8("ME_energy_object_Label"));
+        ME_energy_object_Label->setFont(font);
+        ME_energy_object_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        gridLayout_22->addWidget(ME_energy_object_Label, 1, 0, 1, 1);
+
+        ME_energy_object_LnEdit = new QLineEdit(ME_energy_GpBox);
+        ME_energy_object_LnEdit->setObjectName(QString::fromUtf8("ME_energy_object_LnEdit"));
+        ME_energy_object_LnEdit->setFont(font3);
+
+        gridLayout_22->addWidget(ME_energy_object_LnEdit, 1, 1, 1, 1);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_22->addItem(horizontalSpacer_5, 0, 2, 1, 1);
+
+
+        gridLayout_16->addWidget(ME_energy_GpBox, 2, 0, 1, 1);
+
+        ME_phasor_GpBox = new QGroupBox(test_power_Page);
+        ME_phasor_GpBox->setObjectName(QString::fromUtf8("ME_phasor_GpBox"));
+        QSizePolicy sizePolicy7(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy7.setHorizontalStretch(0);
+        sizePolicy7.setVerticalStretch(0);
+        sizePolicy7.setHeightForWidth(ME_phasor_GpBox->sizePolicy().hasHeightForWidth());
+        ME_phasor_GpBox->setSizePolicy(sizePolicy7);
+        ME_phasor_GpBox->setMinimumSize(QSize(0, 0));
+        ME_phasor_GpBox->setMaximumSize(QSize(301, 223));
+        ME_phasor_GpBox->setFont(font);
+        ME_phasor_GpBox->setStyleSheet(QString::fromUtf8(" QGroupBox::title {\n"
+"     subcontrol-origin: margin;\n"
+"     subcontrol-position: top center; /* position at the top center */\n"
+"     padding: 0 3px;\n"
+"	 color: rgb(255, 255, 255);\n"
+"    color: rgb(255, 255, 255);\n"
+"\n"
+" }\n"
+"\n"
+" QGroupBox {\n"
+"    border: 3px solid rgb(7, 85, 75);\n"
+"    border-radius: 5px;\n"
+"    margin-top: -1ex; /* leave space at the top for the title */\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                     stop:0 rgba(7, 85, 75, 255),\n"
+"                     stop:1 rgba(10, 100, 75, 255));\n"
+"\n"
+" }\n"
+"\n"
+""));
+        ME_phasor_GpBox->setCheckable(false);
+        gridLayout_15 = new QGridLayout(ME_phasor_GpBox);
+        gridLayout_15->setSpacing(0);
+        gridLayout_15->setContentsMargins(11, 11, 11, 11);
+        gridLayout_15->setObjectName(QString::fromUtf8("gridLayout_15"));
+        gridLayout_15->setContentsMargins(0, 25, 0, 2);
+        ME_phasor_Frame = new QFrame(ME_phasor_GpBox);
+        ME_phasor_Frame->setObjectName(QString::fromUtf8("ME_phasor_Frame"));
+        QSizePolicy sizePolicy8(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
+        sizePolicy8.setHorizontalStretch(0);
+        sizePolicy8.setVerticalStretch(0);
+        sizePolicy8.setHeightForWidth(ME_phasor_Frame->sizePolicy().hasHeightForWidth());
+        ME_phasor_Frame->setSizePolicy(sizePolicy8);
+        ME_phasor_Frame->setMinimumSize(QSize(200, 0));
+        QFont font4;
+        font4.setFamily(QString::fromUtf8("Kalinga"));
+        font4.setPointSize(9);
+        font4.setBold(false);
+        font4.setItalic(false);
+        font4.setWeight(50);
+        ME_phasor_Frame->setFont(font4);
+        ME_phasor_Frame->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
+"background-color: rgb(0, 0, 0);\n"
+"font: 9pt \"Kalinga\";"));
+        ME_phasor_Frame->setFrameShape(QFrame::StyledPanel);
+        ME_phasor_Frame->setFrameShadow(QFrame::Raised);
+
+        gridLayout_15->addWidget(ME_phasor_Frame, 0, 0, 1, 1);
+
+
+        gridLayout_16->addWidget(ME_phasor_GpBox, 0, 2, 1, 1);
+
         ES_TbWidget = new QTabWidget(test_power_Page);
         ES_TbWidget->setObjectName(QString::fromUtf8("ES_TbWidget"));
-        QSizePolicy sizePolicy5(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy5.setHorizontalStretch(0);
-        sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(ES_TbWidget->sizePolicy().hasHeightForWidth());
-        ES_TbWidget->setSizePolicy(sizePolicy5);
+        QSizePolicy sizePolicy9(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy9.setHorizontalStretch(0);
+        sizePolicy9.setVerticalStretch(0);
+        sizePolicy9.setHeightForWidth(ES_TbWidget->sizePolicy().hasHeightForWidth());
+        ES_TbWidget->setSizePolicy(sizePolicy9);
         ES_TbWidget->setMinimumSize(QSize(369, 226));
         ES_TbWidget->setMaximumSize(QSize(16777215, 225));
         ES_TbWidget->setFont(font);
@@ -410,23 +632,23 @@ public:
 "}"));
         ES_PE_tab = new QWidget();
         ES_PE_tab->setObjectName(QString::fromUtf8("ES_PE_tab"));
-        QSizePolicy sizePolicy6(QSizePolicy::Minimum, QSizePolicy::Preferred);
-        sizePolicy6.setHorizontalStretch(0);
-        sizePolicy6.setVerticalStretch(0);
-        sizePolicy6.setHeightForWidth(ES_PE_tab->sizePolicy().hasHeightForWidth());
-        ES_PE_tab->setSizePolicy(sizePolicy6);
+        QSizePolicy sizePolicy10(QSizePolicy::Minimum, QSizePolicy::Preferred);
+        sizePolicy10.setHorizontalStretch(0);
+        sizePolicy10.setVerticalStretch(0);
+        sizePolicy10.setHeightForWidth(ES_PE_tab->sizePolicy().hasHeightForWidth());
+        ES_PE_tab->setSizePolicy(sizePolicy10);
         gridLayout_27 = new QGridLayout(ES_PE_tab);
         gridLayout_27->setSpacing(0);
         gridLayout_27->setContentsMargins(0, 0, 0, 0);
         gridLayout_27->setObjectName(QString::fromUtf8("gridLayout_27"));
         ES_PE_Frame = new QFrame(ES_PE_tab);
         ES_PE_Frame->setObjectName(QString::fromUtf8("ES_PE_Frame"));
-        sizePolicy3.setHeightForWidth(ES_PE_Frame->sizePolicy().hasHeightForWidth());
-        ES_PE_Frame->setSizePolicy(sizePolicy3);
+        sizePolicy4.setHeightForWidth(ES_PE_Frame->sizePolicy().hasHeightForWidth());
+        ES_PE_Frame->setSizePolicy(sizePolicy4);
         ES_PE_Frame->setMaximumSize(QSize(16777215, 30));
-        QFont font2;
-        font2.setFamily(QString::fromUtf8("Arial Narrow"));
-        ES_PE_Frame->setFont(font2);
+        QFont font5;
+        font5.setFamily(QString::fromUtf8("Arial Narrow"));
+        ES_PE_Frame->setFont(font5);
         ES_PE_Frame->setStyleSheet(QString::fromUtf8("#ES_PE_Frame\n"
 "{\n"
 "    border: 1px solid rgb(18, 220, 200);\n"
@@ -448,13 +670,13 @@ public:
         gridLayout_12->setObjectName(QString::fromUtf8("gridLayout_12"));
         ES_PE_zoomOut_PsBtn = new QPushButton(ES_PE_Frame);
         ES_PE_zoomOut_PsBtn->setObjectName(QString::fromUtf8("ES_PE_zoomOut_PsBtn"));
-        ES_PE_zoomOut_PsBtn->setFont(font2);
+        ES_PE_zoomOut_PsBtn->setFont(font5);
 
         gridLayout_12->addWidget(ES_PE_zoomOut_PsBtn, 0, 1, 1, 1);
 
         ES_PE_zoomIn_PsBtn = new QPushButton(ES_PE_Frame);
         ES_PE_zoomIn_PsBtn->setObjectName(QString::fromUtf8("ES_PE_zoomIn_PsBtn"));
-        ES_PE_zoomIn_PsBtn->setFont(font2);
+        ES_PE_zoomIn_PsBtn->setFont(font5);
 
         gridLayout_12->addWidget(ES_PE_zoomIn_PsBtn, 0, 2, 1, 1);
 
@@ -467,14 +689,14 @@ public:
 
         ES_PE_QwtPlot = new QwtPlot(ES_PE_tab);
         ES_PE_QwtPlot->setObjectName(QString::fromUtf8("ES_PE_QwtPlot"));
-        QSizePolicy sizePolicy7(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        sizePolicy7.setHorizontalStretch(0);
-        sizePolicy7.setVerticalStretch(0);
-        sizePolicy7.setHeightForWidth(ES_PE_QwtPlot->sizePolicy().hasHeightForWidth());
-        ES_PE_QwtPlot->setSizePolicy(sizePolicy7);
+        QSizePolicy sizePolicy11(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy11.setHorizontalStretch(0);
+        sizePolicy11.setVerticalStretch(0);
+        sizePolicy11.setHeightForWidth(ES_PE_QwtPlot->sizePolicy().hasHeightForWidth());
+        ES_PE_QwtPlot->setSizePolicy(sizePolicy11);
         ES_PE_QwtPlot->setMinimumSize(QSize(0, 160));
         ES_PE_QwtPlot->setMaximumSize(QSize(16777215, 160));
-        ES_PE_QwtPlot->setFont(font2);
+        ES_PE_QwtPlot->setFont(font5);
         ES_PE_QwtPlot->setStyleSheet(QString::fromUtf8("color: rgb(0, 170, 255);\n"
 "background-color: rgb(0, 0, 0);"));
 
@@ -489,13 +711,13 @@ public:
         gridLayout_28->setObjectName(QString::fromUtf8("gridLayout_28"));
         ES_wave_Frame = new QFrame(ES_wave_tab);
         ES_wave_Frame->setObjectName(QString::fromUtf8("ES_wave_Frame"));
-        sizePolicy3.setHeightForWidth(ES_wave_Frame->sizePolicy().hasHeightForWidth());
-        ES_wave_Frame->setSizePolicy(sizePolicy3);
+        sizePolicy4.setHeightForWidth(ES_wave_Frame->sizePolicy().hasHeightForWidth());
+        ES_wave_Frame->setSizePolicy(sizePolicy4);
         ES_wave_Frame->setMaximumSize(QSize(16777215, 30));
-        QFont font3;
-        font3.setFamily(QString::fromUtf8("Kalinga"));
-        font3.setPointSize(12);
-        ES_wave_Frame->setFont(font3);
+        QFont font6;
+        font6.setFamily(QString::fromUtf8("Kalinga"));
+        font6.setPointSize(12);
+        ES_wave_Frame->setFont(font6);
         ES_wave_Frame->setStyleSheet(QString::fromUtf8("#ES_wave_Frame\n"
 "{\n"
 " border: 1px solid rgb(18, 220, 200);\n"
@@ -518,7 +740,7 @@ public:
         ES_wave_CkBox->setObjectName(QString::fromUtf8("ES_wave_CkBox"));
         sizePolicy.setHeightForWidth(ES_wave_CkBox->sizePolicy().hasHeightForWidth());
         ES_wave_CkBox->setSizePolicy(sizePolicy);
-        ES_wave_CkBox->setFont(font3);
+        ES_wave_CkBox->setFont(font6);
         ES_wave_CkBox->setLayoutDirection(Qt::RightToLeft);
         ES_wave_CkBox->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
@@ -533,12 +755,12 @@ public:
 
         ES_wave_QwtPlot = new QwtPlot(ES_wave_tab);
         ES_wave_QwtPlot->setObjectName(QString::fromUtf8("ES_wave_QwtPlot"));
-        sizePolicy7.setHeightForWidth(ES_wave_QwtPlot->sizePolicy().hasHeightForWidth());
-        ES_wave_QwtPlot->setSizePolicy(sizePolicy7);
+        sizePolicy11.setHeightForWidth(ES_wave_QwtPlot->sizePolicy().hasHeightForWidth());
+        ES_wave_QwtPlot->setSizePolicy(sizePolicy11);
         ES_wave_QwtPlot->setMinimumSize(QSize(0, 0));
-        QFont font4;
-        font4.setFamily(QString::fromUtf8("Kalinga"));
-        ES_wave_QwtPlot->setFont(font4);
+        QFont font7;
+        font7.setFamily(QString::fromUtf8("Kalinga"));
+        ES_wave_QwtPlot->setFont(font7);
         ES_wave_QwtPlot->setStyleSheet(QString::fromUtf8("color: rgb(0, 170, 255);\n"
 "background-color: rgb(0, 0, 0);"));
 
@@ -548,67 +770,84 @@ public:
 
         gridLayout_16->addWidget(ES_TbWidget, 0, 0, 1, 2);
 
-        ME_phasor_GpBox = new QGroupBox(test_power_Page);
-        ME_phasor_GpBox->setObjectName(QString::fromUtf8("ME_phasor_GpBox"));
-        QSizePolicy sizePolicy8(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy8.setHorizontalStretch(0);
-        sizePolicy8.setVerticalStretch(0);
-        sizePolicy8.setHeightForWidth(ME_phasor_GpBox->sizePolicy().hasHeightForWidth());
-        ME_phasor_GpBox->setSizePolicy(sizePolicy8);
-        ME_phasor_GpBox->setMinimumSize(QSize(0, 0));
-        ME_phasor_GpBox->setMaximumSize(QSize(301, 223));
-        ME_phasor_GpBox->setFont(font);
-        ME_phasor_GpBox->setStyleSheet(QString::fromUtf8(" QGroupBox::title {\n"
+        ES_value_GpBox = new QGroupBox(test_power_Page);
+        ES_value_GpBox->setObjectName(QString::fromUtf8("ES_value_GpBox"));
+        QSizePolicy sizePolicy12(QSizePolicy::Fixed, QSizePolicy::Minimum);
+        sizePolicy12.setHorizontalStretch(0);
+        sizePolicy12.setVerticalStretch(0);
+        sizePolicy12.setHeightForWidth(ES_value_GpBox->sizePolicy().hasHeightForWidth());
+        ES_value_GpBox->setSizePolicy(sizePolicy12);
+        ES_value_GpBox->setMinimumSize(QSize(302, 75));
+        ES_value_GpBox->setMaximumSize(QSize(302, 160));
+        ES_value_GpBox->setFont(font);
+        ES_value_GpBox->setStyleSheet(QString::fromUtf8(" QGroupBox::title {\n"
 "     subcontrol-origin: margin;\n"
-"     subcontrol-position: top center; /* position at the top center */\n"
+"\n"
 "     padding: 0 3px;\n"
 "	 color: rgb(255, 255, 255);\n"
-"    color: rgb(255, 255, 255);\n"
+"\n"
 "\n"
 " }\n"
 "\n"
 " QGroupBox {\n"
-"    border: 3px solid rgb(7, 85, 75);\n"
+"    border: 1px solid rgb(18, 220, 200);\n"
 "    border-radius: 5px;\n"
-"    margin-top: -1ex; /* leave space at the top for the title */\n"
+"    margin-top: 0ex; /* leave space at the top for the title */\n"
 "    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                     stop:0 rgba(7, 85, 75, 255),\n"
 "                     stop:1 rgba(10, 100, 75, 255));\n"
-"\n"
 " }\n"
-"\n"
 ""));
-        ME_phasor_GpBox->setCheckable(false);
-        gridLayout_15 = new QGridLayout(ME_phasor_GpBox);
-        gridLayout_15->setSpacing(0);
-        gridLayout_15->setContentsMargins(11, 11, 11, 11);
-        gridLayout_15->setObjectName(QString::fromUtf8("gridLayout_15"));
-        gridLayout_15->setContentsMargins(0, 25, 0, 2);
-        ME_phasor_Frame = new QFrame(ME_phasor_GpBox);
-        ME_phasor_Frame->setObjectName(QString::fromUtf8("ME_phasor_Frame"));
-        QSizePolicy sizePolicy9(QSizePolicy::Preferred, QSizePolicy::MinimumExpanding);
-        sizePolicy9.setHorizontalStretch(0);
-        sizePolicy9.setVerticalStretch(0);
-        sizePolicy9.setHeightForWidth(ME_phasor_Frame->sizePolicy().hasHeightForWidth());
-        ME_phasor_Frame->setSizePolicy(sizePolicy9);
-        ME_phasor_Frame->setMinimumSize(QSize(200, 0));
-        QFont font5;
-        font5.setFamily(QString::fromUtf8("Kalinga"));
-        font5.setPointSize(9);
-        font5.setBold(false);
-        font5.setItalic(false);
-        font5.setWeight(50);
-        ME_phasor_Frame->setFont(font5);
-        ME_phasor_Frame->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
-"background-color: rgb(0, 0, 0);\n"
-"font: 9pt \"Kalinga\";"));
-        ME_phasor_Frame->setFrameShape(QFrame::StyledPanel);
-        ME_phasor_Frame->setFrameShadow(QFrame::Raised);
+        ES_value_GpBox->setAlignment(Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft);
+        gridLayout_23 = new QGridLayout(ES_value_GpBox);
+        gridLayout_23->setSpacing(5);
+        gridLayout_23->setContentsMargins(11, 11, 11, 11);
+        gridLayout_23->setObjectName(QString::fromUtf8("gridLayout_23"));
+        gridLayout_23->setContentsMargins(0, 20, 2, 2);
+        serPort_EVT_PsBtn = new QPushButton(ES_value_GpBox);
+        serPort_EVT_PsBtn->setObjectName(QString::fromUtf8("serPort_EVT_PsBtn"));
+        serPort_EVT_PsBtn->setFont(font2);
 
-        gridLayout_15->addWidget(ME_phasor_Frame, 0, 0, 1, 1);
+        gridLayout_23->addWidget(serPort_EVT_PsBtn, 1, 4, 1, 1);
+
+        ES_PE_Label = new QLabel(ES_value_GpBox);
+        ES_PE_Label->setObjectName(QString::fromUtf8("ES_PE_Label"));
+        ES_PE_Label->setFont(font);
+        ES_PE_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        gridLayout_23->addWidget(ES_PE_Label, 0, 1, 1, 1);
+
+        ES_PE_LnEdit = new QLineEdit(ES_value_GpBox);
+        ES_PE_LnEdit->setObjectName(QString::fromUtf8("ES_PE_LnEdit"));
+        ES_PE_LnEdit->setFont(font3);
+
+        gridLayout_23->addWidget(ES_PE_LnEdit, 0, 2, 1, 1);
+
+        ES_TE_Label = new QLabel(ES_value_GpBox);
+        ES_TE_Label->setObjectName(QString::fromUtf8("ES_TE_Label"));
+        ES_TE_Label->setFont(font);
+        ES_TE_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        gridLayout_23->addWidget(ES_TE_Label, 1, 1, 1, 1);
+
+        ES_TE_LnEdit = new QLineEdit(ES_value_GpBox);
+        ES_TE_LnEdit->setObjectName(QString::fromUtf8("ES_TE_LnEdit"));
+        ES_TE_LnEdit->setFont(font3);
+
+        gridLayout_23->addWidget(ES_TE_LnEdit, 1, 2, 1, 1);
+
+        ES_insertForm_PsBtn = new QPushButton(ES_value_GpBox);
+        ES_insertForm_PsBtn->setObjectName(QString::fromUtf8("ES_insertForm_PsBtn"));
+        ES_insertForm_PsBtn->setFont(font2);
+
+        gridLayout_23->addWidget(ES_insertForm_PsBtn, 0, 4, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_23->addItem(horizontalSpacer, 0, 3, 1, 1);
 
 
-        gridLayout_16->addWidget(ME_phasor_GpBox, 0, 2, 1, 1);
+        gridLayout_16->addWidget(ES_value_GpBox, 2, 1, 1, 2);
 
         ES_standard_TblWidget = new QTableWidget(test_power_Page);
         if (ES_standard_TblWidget->columnCount() < 8)
@@ -641,12 +880,12 @@ public:
         ES_standard_TblWidget->setVerticalHeaderItem(3, __qtablewidgetitem11);
         QBrush brush(QColor(255, 255, 0, 255));
         brush.setStyle(Qt::NoBrush);
-        QFont font6;
-        font6.setBold(false);
-        font6.setWeight(50);
+        QFont font8;
+        font8.setBold(false);
+        font8.setWeight(50);
         QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
         __qtablewidgetitem12->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem12->setFont(font6);
+        __qtablewidgetitem12->setFont(font8);
         __qtablewidgetitem12->setForeground(brush);
         __qtablewidgetitem12->setFlags(Qt::NoItemFlags);
         ES_standard_TblWidget->setItem(0, 0, __qtablewidgetitem12);
@@ -654,7 +893,7 @@ public:
         brush1.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
         __qtablewidgetitem13->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem13->setFont(font6);
+        __qtablewidgetitem13->setFont(font8);
         __qtablewidgetitem13->setForeground(brush1);
         __qtablewidgetitem13->setFlags(Qt::NoItemFlags);
         ES_standard_TblWidget->setItem(0, 1, __qtablewidgetitem13);
@@ -808,13 +1047,13 @@ public:
         __qtablewidgetitem35->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
         __qtablewidgetitem35->setForeground(brush25);
         ES_standard_TblWidget->setItem(2, 7, __qtablewidgetitem35);
-        QBrush brush26(QColor(0, 170, 255, 255));
+        QBrush brush26(QColor(255, 255, 0, 255));
         brush26.setStyle(Qt::SolidPattern);
         QTableWidgetItem *__qtablewidgetitem36 = new QTableWidgetItem();
         __qtablewidgetitem36->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
         __qtablewidgetitem36->setForeground(brush26);
         ES_standard_TblWidget->setItem(3, 0, __qtablewidgetitem36);
-        QBrush brush27(QColor(0, 170, 255, 255));
+        QBrush brush27(QColor(255, 255, 0, 255));
         brush27.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem37 = new QTableWidgetItem();
         __qtablewidgetitem37->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
@@ -826,28 +1065,30 @@ public:
         __qtablewidgetitem38->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
         __qtablewidgetitem38->setForeground(brush28);
         ES_standard_TblWidget->setItem(3, 2, __qtablewidgetitem38);
+        QBrush brush29(QColor(0, 170, 255, 255));
+        brush29.setStyle(Qt::SolidPattern);
         QTableWidgetItem *__qtablewidgetitem39 = new QTableWidgetItem();
         __qtablewidgetitem39->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem39->setForeground(brush26);
+        __qtablewidgetitem39->setForeground(brush29);
         ES_standard_TblWidget->setItem(3, 3, __qtablewidgetitem39);
-        QBrush brush29(QColor(0, 170, 255, 255));
-        brush29.setStyle(Qt::NoBrush);
-        QTableWidgetItem *__qtablewidgetitem40 = new QTableWidgetItem();
-        __qtablewidgetitem40->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem40->setForeground(brush29);
-        ES_standard_TblWidget->setItem(3, 4, __qtablewidgetitem40);
         QBrush brush30(QColor(0, 170, 255, 255));
         brush30.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem40 = new QTableWidgetItem();
+        __qtablewidgetitem40->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem40->setForeground(brush30);
+        ES_standard_TblWidget->setItem(3, 4, __qtablewidgetitem40);
+        QBrush brush31(QColor(0, 170, 255, 255));
+        brush31.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem41 = new QTableWidgetItem();
         __qtablewidgetitem41->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem41->setForeground(brush30);
+        __qtablewidgetitem41->setForeground(brush31);
         ES_standard_TblWidget->setItem(3, 5, __qtablewidgetitem41);
         ES_standard_TblWidget->setObjectName(QString::fromUtf8("ES_standard_TblWidget"));
         sizePolicy.setHeightForWidth(ES_standard_TblWidget->sizePolicy().hasHeightForWidth());
         ES_standard_TblWidget->setSizePolicy(sizePolicy);
         ES_standard_TblWidget->setMinimumSize(QSize(0, 162));
         ES_standard_TblWidget->setMaximumSize(QSize(16777215, 164));
-        ES_standard_TblWidget->setFont(font5);
+        ES_standard_TblWidget->setFont(font4);
         ES_standard_TblWidget->setStyleSheet(QString::fromUtf8("gridline-color: rgb(18, 220, 200);\n"
 "background-color: rgb(0, 0, 0);\n"
 "font: 9pt \"Kalinga\";\n"
@@ -862,162 +1103,6 @@ public:
         ES_standard_TblWidget->verticalHeader()->setDefaultSectionSize(40);
 
         gridLayout_16->addWidget(ES_standard_TblWidget, 1, 0, 1, 3);
-
-        ME_energy_GpBox = new QGroupBox(test_power_Page);
-        ME_energy_GpBox->setObjectName(QString::fromUtf8("ME_energy_GpBox"));
-        QSizePolicy sizePolicy10(QSizePolicy::Expanding, QSizePolicy::Minimum);
-        sizePolicy10.setHorizontalStretch(0);
-        sizePolicy10.setVerticalStretch(1);
-        sizePolicy10.setHeightForWidth(ME_energy_GpBox->sizePolicy().hasHeightForWidth());
-        ME_energy_GpBox->setSizePolicy(sizePolicy10);
-        ME_energy_GpBox->setMinimumSize(QSize(470, 90));
-        ME_energy_GpBox->setMaximumSize(QSize(470, 116));
-        ME_energy_GpBox->setFont(font);
-        ME_energy_GpBox->setStyleSheet(QString::fromUtf8(" QGroupBox::title {\n"
-"     subcontrol-origin: margin;\n"
-"    \n"
-"     padding: 0 3px;\n"
-"	 color: rgb(255, 255, 255);\n"
-"\n"
-"\n"
-" }\n"
-"\n"
-" QGroupBox {\n"
-"    border: 1px solid rgb(18, 220, 200);\n"
-"    border-radius: 5px;\n"
-"    margin-top: 0ex; /* leave space at the top for the title */\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                     stop:0 rgba(7, 85, 75, 255),\n"
-"                     stop:1 rgba(10, 100, 75, 255));\n"
-" }\n"
-""));
-        gridLayout_22 = new QGridLayout(ME_energy_GpBox);
-        gridLayout_22->setSpacing(5);
-        gridLayout_22->setContentsMargins(11, 11, 11, 11);
-        gridLayout_22->setObjectName(QString::fromUtf8("gridLayout_22"));
-        gridLayout_22->setContentsMargins(2, 19, 2, 2);
-        ME_energy_std_Label = new QLabel(ME_energy_GpBox);
-        ME_energy_std_Label->setObjectName(QString::fromUtf8("ME_energy_std_Label"));
-        ME_energy_std_Label->setFont(font);
-        ME_energy_std_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_22->addWidget(ME_energy_std_Label, 0, 0, 1, 1);
-
-        ME_energy_std_LnEdit = new QLineEdit(ME_energy_GpBox);
-        ME_energy_std_LnEdit->setObjectName(QString::fromUtf8("ME_energy_std_LnEdit"));
-        QFont font7;
-        font7.setFamily(QString::fromUtf8("Arial Narrow"));
-        font7.setPointSize(10);
-        ME_energy_std_LnEdit->setFont(font7);
-
-        gridLayout_22->addWidget(ME_energy_std_LnEdit, 0, 1, 1, 1);
-
-        lineEdit_6 = new QLineEdit(ME_energy_GpBox);
-        lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
-        lineEdit_6->setFont(font7);
-
-        gridLayout_22->addWidget(lineEdit_6, 0, 4, 1, 1);
-
-        RSMV_energy_pul_Label_5 = new QLabel(ME_energy_GpBox);
-        RSMV_energy_pul_Label_5->setObjectName(QString::fromUtf8("RSMV_energy_pul_Label_5"));
-        RSMV_energy_pul_Label_5->setFont(font);
-        RSMV_energy_pul_Label_5->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_22->addWidget(RSMV_energy_pul_Label_5, 0, 2, 1, 1);
-
-        RSMV_clearEnergy_PsBtn = new QPushButton(ME_energy_GpBox);
-        RSMV_clearEnergy_PsBtn->setObjectName(QString::fromUtf8("RSMV_clearEnergy_PsBtn"));
-        RSMV_clearEnergy_PsBtn->setFont(font);
-
-        gridLayout_22->addWidget(RSMV_clearEnergy_PsBtn, 1, 4, 1, 1);
-
-        ME_energy_object_Label = new QLabel(ME_energy_GpBox);
-        ME_energy_object_Label->setObjectName(QString::fromUtf8("ME_energy_object_Label"));
-        ME_energy_object_Label->setFont(font);
-        ME_energy_object_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_22->addWidget(ME_energy_object_Label, 1, 0, 1, 1);
-
-        ME_energy_object_LnEdit = new QLineEdit(ME_energy_GpBox);
-        ME_energy_object_LnEdit->setObjectName(QString::fromUtf8("ME_energy_object_LnEdit"));
-        ME_energy_object_LnEdit->setFont(font7);
-
-        gridLayout_22->addWidget(ME_energy_object_LnEdit, 1, 1, 1, 1);
-
-
-        gridLayout_16->addWidget(ME_energy_GpBox, 2, 0, 1, 1);
-
-        ES_value_GpBox = new QGroupBox(test_power_Page);
-        ES_value_GpBox->setObjectName(QString::fromUtf8("ES_value_GpBox"));
-        sizePolicy3.setHeightForWidth(ES_value_GpBox->sizePolicy().hasHeightForWidth());
-        ES_value_GpBox->setSizePolicy(sizePolicy3);
-        ES_value_GpBox->setMinimumSize(QSize(0, 75));
-        ES_value_GpBox->setMaximumSize(QSize(16777215, 160));
-        ES_value_GpBox->setFont(font);
-        ES_value_GpBox->setStyleSheet(QString::fromUtf8(" QGroupBox::title {\n"
-"     subcontrol-origin: margin;\n"
-"\n"
-"     padding: 0 3px;\n"
-"	 color: rgb(255, 255, 255);\n"
-"\n"
-"\n"
-" }\n"
-"\n"
-" QGroupBox {\n"
-"    border: 1px solid rgb(18, 220, 200);\n"
-"    border-radius: 5px;\n"
-"    margin-top: 0ex; /* leave space at the top for the title */\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                     stop:0 rgba(7, 85, 75, 255),\n"
-"                     stop:1 rgba(10, 100, 75, 255));\n"
-" }\n"
-""));
-        ES_value_GpBox->setAlignment(Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft);
-        gridLayout_23 = new QGridLayout(ES_value_GpBox);
-        gridLayout_23->setSpacing(5);
-        gridLayout_23->setContentsMargins(11, 11, 11, 11);
-        gridLayout_23->setObjectName(QString::fromUtf8("gridLayout_23"));
-        gridLayout_23->setContentsMargins(0, 20, 2, 2);
-        serPort_EVT_PsBtn = new QPushButton(ES_value_GpBox);
-        serPort_EVT_PsBtn->setObjectName(QString::fromUtf8("serPort_EVT_PsBtn"));
-        serPort_EVT_PsBtn->setFont(font1);
-
-        gridLayout_23->addWidget(serPort_EVT_PsBtn, 1, 4, 1, 1);
-
-        ES_PE_Label = new QLabel(ES_value_GpBox);
-        ES_PE_Label->setObjectName(QString::fromUtf8("ES_PE_Label"));
-        ES_PE_Label->setFont(font);
-        ES_PE_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_23->addWidget(ES_PE_Label, 0, 1, 1, 1);
-
-        ES_PE_LnEdit = new QLineEdit(ES_value_GpBox);
-        ES_PE_LnEdit->setObjectName(QString::fromUtf8("ES_PE_LnEdit"));
-        ES_PE_LnEdit->setFont(font7);
-
-        gridLayout_23->addWidget(ES_PE_LnEdit, 0, 2, 1, 1);
-
-        ES_TE_Label = new QLabel(ES_value_GpBox);
-        ES_TE_Label->setObjectName(QString::fromUtf8("ES_TE_Label"));
-        ES_TE_Label->setFont(font);
-        ES_TE_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_23->addWidget(ES_TE_Label, 1, 1, 1, 1);
-
-        ES_TE_LnEdit = new QLineEdit(ES_value_GpBox);
-        ES_TE_LnEdit->setObjectName(QString::fromUtf8("ES_TE_LnEdit"));
-        ES_TE_LnEdit->setFont(font7);
-
-        gridLayout_23->addWidget(ES_TE_LnEdit, 1, 2, 1, 1);
-
-        ES_insertForm_PsBtn = new QPushButton(ES_value_GpBox);
-        ES_insertForm_PsBtn->setObjectName(QString::fromUtf8("ES_insertForm_PsBtn"));
-        ES_insertForm_PsBtn->setFont(font1);
-
-        gridLayout_23->addWidget(ES_insertForm_PsBtn, 0, 4, 1, 1);
-
-
-        gridLayout_16->addWidget(ES_value_GpBox, 2, 1, 1, 2);
 
         main_SkWidget->addWidget(test_power_Page);
         test_ripple_Page = new QWidget();
@@ -1036,8 +1121,8 @@ public:
 
         RSMV_harmonic_Frame = new QFrame(test_ripple_Page);
         RSMV_harmonic_Frame->setObjectName(QString::fromUtf8("RSMV_harmonic_Frame"));
-        sizePolicy3.setHeightForWidth(RSMV_harmonic_Frame->sizePolicy().hasHeightForWidth());
-        RSMV_harmonic_Frame->setSizePolicy(sizePolicy3);
+        sizePolicy4.setHeightForWidth(RSMV_harmonic_Frame->sizePolicy().hasHeightForWidth());
+        RSMV_harmonic_Frame->setSizePolicy(sizePolicy4);
         RSMV_harmonic_Frame->setMinimumSize(QSize(0, 45));
         RSMV_harmonic_Frame->setMaximumSize(QSize(16777215, 48));
         RSMV_harmonic_Frame->setStyleSheet(QString::fromUtf8("#RSMV_harmonic_Frame{\n"
@@ -1053,17 +1138,10 @@ public:
         gridLayout_10->setSpacing(0);
         gridLayout_10->setContentsMargins(0, 0, 0, 0);
         gridLayout_10->setObjectName(QString::fromUtf8("gridLayout_10"));
-        RSMV_Harmonic_Phase_Label = new QLabel(RSMV_harmonic_Frame);
-        RSMV_Harmonic_Phase_Label->setObjectName(QString::fromUtf8("RSMV_Harmonic_Phase_Label"));
-        RSMV_Harmonic_Phase_Label->setFont(font3);
-        RSMV_Harmonic_Phase_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_10->addWidget(RSMV_Harmonic_Phase_Label, 0, 0, 1, 1);
-
         RSMV_Harmonic_Phase_CbBox = new QComboBox(RSMV_harmonic_Frame);
         RSMV_Harmonic_Phase_CbBox->setObjectName(QString::fromUtf8("RSMV_Harmonic_Phase_CbBox"));
         RSMV_Harmonic_Phase_CbBox->setMinimumSize(QSize(60, 30));
-        RSMV_Harmonic_Phase_CbBox->setFont(font3);
+        RSMV_Harmonic_Phase_CbBox->setFont(font6);
         RSMV_Harmonic_Phase_CbBox->setStyleSheet(QString::fromUtf8("\n"
 "QScrollBar:vertical\n"
 "{\n"
@@ -1077,20 +1155,27 @@ public:
 
         RSMV_Harmonic_Times_Label = new QLabel(RSMV_harmonic_Frame);
         RSMV_Harmonic_Times_Label->setObjectName(QString::fromUtf8("RSMV_Harmonic_Times_Label"));
-        RSMV_Harmonic_Times_Label->setFont(font3);
-        RSMV_Harmonic_Times_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+        RSMV_Harmonic_Times_Label->setFont(font6);
+        RSMV_Harmonic_Times_Label->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
+"border-width:2px;\n"
+"border-radius:10px;\n"
+"border-color: beige;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgba(23, 147, 255, 255);\n"
+"\n"
+""));
 
         gridLayout_10->addWidget(RSMV_Harmonic_Times_Label, 0, 3, 1, 1);
 
         RSMV_Harmonic_Times_CbBox = new QComboBox(RSMV_harmonic_Frame);
         RSMV_Harmonic_Times_CbBox->setObjectName(QString::fromUtf8("RSMV_Harmonic_Times_CbBox"));
-        QSizePolicy sizePolicy11(QSizePolicy::Preferred, QSizePolicy::Fixed);
-        sizePolicy11.setHorizontalStretch(0);
-        sizePolicy11.setVerticalStretch(0);
-        sizePolicy11.setHeightForWidth(RSMV_Harmonic_Times_CbBox->sizePolicy().hasHeightForWidth());
-        RSMV_Harmonic_Times_CbBox->setSizePolicy(sizePolicy11);
+        QSizePolicy sizePolicy13(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy13.setHorizontalStretch(0);
+        sizePolicy13.setVerticalStretch(0);
+        sizePolicy13.setHeightForWidth(RSMV_Harmonic_Times_CbBox->sizePolicy().hasHeightForWidth());
+        RSMV_Harmonic_Times_CbBox->setSizePolicy(sizePolicy13);
         RSMV_Harmonic_Times_CbBox->setMinimumSize(QSize(60, 30));
-        RSMV_Harmonic_Times_CbBox->setFont(font3);
+        RSMV_Harmonic_Times_CbBox->setFont(font6);
         RSMV_Harmonic_Times_CbBox->setStyleSheet(QString::fromUtf8("\n"
 "QScrollBar:vertical\n"
 "{\n"
@@ -1104,18 +1189,25 @@ public:
 
         RSMV_Harmonic_Range_Label = new QLabel(RSMV_harmonic_Frame);
         RSMV_Harmonic_Range_Label->setObjectName(QString::fromUtf8("RSMV_Harmonic_Range_Label"));
-        RSMV_Harmonic_Range_Label->setFont(font3);
-        RSMV_Harmonic_Range_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+        RSMV_Harmonic_Range_Label->setFont(font6);
+        RSMV_Harmonic_Range_Label->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
+"border-width:2px;\n"
+"border-radius:10px;\n"
+"border-color: beige;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgba(23, 147, 255, 255);\n"
+"\n"
+""));
 
         gridLayout_10->addWidget(RSMV_Harmonic_Range_Label, 0, 7, 1, 1);
 
         RSMV_Harmonic_Range_HSlider = new QSlider(RSMV_harmonic_Frame);
         RSMV_Harmonic_Range_HSlider->setObjectName(QString::fromUtf8("RSMV_Harmonic_Range_HSlider"));
         RSMV_Harmonic_Range_HSlider->setMinimumSize(QSize(0, 30));
-        QFont font8;
-        font8.setFamily(QString::fromUtf8("Kalinga"));
-        font8.setPointSize(9);
-        RSMV_Harmonic_Range_HSlider->setFont(font8);
+        QFont font9;
+        font9.setFamily(QString::fromUtf8("Kalinga"));
+        font9.setPointSize(9);
+        RSMV_Harmonic_Range_HSlider->setFont(font9);
         RSMV_Harmonic_Range_HSlider->setMaximum(100);
         RSMV_Harmonic_Range_HSlider->setSingleStep(0);
         RSMV_Harmonic_Range_HSlider->setValue(1);
@@ -1133,15 +1225,20 @@ public:
 
         RSMV_Harmonic_LnEdit_Range = new QLineEdit(RSMV_harmonic_Frame);
         RSMV_Harmonic_LnEdit_Range->setObjectName(QString::fromUtf8("RSMV_Harmonic_LnEdit_Range"));
-        QSizePolicy sizePolicy12(QSizePolicy::Maximum, QSizePolicy::Fixed);
-        sizePolicy12.setHorizontalStretch(0);
-        sizePolicy12.setVerticalStretch(0);
-        sizePolicy12.setHeightForWidth(RSMV_Harmonic_LnEdit_Range->sizePolicy().hasHeightForWidth());
-        RSMV_Harmonic_LnEdit_Range->setSizePolicy(sizePolicy12);
+        QSizePolicy sizePolicy14(QSizePolicy::Maximum, QSizePolicy::Fixed);
+        sizePolicy14.setHorizontalStretch(0);
+        sizePolicy14.setVerticalStretch(0);
+        sizePolicy14.setHeightForWidth(RSMV_Harmonic_LnEdit_Range->sizePolicy().hasHeightForWidth());
+        RSMV_Harmonic_LnEdit_Range->setSizePolicy(sizePolicy14);
         RSMV_Harmonic_LnEdit_Range->setMinimumSize(QSize(0, 30));
         RSMV_Harmonic_LnEdit_Range->setMaximumSize(QSize(100, 16777215));
-        RSMV_Harmonic_LnEdit_Range->setFont(font3);
-        RSMV_Harmonic_LnEdit_Range->setStyleSheet(QString::fromUtf8(""));
+        RSMV_Harmonic_LnEdit_Range->setFont(font6);
+        RSMV_Harmonic_LnEdit_Range->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
+"border-width:2px;\n"
+"border-color: beige;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgba(23, 147, 255, 255);\n"
+""));
         RSMV_Harmonic_LnEdit_Range->setReadOnly(true);
 
         gridLayout_10->addWidget(RSMV_Harmonic_LnEdit_Range, 0, 10, 1, 1);
@@ -1153,6 +1250,20 @@ public:
         horizontalSpacer_12 = new QSpacerItem(30, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout_10->addItem(horizontalSpacer_12, 0, 9, 1, 1);
+
+        RSMV_Harmonic_Phase_Label = new QLabel(RSMV_harmonic_Frame);
+        RSMV_Harmonic_Phase_Label->setObjectName(QString::fromUtf8("RSMV_Harmonic_Phase_Label"));
+        RSMV_Harmonic_Phase_Label->setFont(font6);
+        RSMV_Harmonic_Phase_Label->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
+"border-width:2px;\n"
+"border-radius:10px;\n"
+"border-color: beige;\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgba(23, 147, 255, 255);\n"
+"\n"
+""));
+
+        gridLayout_10->addWidget(RSMV_Harmonic_Phase_Label, 0, 0, 1, 1);
 
 
         gridLayout_3->addWidget(RSMV_harmonic_Frame, 1, 0, 1, 2);
@@ -1178,114 +1289,114 @@ public:
         RSMV_harmonic_rms_TblWidget->setVerticalHeaderItem(2, __qtablewidgetitem48);
         QTableWidgetItem *__qtablewidgetitem49 = new QTableWidgetItem();
         RSMV_harmonic_rms_TblWidget->setVerticalHeaderItem(3, __qtablewidgetitem49);
-        QBrush brush31(QColor(255, 255, 0, 255));
-        brush31.setStyle(Qt::NoBrush);
-        QTableWidgetItem *__qtablewidgetitem50 = new QTableWidgetItem();
-        __qtablewidgetitem50->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem50->setFont(font6);
-        __qtablewidgetitem50->setForeground(brush31);
-        __qtablewidgetitem50->setFlags(Qt::NoItemFlags);
-        RSMV_harmonic_rms_TblWidget->setItem(0, 0, __qtablewidgetitem50);
         QBrush brush32(QColor(255, 255, 0, 255));
         brush32.setStyle(Qt::NoBrush);
-        QTableWidgetItem *__qtablewidgetitem51 = new QTableWidgetItem();
-        __qtablewidgetitem51->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem51->setFont(font6);
-        __qtablewidgetitem51->setForeground(brush32);
-        __qtablewidgetitem51->setFlags(Qt::NoItemFlags);
-        RSMV_harmonic_rms_TblWidget->setItem(0, 1, __qtablewidgetitem51);
+        QTableWidgetItem *__qtablewidgetitem50 = new QTableWidgetItem();
+        __qtablewidgetitem50->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem50->setFont(font8);
+        __qtablewidgetitem50->setForeground(brush32);
+        __qtablewidgetitem50->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(0, 0, __qtablewidgetitem50);
         QBrush brush33(QColor(255, 255, 0, 255));
         brush33.setStyle(Qt::NoBrush);
-        QTableWidgetItem *__qtablewidgetitem52 = new QTableWidgetItem();
-        __qtablewidgetitem52->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem52->setForeground(brush33);
-        RSMV_harmonic_rms_TblWidget->setItem(0, 2, __qtablewidgetitem52);
+        QTableWidgetItem *__qtablewidgetitem51 = new QTableWidgetItem();
+        __qtablewidgetitem51->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem51->setFont(font8);
+        __qtablewidgetitem51->setForeground(brush33);
+        __qtablewidgetitem51->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(0, 1, __qtablewidgetitem51);
         QBrush brush34(QColor(255, 255, 0, 255));
         brush34.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem52 = new QTableWidgetItem();
+        __qtablewidgetitem52->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem52->setForeground(brush34);
+        RSMV_harmonic_rms_TblWidget->setItem(0, 2, __qtablewidgetitem52);
+        QBrush brush35(QColor(255, 255, 0, 255));
+        brush35.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem53 = new QTableWidgetItem();
         __qtablewidgetitem53->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem53->setForeground(brush34);
+        __qtablewidgetitem53->setForeground(brush35);
         RSMV_harmonic_rms_TblWidget->setItem(0, 3, __qtablewidgetitem53);
-        QBrush brush35(QColor(0, 255, 0, 255));
-        brush35.setStyle(Qt::NoBrush);
-        QTableWidgetItem *__qtablewidgetitem54 = new QTableWidgetItem();
-        __qtablewidgetitem54->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem54->setForeground(brush35);
-        __qtablewidgetitem54->setFlags(Qt::NoItemFlags);
-        RSMV_harmonic_rms_TblWidget->setItem(1, 0, __qtablewidgetitem54);
         QBrush brush36(QColor(0, 255, 0, 255));
         brush36.setStyle(Qt::NoBrush);
-        QTableWidgetItem *__qtablewidgetitem55 = new QTableWidgetItem();
-        __qtablewidgetitem55->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem55->setForeground(brush36);
-        __qtablewidgetitem55->setFlags(Qt::NoItemFlags);
-        RSMV_harmonic_rms_TblWidget->setItem(1, 1, __qtablewidgetitem55);
+        QTableWidgetItem *__qtablewidgetitem54 = new QTableWidgetItem();
+        __qtablewidgetitem54->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem54->setForeground(brush36);
+        __qtablewidgetitem54->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(1, 0, __qtablewidgetitem54);
         QBrush brush37(QColor(0, 255, 0, 255));
         brush37.setStyle(Qt::NoBrush);
-        QTableWidgetItem *__qtablewidgetitem56 = new QTableWidgetItem();
-        __qtablewidgetitem56->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem56->setForeground(brush37);
-        RSMV_harmonic_rms_TblWidget->setItem(1, 2, __qtablewidgetitem56);
+        QTableWidgetItem *__qtablewidgetitem55 = new QTableWidgetItem();
+        __qtablewidgetitem55->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem55->setForeground(brush37);
+        __qtablewidgetitem55->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(1, 1, __qtablewidgetitem55);
         QBrush brush38(QColor(0, 255, 0, 255));
         brush38.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem56 = new QTableWidgetItem();
+        __qtablewidgetitem56->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem56->setForeground(brush38);
+        RSMV_harmonic_rms_TblWidget->setItem(1, 2, __qtablewidgetitem56);
+        QBrush brush39(QColor(0, 255, 0, 255));
+        brush39.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem57 = new QTableWidgetItem();
         __qtablewidgetitem57->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem57->setForeground(brush38);
+        __qtablewidgetitem57->setForeground(brush39);
         RSMV_harmonic_rms_TblWidget->setItem(1, 3, __qtablewidgetitem57);
-        QBrush brush39(QColor(250, 0, 0, 255));
-        brush39.setStyle(Qt::NoBrush);
-        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
-        __qtablewidgetitem58->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem58->setForeground(brush39);
-        __qtablewidgetitem58->setFlags(Qt::NoItemFlags);
-        RSMV_harmonic_rms_TblWidget->setItem(2, 0, __qtablewidgetitem58);
         QBrush brush40(QColor(250, 0, 0, 255));
         brush40.setStyle(Qt::NoBrush);
-        QTableWidgetItem *__qtablewidgetitem59 = new QTableWidgetItem();
-        __qtablewidgetitem59->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem59->setForeground(brush40);
-        __qtablewidgetitem59->setFlags(Qt::NoItemFlags);
-        RSMV_harmonic_rms_TblWidget->setItem(2, 1, __qtablewidgetitem59);
+        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
+        __qtablewidgetitem58->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem58->setForeground(brush40);
+        __qtablewidgetitem58->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(2, 0, __qtablewidgetitem58);
         QBrush brush41(QColor(250, 0, 0, 255));
         brush41.setStyle(Qt::NoBrush);
-        QTableWidgetItem *__qtablewidgetitem60 = new QTableWidgetItem();
-        __qtablewidgetitem60->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem60->setForeground(brush41);
-        __qtablewidgetitem60->setFlags(Qt::NoItemFlags);
-        RSMV_harmonic_rms_TblWidget->setItem(2, 2, __qtablewidgetitem60);
+        QTableWidgetItem *__qtablewidgetitem59 = new QTableWidgetItem();
+        __qtablewidgetitem59->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem59->setForeground(brush41);
+        __qtablewidgetitem59->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(2, 1, __qtablewidgetitem59);
         QBrush brush42(QColor(250, 0, 0, 255));
         brush42.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem60 = new QTableWidgetItem();
+        __qtablewidgetitem60->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem60->setForeground(brush42);
+        __qtablewidgetitem60->setFlags(Qt::NoItemFlags);
+        RSMV_harmonic_rms_TblWidget->setItem(2, 2, __qtablewidgetitem60);
+        QBrush brush43(QColor(250, 0, 0, 255));
+        brush43.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem61 = new QTableWidgetItem();
         __qtablewidgetitem61->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem61->setForeground(brush42);
+        __qtablewidgetitem61->setForeground(brush43);
         __qtablewidgetitem61->setFlags(Qt::NoItemFlags);
         RSMV_harmonic_rms_TblWidget->setItem(2, 3, __qtablewidgetitem61);
         QTableWidgetItem *__qtablewidgetitem62 = new QTableWidgetItem();
         __qtablewidgetitem62->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem62->setForeground(brush26);
+        __qtablewidgetitem62->setForeground(brush29);
         __qtablewidgetitem62->setFlags(Qt::NoItemFlags);
         RSMV_harmonic_rms_TblWidget->setItem(3, 0, __qtablewidgetitem62);
-        QBrush brush43(QColor(0, 170, 255, 255));
-        brush43.setStyle(Qt::NoBrush);
-        QTableWidgetItem *__qtablewidgetitem63 = new QTableWidgetItem();
-        __qtablewidgetitem63->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem63->setForeground(brush43);
-        RSMV_harmonic_rms_TblWidget->setItem(3, 1, __qtablewidgetitem63);
         QBrush brush44(QColor(0, 170, 255, 255));
         brush44.setStyle(Qt::NoBrush);
-        QTableWidgetItem *__qtablewidgetitem64 = new QTableWidgetItem();
-        __qtablewidgetitem64->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem64->setForeground(brush44);
-        RSMV_harmonic_rms_TblWidget->setItem(3, 2, __qtablewidgetitem64);
+        QTableWidgetItem *__qtablewidgetitem63 = new QTableWidgetItem();
+        __qtablewidgetitem63->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem63->setForeground(brush44);
+        RSMV_harmonic_rms_TblWidget->setItem(3, 1, __qtablewidgetitem63);
         QBrush brush45(QColor(0, 170, 255, 255));
         brush45.setStyle(Qt::NoBrush);
+        QTableWidgetItem *__qtablewidgetitem64 = new QTableWidgetItem();
+        __qtablewidgetitem64->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem64->setForeground(brush45);
+        RSMV_harmonic_rms_TblWidget->setItem(3, 2, __qtablewidgetitem64);
+        QBrush brush46(QColor(0, 170, 255, 255));
+        brush46.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem65 = new QTableWidgetItem();
         __qtablewidgetitem65->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
-        __qtablewidgetitem65->setForeground(brush45);
+        __qtablewidgetitem65->setForeground(brush46);
         RSMV_harmonic_rms_TblWidget->setItem(3, 3, __qtablewidgetitem65);
         RSMV_harmonic_rms_TblWidget->setObjectName(QString::fromUtf8("RSMV_harmonic_rms_TblWidget"));
-        sizePolicy3.setHeightForWidth(RSMV_harmonic_rms_TblWidget->sizePolicy().hasHeightForWidth());
-        RSMV_harmonic_rms_TblWidget->setSizePolicy(sizePolicy3);
+        sizePolicy4.setHeightForWidth(RSMV_harmonic_rms_TblWidget->sizePolicy().hasHeightForWidth());
+        RSMV_harmonic_rms_TblWidget->setSizePolicy(sizePolicy4);
         RSMV_harmonic_rms_TblWidget->setMinimumSize(QSize(455, 0));
         RSMV_harmonic_rms_TblWidget->setStyleSheet(QString::fromUtf8("gridline-color: rgb(18, 220, 200);\n"
 "background-color: rgb(0, 0, 0);\n"
@@ -1337,11 +1448,11 @@ public:
         gridLayout_26->setObjectName(QString::fromUtf8("gridLayout_26"));
         from_information_Frame = new QFrame(from_Page);
         from_information_Frame->setObjectName(QString::fromUtf8("from_information_Frame"));
-        sizePolicy3.setHeightForWidth(from_information_Frame->sizePolicy().hasHeightForWidth());
-        from_information_Frame->setSizePolicy(sizePolicy3);
+        sizePolicy4.setHeightForWidth(from_information_Frame->sizePolicy().hasHeightForWidth());
+        from_information_Frame->setSizePolicy(sizePolicy4);
         from_information_Frame->setMinimumSize(QSize(0, 30));
         from_information_Frame->setMaximumSize(QSize(16777215, 30));
-        from_information_Frame->setFont(font3);
+        from_information_Frame->setFont(font6);
         from_information_Frame->setStyleSheet(QString::fromUtf8("#from_information_Frame\n"
 "{\n"
 " border: 1px solid rgb(18, 220, 200);\n"
@@ -1375,8 +1486,11 @@ public:
 
         from_ctl_GpBox = new QGroupBox(from_Page);
         from_ctl_GpBox->setObjectName(QString::fromUtf8("from_ctl_GpBox"));
-        sizePolicy10.setHeightForWidth(from_ctl_GpBox->sizePolicy().hasHeightForWidth());
-        from_ctl_GpBox->setSizePolicy(sizePolicy10);
+        QSizePolicy sizePolicy15(QSizePolicy::Expanding, QSizePolicy::Minimum);
+        sizePolicy15.setHorizontalStretch(0);
+        sizePolicy15.setVerticalStretch(1);
+        sizePolicy15.setHeightForWidth(from_ctl_GpBox->sizePolicy().hasHeightForWidth());
+        from_ctl_GpBox->setSizePolicy(sizePolicy15);
         from_ctl_GpBox->setMinimumSize(QSize(0, 87));
         from_ctl_GpBox->setMaximumSize(QSize(1000, 106));
         from_ctl_GpBox->setFont(font);
@@ -1432,11 +1546,11 @@ public:
 
         from_error_Frame = new QFrame(from_Page);
         from_error_Frame->setObjectName(QString::fromUtf8("from_error_Frame"));
-        sizePolicy3.setHeightForWidth(from_error_Frame->sizePolicy().hasHeightForWidth());
-        from_error_Frame->setSizePolicy(sizePolicy3);
+        sizePolicy4.setHeightForWidth(from_error_Frame->sizePolicy().hasHeightForWidth());
+        from_error_Frame->setSizePolicy(sizePolicy4);
         from_error_Frame->setMinimumSize(QSize(0, 30));
         from_error_Frame->setMaximumSize(QSize(16777215, 30));
-        from_error_Frame->setFont(font3);
+        from_error_Frame->setFont(font6);
         from_error_Frame->setStyleSheet(QString::fromUtf8("#from_error_Frame\n"
 "{\n"
 " border: 1px solid rgb(18, 220, 200);\n"
@@ -1624,8 +1738,8 @@ public:
         gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
         serPort_Rec_GbBox = new QGroupBox(serPort_Page);
         serPort_Rec_GbBox->setObjectName(QString::fromUtf8("serPort_Rec_GbBox"));
-        sizePolicy6.setHeightForWidth(serPort_Rec_GbBox->sizePolicy().hasHeightForWidth());
-        serPort_Rec_GbBox->setSizePolicy(sizePolicy6);
+        sizePolicy10.setHeightForWidth(serPort_Rec_GbBox->sizePolicy().hasHeightForWidth());
+        serPort_Rec_GbBox->setSizePolicy(sizePolicy10);
         serPort_Rec_GbBox->setStyleSheet(QString::fromUtf8(" QGroupBox::title {\n"
 "     subcontrol-origin: margin;\n"
 "     subcontrol-position: top center; /* position at the top center */\n"
@@ -1650,8 +1764,8 @@ public:
         gridLayout_7->setObjectName(QString::fromUtf8("gridLayout_7"));
         serPort_Rec_TxEdit = new QTextEdit(serPort_Rec_GbBox);
         serPort_Rec_TxEdit->setObjectName(QString::fromUtf8("serPort_Rec_TxEdit"));
-        sizePolicy5.setHeightForWidth(serPort_Rec_TxEdit->sizePolicy().hasHeightForWidth());
-        serPort_Rec_TxEdit->setSizePolicy(sizePolicy5);
+        sizePolicy9.setHeightForWidth(serPort_Rec_TxEdit->sizePolicy().hasHeightForWidth());
+        serPort_Rec_TxEdit->setSizePolicy(sizePolicy9);
         serPort_Rec_TxEdit->setReadOnly(true);
 
         gridLayout_7->addWidget(serPort_Rec_TxEdit, 1, 0, 1, 4);
@@ -1676,8 +1790,8 @@ public:
 
         serPort_send_GpBox = new QGroupBox(serPort_Page);
         serPort_send_GpBox->setObjectName(QString::fromUtf8("serPort_send_GpBox"));
-        sizePolicy6.setHeightForWidth(serPort_send_GpBox->sizePolicy().hasHeightForWidth());
-        serPort_send_GpBox->setSizePolicy(sizePolicy6);
+        sizePolicy10.setHeightForWidth(serPort_send_GpBox->sizePolicy().hasHeightForWidth());
+        serPort_send_GpBox->setSizePolicy(sizePolicy10);
         serPort_send_GpBox->setMinimumSize(QSize(420, 0));
         serPort_send_GpBox->setMaximumSize(QSize(420, 16777215));
         serPort_send_GpBox->setStyleSheet(QString::fromUtf8(" QGroupBox::title {\n"
@@ -1702,136 +1816,10 @@ public:
         gridLayout_8->setSpacing(5);
         gridLayout_8->setContentsMargins(5, 5, 5, 5);
         gridLayout_8->setObjectName(QString::fromUtf8("gridLayout_8"));
-        serPort_CleanSend_PsBtn = new QPushButton(serPort_send_GpBox);
-        serPort_CleanSend_PsBtn->setObjectName(QString::fromUtf8("serPort_CleanSend_PsBtn"));
-
-        gridLayout_8->addWidget(serPort_CleanSend_PsBtn, 0, 5, 1, 1);
-
-        serPort_LF_CkBox = new QCheckBox(serPort_send_GpBox);
-        serPort_LF_CkBox->setObjectName(QString::fromUtf8("serPort_LF_CkBox"));
-        serPort_LF_CkBox->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_8->addWidget(serPort_LF_CkBox, 0, 2, 1, 1);
-
-        label_5 = new QLabel(serPort_send_GpBox);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_8->addWidget(label_5, 0, 0, 1, 1);
-
-        serPort_Send_PsBtn = new QPushButton(serPort_send_GpBox);
-        serPort_Send_PsBtn->setObjectName(QString::fromUtf8("serPort_Send_PsBtn"));
-        serPort_Send_PsBtn->setEnabled(false);
-
-        gridLayout_8->addWidget(serPort_Send_PsBtn, 0, 4, 1, 1);
-
-        serPort_CR_CkBox = new QCheckBox(serPort_send_GpBox);
-        serPort_CR_CkBox->setObjectName(QString::fromUtf8("serPort_CR_CkBox"));
-        serPort_CR_CkBox->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_8->addWidget(serPort_CR_CkBox, 0, 1, 1, 1);
-
-        serPort_Send_TxEdit = new QTextEdit(serPort_send_GpBox);
-        serPort_Send_TxEdit->setObjectName(QString::fromUtf8("serPort_Send_TxEdit"));
-        sizePolicy3.setHeightForWidth(serPort_Send_TxEdit->sizePolicy().hasHeightForWidth());
-        serPort_Send_TxEdit->setSizePolicy(sizePolicy3);
-        serPort_Send_TxEdit->setMinimumSize(QSize(0, 60));
-        serPort_Send_TxEdit->setMaximumSize(QSize(16777215, 80));
-        serPort_Send_TxEdit->setReadOnly(false);
-
-        gridLayout_8->addWidget(serPort_Send_TxEdit, 1, 0, 2, 6);
-
-        serPort_shortcut_GpBox = new QGroupBox(serPort_send_GpBox);
-        serPort_shortcut_GpBox->setObjectName(QString::fromUtf8("serPort_shortcut_GpBox"));
-        QSizePolicy sizePolicy13(QSizePolicy::Preferred, QSizePolicy::Expanding);
-        sizePolicy13.setHorizontalStretch(0);
-        sizePolicy13.setVerticalStretch(0);
-        sizePolicy13.setHeightForWidth(serPort_shortcut_GpBox->sizePolicy().hasHeightForWidth());
-        serPort_shortcut_GpBox->setSizePolicy(sizePolicy13);
-        serPort_shortcut_GpBox->setMinimumSize(QSize(0, 90));
-        serPort_shortcut_GpBox->setStyleSheet(QString::fromUtf8(" QGroupBox::title {\n"
-"     subcontrol-origin: margin;\n"
-"     subcontrol-position: top center; /* position at the top center */\n"
-"     padding: 0 3px;\n"
-"	 color: rgb(255, 255, 255);\n"
-"\n"
-"\n"
-" }\n"
-"\n"
-"\n"
-" QGroupBox {\n"
-"    border: 1px solid rgb(18, 220, 200);\n"
-"    border-radius: 5px;\n"
-"    margin-top: 0ex; /* leave space at the top for the title */\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                     stop:0 rgba(7, 85, 75, 255),\n"
-"                     stop:1 rgba(10, 100, 75, 255));\n"
-" }\n"
-""));
-        gridLayout_4 = new QGridLayout(serPort_shortcut_GpBox);
-        gridLayout_4->setSpacing(0);
-        gridLayout_4->setContentsMargins(11, 11, 11, 11);
-        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
-        gridLayout_4->setContentsMargins(0, 18, 0, 0);
-        serPort_RP_PsBtn = new QPushButton(serPort_shortcut_GpBox);
-        serPort_RP_PsBtn->setObjectName(QString::fromUtf8("serPort_RP_PsBtn"));
-
-        gridLayout_4->addWidget(serPort_RP_PsBtn, 1, 2, 1, 1);
-
-        serPort_ME_PsBtn = new QPushButton(serPort_shortcut_GpBox);
-        serPort_ME_PsBtn->setObjectName(QString::fromUtf8("serPort_ME_PsBtn"));
-
-        gridLayout_4->addWidget(serPort_ME_PsBtn, 2, 1, 1, 1);
-
-        horizontalSpacer_17 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_4->addItem(horizontalSpacer_17, 1, 6, 1, 1);
-
-        horizontalSpacer_16 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_4->addItem(horizontalSpacer_16, 1, 0, 1, 1);
-
-        serPort_RS_PsBtn = new QPushButton(serPort_shortcut_GpBox);
-        serPort_RS_PsBtn->setObjectName(QString::fromUtf8("serPort_RS_PsBtn"));
-
-        gridLayout_4->addWidget(serPort_RS_PsBtn, 2, 2, 1, 1);
-
-        serPort_RSM_PsBtn = new QPushButton(serPort_shortcut_GpBox);
-        serPort_RSM_PsBtn->setObjectName(QString::fromUtf8("serPort_RSM_PsBtn"));
-
-        gridLayout_4->addWidget(serPort_RSM_PsBtn, 1, 1, 1, 1);
-
-        serPort_AV_PsBtn = new QPushButton(serPort_shortcut_GpBox);
-        serPort_AV_PsBtn->setObjectName(QString::fromUtf8("serPort_AV_PsBtn"));
-
-        gridLayout_4->addWidget(serPort_AV_PsBtn, 1, 4, 1, 1);
-
-        serPort_RBAT_PsBtn = new QPushButton(serPort_shortcut_GpBox);
-        serPort_RBAT_PsBtn->setObjectName(QString::fromUtf8("serPort_RBAT_PsBtn"));
-
-        gridLayout_4->addWidget(serPort_RBAT_PsBtn, 2, 4, 1, 1);
-
-        serPort_HAR_PsBtn = new QPushButton(serPort_shortcut_GpBox);
-        serPort_HAR_PsBtn->setObjectName(QString::fromUtf8("serPort_HAR_PsBtn"));
-
-        gridLayout_4->addWidget(serPort_HAR_PsBtn, 2, 5, 1, 1);
-
-        serPort_ADW_PsBtn = new QPushButton(serPort_shortcut_GpBox);
-        serPort_ADW_PsBtn->setObjectName(QString::fromUtf8("serPort_ADW_PsBtn"));
-
-        gridLayout_4->addWidget(serPort_ADW_PsBtn, 1, 5, 1, 1);
-
-
-        gridLayout_8->addWidget(serPort_shortcut_GpBox, 4, 0, 1, 6);
-
-        horizontalSpacer_19 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_8->addItem(horizontalSpacer_19, 0, 3, 1, 1);
-
         serPort_SP_GpBox = new QGroupBox(serPort_send_GpBox);
         serPort_SP_GpBox->setObjectName(QString::fromUtf8("serPort_SP_GpBox"));
-        sizePolicy7.setHeightForWidth(serPort_SP_GpBox->sizePolicy().hasHeightForWidth());
-        serPort_SP_GpBox->setSizePolicy(sizePolicy7);
+        sizePolicy11.setHeightForWidth(serPort_SP_GpBox->sizePolicy().hasHeightForWidth());
+        serPort_SP_GpBox->setSizePolicy(sizePolicy11);
         serPort_SP_GpBox->setMinimumSize(QSize(300, 200));
         serPort_SP_GpBox->setMaximumSize(QSize(16777215, 16777215));
         serPort_SP_GpBox->setStyleSheet(QString::fromUtf8(" QGroupBox::title {\n"
@@ -1935,8 +1923,8 @@ public:
         QTableWidgetItem *__qtablewidgetitem162 = new QTableWidgetItem();
         serPort_SP_TabWidget->setItem(4, 3, __qtablewidgetitem162);
         serPort_SP_TabWidget->setObjectName(QString::fromUtf8("serPort_SP_TabWidget"));
-        sizePolicy3.setHeightForWidth(serPort_SP_TabWidget->sizePolicy().hasHeightForWidth());
-        serPort_SP_TabWidget->setSizePolicy(sizePolicy3);
+        sizePolicy4.setHeightForWidth(serPort_SP_TabWidget->sizePolicy().hasHeightForWidth());
+        serPort_SP_TabWidget->setSizePolicy(sizePolicy4);
         serPort_SP_TabWidget->setMinimumSize(QSize(0, 157));
         serPort_SP_TabWidget->setMaximumSize(QSize(16777215, 157));
         serPort_SP_TabWidget->horizontalHeader()->setVisible(false);
@@ -1949,6 +1937,135 @@ public:
 
 
         gridLayout_8->addWidget(serPort_SP_GpBox, 5, 0, 1, 6);
+
+        serPort_CleanSend_PsBtn = new QPushButton(serPort_send_GpBox);
+        serPort_CleanSend_PsBtn->setObjectName(QString::fromUtf8("serPort_CleanSend_PsBtn"));
+
+        gridLayout_8->addWidget(serPort_CleanSend_PsBtn, 0, 5, 1, 1);
+
+        serPort_LF_CkBox = new QCheckBox(serPort_send_GpBox);
+        serPort_LF_CkBox->setObjectName(QString::fromUtf8("serPort_LF_CkBox"));
+        serPort_LF_CkBox->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        gridLayout_8->addWidget(serPort_LF_CkBox, 0, 2, 1, 1);
+
+        label_5 = new QLabel(serPort_send_GpBox);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        gridLayout_8->addWidget(label_5, 0, 0, 1, 1);
+
+        serPort_Send_PsBtn = new QPushButton(serPort_send_GpBox);
+        serPort_Send_PsBtn->setObjectName(QString::fromUtf8("serPort_Send_PsBtn"));
+        serPort_Send_PsBtn->setEnabled(false);
+
+        gridLayout_8->addWidget(serPort_Send_PsBtn, 0, 4, 1, 1);
+
+        serPort_CR_CkBox = new QCheckBox(serPort_send_GpBox);
+        serPort_CR_CkBox->setObjectName(QString::fromUtf8("serPort_CR_CkBox"));
+        serPort_CR_CkBox->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        gridLayout_8->addWidget(serPort_CR_CkBox, 0, 1, 1, 1);
+
+        serPort_Send_TxEdit = new QTextEdit(serPort_send_GpBox);
+        serPort_Send_TxEdit->setObjectName(QString::fromUtf8("serPort_Send_TxEdit"));
+        sizePolicy4.setHeightForWidth(serPort_Send_TxEdit->sizePolicy().hasHeightForWidth());
+        serPort_Send_TxEdit->setSizePolicy(sizePolicy4);
+        serPort_Send_TxEdit->setMinimumSize(QSize(0, 60));
+        serPort_Send_TxEdit->setMaximumSize(QSize(16777215, 80));
+        serPort_Send_TxEdit->setReadOnly(false);
+
+        gridLayout_8->addWidget(serPort_Send_TxEdit, 1, 0, 2, 6);
+
+        horizontalSpacer_19 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_8->addItem(horizontalSpacer_19, 0, 3, 1, 1);
+
+        serPort_shortcut_GpBox = new QGroupBox(serPort_send_GpBox);
+        serPort_shortcut_GpBox->setObjectName(QString::fromUtf8("serPort_shortcut_GpBox"));
+        QSizePolicy sizePolicy16(QSizePolicy::Preferred, QSizePolicy::Expanding);
+        sizePolicy16.setHorizontalStretch(0);
+        sizePolicy16.setVerticalStretch(0);
+        sizePolicy16.setHeightForWidth(serPort_shortcut_GpBox->sizePolicy().hasHeightForWidth());
+        serPort_shortcut_GpBox->setSizePolicy(sizePolicy16);
+        serPort_shortcut_GpBox->setMinimumSize(QSize(0, 90));
+        serPort_shortcut_GpBox->setStyleSheet(QString::fromUtf8(" QGroupBox::title {\n"
+"     subcontrol-origin: margin;\n"
+"     subcontrol-position: top center; /* position at the top center */\n"
+"     padding: 0 3px;\n"
+"	 color: rgb(255, 255, 255);\n"
+"\n"
+"\n"
+" }\n"
+"\n"
+"\n"
+" QGroupBox {\n"
+"    border: 1px solid rgb(18, 220, 200);\n"
+"    border-radius: 5px;\n"
+"    margin-top: 0ex; /* leave space at the top for the title */\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                     stop:0 rgba(7, 85, 75, 255),\n"
+"                     stop:1 rgba(10, 100, 75, 255));\n"
+" }\n"
+""));
+        gridLayout_4 = new QGridLayout(serPort_shortcut_GpBox);
+        gridLayout_4->setSpacing(6);
+        gridLayout_4->setContentsMargins(11, 11, 11, 11);
+        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
+        serPort_HAR_PsBtn = new QPushButton(serPort_shortcut_GpBox);
+        serPort_HAR_PsBtn->setObjectName(QString::fromUtf8("serPort_HAR_PsBtn"));
+        serPort_HAR_PsBtn->setEnabled(false);
+
+        gridLayout_4->addWidget(serPort_HAR_PsBtn, 1, 4, 1, 1);
+
+        serPort_RBAT_PsBtn = new QPushButton(serPort_shortcut_GpBox);
+        serPort_RBAT_PsBtn->setObjectName(QString::fromUtf8("serPort_RBAT_PsBtn"));
+        serPort_RBAT_PsBtn->setEnabled(false);
+
+        gridLayout_4->addWidget(serPort_RBAT_PsBtn, 1, 3, 1, 1);
+
+        horizontalSpacer_16 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_4->addItem(horizontalSpacer_16, 0, 0, 1, 1);
+
+        serPort_RSM_PsBtn = new QPushButton(serPort_shortcut_GpBox);
+        serPort_RSM_PsBtn->setObjectName(QString::fromUtf8("serPort_RSM_PsBtn"));
+
+        gridLayout_4->addWidget(serPort_RSM_PsBtn, 0, 1, 1, 1);
+
+        serPort_AV_PsBtn = new QPushButton(serPort_shortcut_GpBox);
+        serPort_AV_PsBtn->setObjectName(QString::fromUtf8("serPort_AV_PsBtn"));
+        serPort_AV_PsBtn->setEnabled(false);
+
+        gridLayout_4->addWidget(serPort_AV_PsBtn, 0, 3, 1, 1);
+
+        serPort_RP_PsBtn = new QPushButton(serPort_shortcut_GpBox);
+        serPort_RP_PsBtn->setObjectName(QString::fromUtf8("serPort_RP_PsBtn"));
+
+        gridLayout_4->addWidget(serPort_RP_PsBtn, 0, 2, 1, 1);
+
+        horizontalSpacer_17 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_4->addItem(horizontalSpacer_17, 0, 5, 1, 1);
+
+        serPort_RS_PsBtn = new QPushButton(serPort_shortcut_GpBox);
+        serPort_RS_PsBtn->setObjectName(QString::fromUtf8("serPort_RS_PsBtn"));
+
+        gridLayout_4->addWidget(serPort_RS_PsBtn, 1, 2, 1, 1);
+
+        serPort_ADW_PsBtn = new QPushButton(serPort_shortcut_GpBox);
+        serPort_ADW_PsBtn->setObjectName(QString::fromUtf8("serPort_ADW_PsBtn"));
+        serPort_ADW_PsBtn->setEnabled(false);
+
+        gridLayout_4->addWidget(serPort_ADW_PsBtn, 0, 4, 1, 1);
+
+        serPort_ME_PsBtn = new QPushButton(serPort_shortcut_GpBox);
+        serPort_ME_PsBtn->setObjectName(QString::fromUtf8("serPort_ME_PsBtn"));
+
+        gridLayout_4->addWidget(serPort_ME_PsBtn, 1, 1, 1, 1);
+
+
+        gridLayout_8->addWidget(serPort_shortcut_GpBox, 4, 0, 1, 6);
 
 
         gridLayout_6->addWidget(serPort_send_GpBox, 1, 1, 1, 2);
@@ -1984,11 +2101,8 @@ public:
         gridLayout_5->setContentsMargins(6, -1, 6, 0);
         serPort_portName_Label = new QLabel(serPort_Settings_GpBox);
         serPort_portName_Label->setObjectName(QString::fromUtf8("serPort_portName_Label"));
-        QSizePolicy sizePolicy14(QSizePolicy::Fixed, QSizePolicy::Preferred);
-        sizePolicy14.setHorizontalStretch(0);
-        sizePolicy14.setVerticalStretch(0);
-        sizePolicy14.setHeightForWidth(serPort_portName_Label->sizePolicy().hasHeightForWidth());
-        serPort_portName_Label->setSizePolicy(sizePolicy14);
+        sizePolicy3.setHeightForWidth(serPort_portName_Label->sizePolicy().hasHeightForWidth());
+        serPort_portName_Label->setSizePolicy(sizePolicy3);
         serPort_portName_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_5->addWidget(serPort_portName_Label, 0, 0, 1, 1);
@@ -2000,8 +2114,8 @@ public:
 
         serPort_parity_Label = new QLabel(serPort_Settings_GpBox);
         serPort_parity_Label->setObjectName(QString::fromUtf8("serPort_parity_Label"));
-        sizePolicy14.setHeightForWidth(serPort_parity_Label->sizePolicy().hasHeightForWidth());
-        serPort_parity_Label->setSizePolicy(sizePolicy14);
+        sizePolicy3.setHeightForWidth(serPort_parity_Label->sizePolicy().hasHeightForWidth());
+        serPort_parity_Label->setSizePolicy(sizePolicy3);
         serPort_parity_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_5->addWidget(serPort_parity_Label, 0, 4, 1, 1);
@@ -2013,8 +2127,8 @@ public:
 
         serPort_baudRate_Label = new QLabel(serPort_Settings_GpBox);
         serPort_baudRate_Label->setObjectName(QString::fromUtf8("serPort_baudRate_Label"));
-        sizePolicy14.setHeightForWidth(serPort_baudRate_Label->sizePolicy().hasHeightForWidth());
-        serPort_baudRate_Label->setSizePolicy(sizePolicy14);
+        sizePolicy3.setHeightForWidth(serPort_baudRate_Label->sizePolicy().hasHeightForWidth());
+        serPort_baudRate_Label->setSizePolicy(sizePolicy3);
         serPort_baudRate_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_5->addWidget(serPort_baudRate_Label, 0, 2, 1, 1);
@@ -2026,8 +2140,8 @@ public:
 
         serPort_dataBit_Label = new QLabel(serPort_Settings_GpBox);
         serPort_dataBit_Label->setObjectName(QString::fromUtf8("serPort_dataBit_Label"));
-        sizePolicy14.setHeightForWidth(serPort_dataBit_Label->sizePolicy().hasHeightForWidth());
-        serPort_dataBit_Label->setSizePolicy(sizePolicy14);
+        sizePolicy3.setHeightForWidth(serPort_dataBit_Label->sizePolicy().hasHeightForWidth());
+        serPort_dataBit_Label->setSizePolicy(sizePolicy3);
         serPort_dataBit_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_5->addWidget(serPort_dataBit_Label, 1, 0, 1, 1);
@@ -2039,8 +2153,8 @@ public:
 
         serPort_stopBit_Label = new QLabel(serPort_Settings_GpBox);
         serPort_stopBit_Label->setObjectName(QString::fromUtf8("serPort_stopBit_Label"));
-        sizePolicy14.setHeightForWidth(serPort_stopBit_Label->sizePolicy().hasHeightForWidth());
-        serPort_stopBit_Label->setSizePolicy(sizePolicy14);
+        sizePolicy3.setHeightForWidth(serPort_stopBit_Label->sizePolicy().hasHeightForWidth());
+        serPort_stopBit_Label->setSizePolicy(sizePolicy3);
         serPort_stopBit_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_5->addWidget(serPort_stopBit_Label, 1, 2, 1, 1);
@@ -2052,8 +2166,8 @@ public:
 
         serPort_flowCtl_Label = new QLabel(serPort_Settings_GpBox);
         serPort_flowCtl_Label->setObjectName(QString::fromUtf8("serPort_flowCtl_Label"));
-        sizePolicy14.setHeightForWidth(serPort_flowCtl_Label->sizePolicy().hasHeightForWidth());
-        serPort_flowCtl_Label->setSizePolicy(sizePolicy14);
+        sizePolicy3.setHeightForWidth(serPort_flowCtl_Label->sizePolicy().hasHeightForWidth());
+        serPort_flowCtl_Label->setSizePolicy(sizePolicy3);
         serPort_flowCtl_Label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_5->addWidget(serPort_flowCtl_Label, 1, 4, 1, 1);
@@ -2073,8 +2187,6 @@ public:
 "     subcontrol-position: top center; /* position at the top center */\n"
 "     padding: 0 3px;\n"
 "	 color: rgb(255, 255, 255);\n"
-"\n"
-"\n"
 " }\n"
 "\n"
 " QGroupBox {\n"
@@ -2151,11 +2263,11 @@ public:
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         sideBar_TlBtn_3 = new QToolButton(sideBar_right_Page);
         sideBar_TlBtn_3->setObjectName(QString::fromUtf8("sideBar_TlBtn_3"));
-        QSizePolicy sizePolicy15(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        sizePolicy15.setHorizontalStretch(0);
-        sizePolicy15.setVerticalStretch(0);
-        sizePolicy15.setHeightForWidth(sideBar_TlBtn_3->sizePolicy().hasHeightForWidth());
-        sideBar_TlBtn_3->setSizePolicy(sizePolicy15);
+        QSizePolicy sizePolicy17(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy17.setHorizontalStretch(0);
+        sizePolicy17.setVerticalStretch(0);
+        sizePolicy17.setHeightForWidth(sideBar_TlBtn_3->sizePolicy().hasHeightForWidth());
+        sideBar_TlBtn_3->setSizePolicy(sizePolicy17);
         sideBar_TlBtn_3->setFont(font);
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/pic/from.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -2167,8 +2279,8 @@ public:
 
         sideBar_TlBtn_2 = new QToolButton(sideBar_right_Page);
         sideBar_TlBtn_2->setObjectName(QString::fromUtf8("sideBar_TlBtn_2"));
-        sizePolicy15.setHeightForWidth(sideBar_TlBtn_2->sizePolicy().hasHeightForWidth());
-        sideBar_TlBtn_2->setSizePolicy(sizePolicy15);
+        sizePolicy17.setHeightForWidth(sideBar_TlBtn_2->sizePolicy().hasHeightForWidth());
+        sideBar_TlBtn_2->setSizePolicy(sizePolicy17);
         sideBar_TlBtn_2->setFont(font);
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/pic/harmonic.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -2180,8 +2292,8 @@ public:
 
         sideBar_TlBtn_4 = new QToolButton(sideBar_right_Page);
         sideBar_TlBtn_4->setObjectName(QString::fromUtf8("sideBar_TlBtn_4"));
-        sizePolicy15.setHeightForWidth(sideBar_TlBtn_4->sizePolicy().hasHeightForWidth());
-        sideBar_TlBtn_4->setSizePolicy(sizePolicy15);
+        sizePolicy17.setHeightForWidth(sideBar_TlBtn_4->sizePolicy().hasHeightForWidth());
+        sideBar_TlBtn_4->setSizePolicy(sizePolicy17);
         sideBar_TlBtn_4->setFont(font);
         sideBar_TlBtn_4->setStyleSheet(QString::fromUtf8("#sideBar_TlBtn_4 {\n"
 "\n"
@@ -2208,8 +2320,8 @@ public:
         sideBar_TlBtn_1 = new QToolButton(sideBar_right_Page);
         sideBar_TlBtn_1->setObjectName(QString::fromUtf8("sideBar_TlBtn_1"));
         sideBar_TlBtn_1->setEnabled(true);
-        sizePolicy15.setHeightForWidth(sideBar_TlBtn_1->sizePolicy().hasHeightForWidth());
-        sideBar_TlBtn_1->setSizePolicy(sizePolicy15);
+        sizePolicy17.setHeightForWidth(sideBar_TlBtn_1->sizePolicy().hasHeightForWidth());
+        sideBar_TlBtn_1->setSizePolicy(sizePolicy17);
         sideBar_TlBtn_1->setMaximumSize(QSize(16777214, 16777215));
         sideBar_TlBtn_1->setFont(font);
         sideBar_TlBtn_1->setStyleSheet(QString::fromUtf8(""));
@@ -2267,7 +2379,7 @@ public:
         retranslateUi(MainWidget);
 
         main_SkWidget->setCurrentIndex(0);
-        ES_TbWidget->setCurrentIndex(0);
+        ES_TbWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWidget);
@@ -2276,21 +2388,36 @@ public:
     void retranslateUi(QWidget *MainWidget)
     {
         MainWidget->setWindowTitle(QApplication::translate("MainWidget", "XL.903.\344\272\244\346\265\201\345\205\205\347\224\265\346\241\251\346\243\200\346\265\213\350\243\205\347\275\256", 0, QApplication::UnicodeUTF8));
+        unlock_PsBtn->setText(QApplication::translate("MainWidget", "\350\247\243\351\224\201", 0, QApplication::UnicodeUTF8));
         RS_maxCur_Label->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        RS_maxCur_tag_Label->setText(QApplication::translate("MainWidget", "\346\234\200\345\244\247\350\276\223\345\207\272\347\224\265\346\265\201.A: ", 0, QApplication::UnicodeUTF8));
-        runTime_Label->setText(QApplication::translate("MainWidget", "\350\277\220\350\241\214\346\227\266\351\227\264:  ", 0, QApplication::UnicodeUTF8));
-        runTime_LnEdit->setText(QApplication::translate("MainWidget", "00:00:00", 0, QApplication::UnicodeUTF8));
+        RS_maxCur_tag_Label->setText(QApplication::translate("MainWidget", "\346\234\200\345\244\247\350\276\223\345\207\272\347\224\265\346\265\201/A:", 0, QApplication::UnicodeUTF8));
         battery_Label->setText(QString());
+        runTime_LnEdit->setText(QApplication::translate("MainWidget", "00:00:00", 0, QApplication::UnicodeUTF8));
         keyBoard_PsBtn->setText(QApplication::translate("MainWidget", "\351\224\256\347\233\230", 0, QApplication::UnicodeUTF8));
-        BMS_cntState_tag_Label->setText(QApplication::translate("MainWidget", "\351\223\276\346\216\245\347\212\266\346\200\201: ", 0, QApplication::UnicodeUTF8));
+        runTime_Label->setText(QApplication::translate("MainWidget", "\350\277\220\350\241\214\346\227\266\351\227\264:", 0, QApplication::UnicodeUTF8));
+        BMS_cntState_tag_Label->setText(QApplication::translate("MainWidget", "\351\223\276\346\216\245\347\212\266\346\200\201:", 0, QApplication::UnicodeUTF8));
         BMS_cntState_Label->setText(QApplication::translate("MainWidget", "\346\226\255\345\274\200", 0, QApplication::UnicodeUTF8));
-        lock_RdBtn->setText(QApplication::translate("MainWidget", "\344\270\212\351\224\201", 0, QApplication::UnicodeUTF8));
+        ME_energy_GpBox->setTitle(QApplication::translate("MainWidget", "\347\224\265\350\203\275\347\264\257\350\256\241", 0, QApplication::UnicodeUTF8));
+        ME_energy_std_Label->setText(QApplication::translate("MainWidget", "\346\240\207        \345\207\206: ", 0, QApplication::UnicodeUTF8));
+        ME_energy_std_LnEdit->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        lineEdit_6->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        RSMV_energy_pul_Label_5->setText(QApplication::translate("MainWidget", "\347\224\250\347\224\265\350\264\271\347\224\250:", 0, QApplication::UnicodeUTF8));
+        RSMV_clearEnergy_PsBtn->setText(QApplication::translate("MainWidget", "\346\270\205\351\231\244\347\224\265\350\203\275\347\264\257\347\247\257", 0, QApplication::UnicodeUTF8));
+        ME_energy_object_Label->setText(QApplication::translate("MainWidget", "\350\242\253\346\243\200\347\224\265\350\203\275.w ", 0, QApplication::UnicodeUTF8));
+        ME_energy_object_LnEdit->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        ME_phasor_GpBox->setTitle(QApplication::translate("MainWidget", "\347\233\270\344\275\215\345\205\250\345\233\276", 0, QApplication::UnicodeUTF8));
         ES_PE_zoomOut_PsBtn->setText(QApplication::translate("MainWidget", "\346\224\276\345\244\247", 0, QApplication::UnicodeUTF8));
         ES_PE_zoomIn_PsBtn->setText(QApplication::translate("MainWidget", "\347\274\251\345\260\217", 0, QApplication::UnicodeUTF8));
         ES_TbWidget->setTabText(ES_TbWidget->indexOf(ES_PE_tab), QApplication::translate("MainWidget", "\347\224\265\350\203\275\350\257\257\345\267\256", 0, QApplication::UnicodeUTF8));
         ES_wave_CkBox->setText(QApplication::translate("MainWidget", "\347\224\265\345\216\213\346\263\242\345\275\242", 0, QApplication::UnicodeUTF8));
         ES_TbWidget->setTabText(ES_TbWidget->indexOf(ES_wave_tab), QApplication::translate("MainWidget", "\350\276\223\345\205\245\346\263\242\345\275\242", 0, QApplication::UnicodeUTF8));
-        ME_phasor_GpBox->setTitle(QApplication::translate("MainWidget", "\347\233\270\344\275\215\345\205\250\345\233\276", 0, QApplication::UnicodeUTF8));
+        ES_value_GpBox->setTitle(QApplication::translate("MainWidget", "\350\257\257\345\267\256\350\256\241\347\256\227(%)", 0, QApplication::UnicodeUTF8));
+        serPort_EVT_PsBtn->setText(QApplication::translate("MainWidget", "\346\226\260\346\243\200\345\256\232\347\202\271", 0, QApplication::UnicodeUTF8));
+        ES_PE_Label->setText(QApplication::translate("MainWidget", "\347\224\265\350\203\275\350\257\257\345\267\256: ", 0, QApplication::UnicodeUTF8));
+        ES_PE_LnEdit->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        ES_TE_Label->setText(QApplication::translate("MainWidget", "\346\227\266\351\222\237\350\257\257\345\267\256: ", 0, QApplication::UnicodeUTF8));
+        ES_TE_LnEdit->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
+        ES_insertForm_PsBtn->setText(QApplication::translate("MainWidget", "\350\256\260\345\205\245\346\212\245\350\241\250", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem = ES_standard_TblWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWidget", "\351\241\271\347\233\256", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem1 = ES_standard_TblWidget->horizontalHeaderItem(1);
@@ -2367,7 +2494,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem35 = ES_standard_TblWidget->item(2, 7);
         ___qtablewidgetitem35->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem36 = ES_standard_TblWidget->item(3, 0);
-        ___qtablewidgetitem36->setText(QApplication::translate("MainWidget", "SP(w)", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem36->setText(QApplication::translate("MainWidget", "Pa(w)", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem37 = ES_standard_TblWidget->item(3, 1);
         ___qtablewidgetitem37->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem38 = ES_standard_TblWidget->item(3, 2);
@@ -2380,22 +2507,6 @@ public:
         ___qtablewidgetitem41->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
         ES_standard_TblWidget->setSortingEnabled(__sortingEnabled);
 
-        ME_energy_GpBox->setTitle(QApplication::translate("MainWidget", "\347\224\265\350\203\275\347\264\257\350\256\241", 0, QApplication::UnicodeUTF8));
-        ME_energy_std_Label->setText(QApplication::translate("MainWidget", "\346\240\207        \345\207\206: ", 0, QApplication::UnicodeUTF8));
-        ME_energy_std_LnEdit->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        lineEdit_6->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        RSMV_energy_pul_Label_5->setText(QApplication::translate("MainWidget", "\347\224\250\347\224\265\350\264\271\347\224\250:", 0, QApplication::UnicodeUTF8));
-        RSMV_clearEnergy_PsBtn->setText(QApplication::translate("MainWidget", "\346\270\205\351\231\244\347\224\265\350\203\275\347\264\257\347\247\257", 0, QApplication::UnicodeUTF8));
-        ME_energy_object_Label->setText(QApplication::translate("MainWidget", "\350\242\253\346\243\200\347\224\265\350\203\275: ", 0, QApplication::UnicodeUTF8));
-        ME_energy_object_LnEdit->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        ES_value_GpBox->setTitle(QApplication::translate("MainWidget", "\350\257\257\345\267\256\350\256\241\347\256\227(%)", 0, QApplication::UnicodeUTF8));
-        serPort_EVT_PsBtn->setText(QApplication::translate("MainWidget", "\346\226\260\346\243\200\345\256\232\347\202\271", 0, QApplication::UnicodeUTF8));
-        ES_PE_Label->setText(QApplication::translate("MainWidget", "\347\224\265\350\203\275\350\257\257\345\267\256: ", 0, QApplication::UnicodeUTF8));
-        ES_PE_LnEdit->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        ES_TE_Label->setText(QApplication::translate("MainWidget", "\346\227\266\351\222\237\350\257\257\345\267\256: ", 0, QApplication::UnicodeUTF8));
-        ES_TE_LnEdit->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
-        ES_insertForm_PsBtn->setText(QApplication::translate("MainWidget", "\350\256\260\345\205\245\346\212\245\350\241\250", 0, QApplication::UnicodeUTF8));
-        RSMV_Harmonic_Phase_Label->setText(QApplication::translate("MainWidget", "\346\265\213\350\257\225\351\241\271:  ", 0, QApplication::UnicodeUTF8));
         RSMV_Harmonic_Phase_CbBox->clear();
         RSMV_Harmonic_Phase_CbBox->insertItems(0, QStringList()
          << QApplication::translate("MainWidget", "Ua", 0, QApplication::UnicodeUTF8)
@@ -2415,6 +2526,7 @@ public:
         );
         RSMV_Harmonic_Range_Label->setText(QApplication::translate("MainWidget", "\351\230\200\345\200\274(%):  ", 0, QApplication::UnicodeUTF8));
         RSMV_Harmonic_LnEdit_Range->setText(QApplication::translate("MainWidget", "0.001", 0, QApplication::UnicodeUTF8));
+        RSMV_Harmonic_Phase_Label->setText(QApplication::translate("MainWidget", "\346\265\213\350\257\225\351\241\271:  ", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem42 = RSMV_harmonic_rms_TblWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem42->setText(QApplication::translate("MainWidget", "\351\241\271\347\233\256", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem43 = RSMV_harmonic_rms_TblWidget->horizontalHeaderItem(1);
@@ -2623,20 +2735,6 @@ public:
         serPort_CleanRec_PsBtn->setText(QApplication::translate("MainWidget", "\346\270\205\347\251\272\346\216\245\346\224\266", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("MainWidget", "\346\216\245\346\224\266:", 0, QApplication::UnicodeUTF8));
         serPort_send_GpBox->setTitle(QString());
-        serPort_CleanSend_PsBtn->setText(QApplication::translate("MainWidget", "\346\270\205\347\251\272\345\217\221\351\200\201", 0, QApplication::UnicodeUTF8));
-        serPort_LF_CkBox->setText(QApplication::translate("MainWidget", "LF", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("MainWidget", "\345\217\221\351\200\201:  ", 0, QApplication::UnicodeUTF8));
-        serPort_Send_PsBtn->setText(QApplication::translate("MainWidget", "\345\217\221\351\200\201", 0, QApplication::UnicodeUTF8));
-        serPort_CR_CkBox->setText(QApplication::translate("MainWidget", "CR", 0, QApplication::UnicodeUTF8));
-        serPort_shortcut_GpBox->setTitle(QApplication::translate("MainWidget", "\345\277\253\351\200\237\346\214\207\344\273\244", 0, QApplication::UnicodeUTF8));
-        serPort_RP_PsBtn->setText(QApplication::translate("MainWidget", "RP", 0, QApplication::UnicodeUTF8));
-        serPort_ME_PsBtn->setText(QApplication::translate("MainWidget", "ME", 0, QApplication::UnicodeUTF8));
-        serPort_RS_PsBtn->setText(QApplication::translate("MainWidget", "RS", 0, QApplication::UnicodeUTF8));
-        serPort_RSM_PsBtn->setText(QApplication::translate("MainWidget", "RSM", 0, QApplication::UnicodeUTF8));
-        serPort_AV_PsBtn->setText(QApplication::translate("MainWidget", "\347\211\210\346\234\254", 0, QApplication::UnicodeUTF8));
-        serPort_RBAT_PsBtn->setText(QApplication::translate("MainWidget", "RBAT", 0, QApplication::UnicodeUTF8));
-        serPort_HAR_PsBtn->setText(QApplication::translate("MainWidget", "HAR", 0, QApplication::UnicodeUTF8));
-        serPort_ADW_PsBtn->setText(QApplication::translate("MainWidget", "ADW", 0, QApplication::UnicodeUTF8));
         serPort_SP_GpBox->setTitle(QApplication::translate("MainWidget", "\345\217\202\346\225\260\350\256\276\347\275\256", 0, QApplication::UnicodeUTF8));
         serPort_read_SP_PsBtn->setText(QApplication::translate("MainWidget", "\350\257\273\345\217\226", 0, QApplication::UnicodeUTF8));
         serPort_write_SP_PsBtn->setText(QApplication::translate("MainWidget", "\345\206\231\345\205\245", 0, QApplication::UnicodeUTF8));
@@ -2703,6 +2801,20 @@ public:
         ___qtablewidgetitem161->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
         serPort_SP_TabWidget->setSortingEnabled(__sortingEnabled3);
 
+        serPort_CleanSend_PsBtn->setText(QApplication::translate("MainWidget", "\346\270\205\347\251\272\345\217\221\351\200\201", 0, QApplication::UnicodeUTF8));
+        serPort_LF_CkBox->setText(QApplication::translate("MainWidget", "LF", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("MainWidget", "\345\217\221\351\200\201:  ", 0, QApplication::UnicodeUTF8));
+        serPort_Send_PsBtn->setText(QApplication::translate("MainWidget", "\345\217\221\351\200\201", 0, QApplication::UnicodeUTF8));
+        serPort_CR_CkBox->setText(QApplication::translate("MainWidget", "CR", 0, QApplication::UnicodeUTF8));
+        serPort_shortcut_GpBox->setTitle(QApplication::translate("MainWidget", "\345\277\253\351\200\237\346\214\207\344\273\244", 0, QApplication::UnicodeUTF8));
+        serPort_HAR_PsBtn->setText(QApplication::translate("MainWidget", "HAR", 0, QApplication::UnicodeUTF8));
+        serPort_RBAT_PsBtn->setText(QApplication::translate("MainWidget", "RBAT", 0, QApplication::UnicodeUTF8));
+        serPort_RSM_PsBtn->setText(QApplication::translate("MainWidget", "RSM", 0, QApplication::UnicodeUTF8));
+        serPort_AV_PsBtn->setText(QApplication::translate("MainWidget", "\347\211\210\346\234\254", 0, QApplication::UnicodeUTF8));
+        serPort_RP_PsBtn->setText(QApplication::translate("MainWidget", "RP", 0, QApplication::UnicodeUTF8));
+        serPort_RS_PsBtn->setText(QApplication::translate("MainWidget", "RS", 0, QApplication::UnicodeUTF8));
+        serPort_ADW_PsBtn->setText(QApplication::translate("MainWidget", "ADW", 0, QApplication::UnicodeUTF8));
+        serPort_ME_PsBtn->setText(QApplication::translate("MainWidget", "ME", 0, QApplication::UnicodeUTF8));
         serPort_Settings_GpBox->setTitle(QString());
         serPort_portName_Label->setText(QApplication::translate("MainWidget", "\347\253\257\345\217\243 :", 0, QApplication::UnicodeUTF8));
         serPort_parity_Label->setText(QApplication::translate("MainWidget", "\346\240\241\351\252\214\344\275\215 :", 0, QApplication::UnicodeUTF8));

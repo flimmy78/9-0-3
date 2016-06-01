@@ -235,19 +235,6 @@ typedef struct
 
 typedef struct
 {
-        UINT16 product;				//厂家
-        UINT16 asduNum;				//ASDU单元数
-        UINT32 samNum;				//采样点数
-        UINT32 ratedDelay;			//额定延时
-        FLOAT32 voltagerange;		//电压量程
-        FLOAT32 currentrange;		//电流量程
-        UINT32 maxSamcnt;			//最大采样点计数
-        UINT8  frame[3000];			//原始帧
-        UINT32 frame_size;			//原始帧
-}IECTYPE,*pIECTYPE,**ppIECTYPE;
-
-typedef struct
-{
         INT32 dimSize;
         INT32 elt[1];
 }INTARR,*pINTARR,**IntHandle;
@@ -332,7 +319,7 @@ typedef struct
     FLOAT64 U1Freq;
     FLOAT64 I1Freq;
     FLOAT64 Phase;
-
+    FLOAT64 P1;
 }METYPE,*pMETYPE,**ppMETYPE;
 
 typedef struct

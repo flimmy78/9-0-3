@@ -45,6 +45,7 @@ private:
     QTime   elapseTime;   //运行时间
     int     elapseTimeCal;
 
+
     timeThread        timeThreadTimer ;
     QPolygonF         ESTD_PolygonF;//坐标点
 
@@ -98,10 +99,12 @@ private slots:
     void slt_ENERGY_STD_update(pPULSEPOW );
     void slt_wave_update();
     void slt_RSMV_harmonic_update();
+    void slt_battery_update(QString str);
 
     void slt_HAR_update(pHARTYPE);
 
     void slt_elapseTimer_timeout();
+
     void on_start_PsBtn_clicked(bool checked);
 
     void on_serPort_write_SP_PsBtn_clicked();
@@ -115,22 +118,24 @@ private slots:
     void on_serPort_flowCtl_CbBox_activated(int index);
 
     void on_RSMV_clearFrom_PsBtn_clicked();
+
     void on_RSMV_buildFrom_PsBtn_clicked();
 
     void on_RSMV_readFrom_PsBtn_clicked();
 
     void on_RSMV_saveFormMsg_PsBtn_clicked();
+
     void on_ES_PE_zoomIn_PsBtn_clicked();
 
     void on_ES_PE_zoomOut_PsBtn_clicked();
-    void on_keyBoard_PsBtn_clicked();
 
+    void on_keyBoard_PsBtn_clicked();
 
     void on_ES_insertForm_PsBtn_clicked();
 
-    void on_lock_RdBtn_clicked(bool checked);
-
     void on_RSMV_Harmonic_Range_HSlider_valueChanged(int value);
+
+    void on_unlock_PsBtn_clicked();
 
 private:
     QComboBox       *SP_chargeType_cbbox;

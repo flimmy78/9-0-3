@@ -40,7 +40,7 @@ void  xl618::slt_serPort_RecDataToUI(const QByteArray &serRecAllBtArray,int intR
           return ;
       }
 
-      intSerRecReturn =  intReturn;
+      intSerRecReturn =  intReturn;                   //线程接收情况1完整数据,0残缺
 
       dataTemp =serRecAllBtArray.data();
 
@@ -59,10 +59,11 @@ UINT8 xl618::readOneFrame(UINT32 sendToBufSize,char *frameHead,char *errorHead,c
     //QByteArray sendBtArray="KL123";//ME";
     memset(recvBuf,0,recvBufSize);
     isSerRecAll =false;
-    intSerRecReturn =0;
+    intSerRecReturn =ERR_RIGHT;                 //初始
     MagSerPort->sendData(sendBtArray);
     qDebug()<<"sendBtArray---"<<sendBtArray;
-    do
+
+    do                                          //延时等待线程接收反馈信息：intSerRecReturn
     {
         if( isSerRecAll==false)
         {
@@ -71,6 +72,7 @@ UINT8 xl618::readOneFrame(UINT32 sendToBufSize,char *frameHead,char *errorHead,c
         else
         {
             readTimes = 4;
+            // intSerRecReturn = ERR_UNIVERSAL;
         }
 
         usleep(msecond*1000);
@@ -89,7 +91,29 @@ UINT8 xl618::readOneFrame(UINT32 sendToBufSize,char *frameHead,char *errorHead,c
 UINT8 xl618::sendOther(UINT8 *writeBuf,UINT32 writeSize,UINT8 *readBuf,UINT32 *readSize)
 {
     memcpy(sendBuf,writeBuf,writeSize);
-    return readOneFrame(writeSize,NULL,NULL,NULL,300);
+    return readOneFrame(writeSize,NULL,NULL,NULL,400);
+}
+
+UINT8 xl618::getRBAT(QString &str)
+{
+    UINT8 retValue = ERR_UNIVERSAL;
+
+    char *pSend = (char*)sendBuf;
+
+    pSend += sprintf(pSend,"RBAT\n\r" CR);
+
+    UINT16 frameSize = pSend - (char*)sendBuf;
+
+    if((retValue = readOneFrame(frameSize,(char*)"RBAT",NULL,(char*)"RBATACK",300)) == ERR_RIGHT)
+    {
+        char *temp;
+        temp = strstr((char*)recvBuf,(char*)"LEFT;");
+        if(temp)
+            str= QString::number(atof(&temp[sizeof("LEFT;")-1]));
+            //qDebug()<<str;
+    }
+
+    return retValue;
 }
 
 
@@ -834,6 +858,10 @@ UINT8 xl618::getME(pMETYPE data)
             temp = strstr((char*)recvBuf,(char*)"Phase;");
             if(temp)
                 data->Phase = (FLOAT32)atof(&temp[sizeof("Phase;")-1]);
+
+            temp = strstr((char*)recvBuf,(char*)"P1;");
+            if(temp)
+                data->P1 = (FLOAT32)atof(&temp[sizeof("P1;")-1]);
         }
 
 

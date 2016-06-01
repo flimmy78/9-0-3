@@ -83,11 +83,12 @@ void MainWidget::init_timeThreadTimer_connect()
 
     connect(&timeThreadTimer, SIGNAL(sig_HAR_update(pHARTYPE)),   this, SLOT(slt_HAR_update(pHARTYPE)),Qt::DirectConnection);
     qRegisterMetaType<pHARTYPE>("pHARTYPE");
+    connect(&timeThreadTimer, SIGNAL(sig_wave_update()),                this, SLOT(slt_wave_update()));
+    connect(&timeThreadTimer, SIGNAL(sig_RSMV_harmonic_update()),       this, SLOT(slt_RSMV_harmonic_update()));
+    connect(&timeThreadTimer, SIGNAL(sig_battery_update(QString )),  this, SLOT(slt_battery_update(QString )));
+    qRegisterMetaType<QString>("QString");
 
-    connect(&timeThreadTimer, SIGNAL(sig_wave_update()),          this, SLOT(slt_wave_update()));
-
-     connect(&timeThreadTimer, SIGNAL(sig_RSMV_harmonic_update()),      this, SLOT(slt_RSMV_harmonic_update()));
-    #if 0
+#if 0
 
     connect(&timeThreadTimer, SIGNAL(sig_RSMV_ESTD_update(pESTDTYPE)),   this, SLOT(slt_RSMV_ESTD_update(pESTDTYPE)));
     connect(&timeThreadTimer, SIGNAL(sig_ENERGY_PUL_update(pPULSEPOW)),   this, SLOT(slt_ENERGY_PUL_update(pPULSEPOW)),Qt::DirectConnection);
@@ -97,7 +98,6 @@ void MainWidget::init_timeThreadTimer_connect()
     qRegisterMetaType<pPULSEPOW>("pPULSEPOW");
     #endif
 }
-
 
 
 
@@ -156,30 +156,51 @@ void MainWidget::on_ES_insertForm_PsBtn_clicked()
     ui->from_error_TxEdit->append(strESTD+strPE);
 }
 
-void MainWidget::on_lock_RdBtn_clicked(bool checked)
+void MainWidget::on_unlock_PsBtn_clicked()
 {
-   QString Message ="LOCK\n\rSTATE;0";
-
-   if(checked)
-   {
-      Message ="LOCK\n\rSTATE;1";
-   }
-
-    if (ui->serPort_CR_CkBox->checkState() == Qt::Checked) //Retour a la ligne
-    Message += "\x0D";
-
-
-    if (ui->serPort_LF_CkBox->checkState() == Qt::Checked)//Saut de ligne
-    Message += "\x0A";
-
-
-    if(timeThreadTimer.transmitsSimply((UINT8*)Message.toLatin1().data())==false )
+    if(ui->start_PsBtn->isChecked())
     {
-        show_MsBox(QString::fromUtf8("设置失败"),3000);
-        return ;
+        ui->start_PsBtn->click();
     }
 
+    QString Message ="LOCK\n\rSTATE;0\n\r";
 
+    if(timeThreadTimer.transmitsSimply((UINT8*)Message.toLatin1().data())!=ERR_RIGHT )
+    {
+         show_MsBox(QString::fromUtf8("解锁失败"),3000);
+    }
+
+         show_MsBox(QString::fromUtf8("已解锁"),3000);
 }
 
+void MainWidget::slt_battery_update(QString str)
+{
+    int value =str.toInt();
+   //qDebug("%d",value);
+     if(value>80)
+     {
+       ui->battery_Label->setStyleSheet(QString::fromUtf8("background-image: url(:);\n"
+       "image: url(:/pic/battery_1.png);background-color:rgb(0, 0, 0, 0)"));
+     }
+     else if((value>45) && (value<76))//10反抖动
+     {
+        // qDebug("fasdf");
+       ui->battery_Label->setStyleSheet(QString::fromUtf8("background-image: url(:);\n"
+       "image: url(:/pic/battery_2.png);background-color:rgb(0, 0, 0, 0)"));
+     }
+     else if((value>15) && (value<40))
+     {
+       ui->battery_Label->setStyleSheet(QString::fromUtf8("background-image: url(:);\n"
+       "image: url(:/pic/battery_3.png);background-color:rgb(0, 0, 0, 0)"));
+     }
 
+    if(value<10 )
+    {
+      ui->battery_Label->setStyleSheet(QString::fromUtf8("background-image: url(:);\n"
+       "image: url(:/pic/battery_4.png);background-color:rgb(0, 0, 0, 0)"));
+      show_MsBox(QString::fromUtf8("电池即将没电,请及时充电"),3000);
+    }
+
+     ui->battery_Label->update();
+    qDebug()<<str;
+}

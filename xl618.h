@@ -24,7 +24,7 @@ public:
 
     UINT8 sendOther(UINT8 *writeBuf,UINT32 writeSize,UINT8 *readBuf,UINT32 *readSize);                    //串口直接发送
     UINT8 readOneFrame(UINT32 sendToBufSize,char *frameHead,char *errorHead,char *frameTail,int readTime);//解析底层的信息
-
+    UINT8 getRBAT(QString &str);
 
     UINT8 getRD(pRDTYPE data);                                                                            //读取数据
     UINT8 getRS(pRSTYPE data);
@@ -59,7 +59,6 @@ public:
     pKLTYPE newKLBuf(UINT8 type,UINT16 cnt); //type:0~5位分别表示通道1~6，cnt：采样点数
     void  deleteKLBuf(pKLTYPE lkl);
 
-    UINT8 IEC61850Frame(pIECTYPE data);//OK
     UINT8 getAppid(UINT16 *appid);
     UINT8 getSvID(char* svID);
     UINT8 setHRVirtual(SET_HARMONIC_TYPE *harmonic);//谐波设置
