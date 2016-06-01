@@ -1,7 +1,13 @@
 #include "mainwidget.h"
 #include "ui_mainwidget.h"
 
-//读取数据
+//待用
+//
+void MainWidget:: startRD()
+{
+    timeThreadTimer.run(RD);
+}
+
 
 void MainWidget:: slt_RD_update(pRDTYPE pRDTYPE_Temp)
 {

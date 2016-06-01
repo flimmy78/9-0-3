@@ -51,7 +51,7 @@ static const uint qt_meta_data_timeThread[] = {
 
  // slots: signature, parameters, type, tag, flags
      647,   11,   11,   11, 0x0a,
-     654,   11,   11,   11, 0x08,
+     654,   11,   11,   11, 0x0a,
      677,   11,   11,   11, 0x08,
      701,   11,   11,   11, 0x08,
      719,   11,   11,   11, 0x08,

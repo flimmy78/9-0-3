@@ -26,22 +26,21 @@ SOURCES += main.cpp \
     sysIni.cpp \
     form/save_doc.cpp \
     form/edit_form.cpp \
-    ripple/ripple.cpp \
-    testPower/ME_update.cpp \
-    testPower/ES_update.cpp \
-    testPower/RD_update.cpp \
     sideBar_right.cpp \
-    testPower/ES_wave.cpp \
-    testPower/testPower_page.cpp \
     interface_xl618_1.cpp \
     interface_xl618_2.cpp \
-    testPower/set_parameter.cpp \
-    ripple/ripple_wave.cpp \
-    testPower/RS_update.cpp \
     init_class.cpp \
     phasor/ME_init_Phasor.cpp \
     harmonic/HAR_harmonic.cpp \
-    harmonic/HAR_init_Harmonic.cpp
+    harmonic/HAR_init_Harmonic.cpp \
+    testPower/RD_ctl.cpp \
+    testPower/RS_ctl.cpp \
+    testPower/testPower_option.cpp \
+    testPower/SP_setPar.cpp \
+    testPower/ME_ctl.cpp \
+    testPower/KL_ctl.cpp \
+    testPower/ESTD_ctl.cpp \
+    testPower/ES_ctl.cpp
 
 HEADERS  += \
     mainwidget.h \
@@ -67,3 +66,6 @@ INCLUDEPATH +="D:/software/Qwt-6.0.2_485/include"
 LIBS+=-L "D:/software/Qwt-6.0.2_485/lib" -lqwt
 
 CONFIG+=qaxcontainer
+
+OTHER_FILES += \
+    readMe.txt

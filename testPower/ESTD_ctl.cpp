@@ -8,8 +8,6 @@
 #include <qwt_plot_magnifier.h>
 #include <qwt_plot_panner.h>
 
-
-#if 1
  void MainWidget::init_ESTD_wave(void)//标准偏差
  {
      //ui->ES_PE_QwtPlot->setAxisScale(QwtPlot::xBottom, 0.0,10.0);
@@ -64,7 +62,5 @@
     RSMV.wave_ESTD_curve ->attach(ui->ES_PE_QwtPlot);
     ui->ES_PE_QwtPlot->replot();
  }
-#endif
-
 
 

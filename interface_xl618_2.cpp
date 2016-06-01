@@ -3,7 +3,7 @@
 #include "QDebug"
 #include <QTextStream>
 #if 1
-UINT8 xl618::getKL(UINT8 type,pRKLTYPE data)
+UINT8 xl618::getKL(pRKLTYPE data)
 {
     FLOAT32 *fData;
     UINT8 retValue = ERR_UNIVERSAL;
@@ -21,30 +21,32 @@ UINT8 xl618::getKL(UINT8 type,pRKLTYPE data)
 //   qDebug("pSend==%s\n",sendBuf);
 //   qDebug("pSend");
 
-    if((retValue = readOneFrame(frameSize,(char*)"KL",NULL,(char*)"KLACK",800)) == ERR_RIGHT)
+    if((retValue = readOneFrame(frameSize,(char*)"KL",NULL,(char*)"KLACK",500)) == ERR_RIGHT)
     {//解析帧
 
         temp = strstr((char*)recvBuf,"U1;");
         if(temp)
         {
-             memcpy((char *)&(data->U1), temp,sizeof(FLOAT32)*70);
-
+            for(UINT32 j = 0; j < 64; j ++)
+            {
+                sscanf(temp,"%E"CR,&data->U1[j]); //以指数形式输出单精度
+                while(*(temp++) != '\n');
+                //qDebug("xxxx%d==%f\n",j,data->U1[j]);
+            }
         }
 
-//        temp = strstr((char*)recvBuf,"I1;");
-//        if(temp)
-//        {
-//             memcpy((char *)&(data->I1), temp,sizeof(float)*70);
-//        }
-
-        qDebug("%s",recvBuf);
-        for(UINT32 j = 0; j < 70; j ++)
+        temp = strstr((char*)recvBuf,"I1;");
+        if(temp)
         {
-//            sscanf(temp,"%E"CR,&data->U1R[j]); //取到指定字符集为止的字符串
-//            while(*(temp++) != '\n');
-//            qDebug("xxxx%d==%f\n",j,data->U1R[j]);
-            //qDebug("xxxx%d==%f\n",j,data->U1[j]);
+            for(UINT32 j = 0; j < 64; j ++)
+            {
+                sscanf(temp,"%E"CR,&data->I1[j]);     //以指数形式输出单精度
+                while(*(temp++) != '\n');
+                //qDebug("xxxx%d==%f\n",j,data->U1[j]);
+            }
         }
+
+
 
 #if 0
         temp = strstr((char*)recvBuf,"U1R;");

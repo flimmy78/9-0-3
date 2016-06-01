@@ -17,12 +17,8 @@ void MainWidget:: startESTD()//标准方差s值
     timeThreadTimer.run(ESTD);
 }
 
-//PE;1.0E-3<CR>	有功误差
-//QE;1.0E-3<CR> 无功误差
-//FE;1.0E-3<CR> 比值误差
-//AE;1.0E-3<CR>	角度误差
-//PULNUM;1<CR>	检定的剩余脉冲数
-//CE;1<CR>	    复合误差
+//PE;1.0E-3<CR>	有功误差 QE;1.0E-3<CR>  无功误差         FE;1.0E-3<CR>  比值误差
+//AE;1.0E-3<CR>	角度误差 PULNUM;1<CR>   检定的剩余脉冲数  CE;1<CR>	      复合误差
 
 void MainWidget::slt_ES_update(pESTYPE pESTYPE_Temp)//电能测试误差状态
 {
@@ -36,7 +32,6 @@ void MainWidget::slt_ES_update(pESTYPE pESTYPE_Temp)//电能测试误差状态
 //B1;1.0E-3<CR> 	备用
 //B2;1.0E-3<CR>	备用
 //ESTDACK
-
 
 void MainWidget:: startENERGY_PUL()//电能脉冲
 {

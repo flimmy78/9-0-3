@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>XL.903.交流充电桩检测装置</string>
+   <string>XL-903.交流充电桩现场校验仪</string>
   </property>
   <property name="windowIcon">
    <iconset resource="pic.qrc">
@@ -157,8 +157,7 @@ QPushButton#unlock_PsBtn:pressed
 border-width:2px;
 border-color: beige;
 color: rgb(255, 255, 255);
-background-color: rgba(23, 147, 255, 255);
-</string>
+background-color: rgba(12, 153, 134, 255);</string>
         </property>
         <property name="text">
          <string>0</string>
@@ -188,9 +187,7 @@ border-width:2px;
 border-radius:10px;
 border-color: beige;
 color: rgb(255, 255, 255);
-background-color: rgba(23, 147, 255, 255);
-
-</string>
+background-color: rgba(12, 153, 134, 255);</string>
         </property>
         <property name="text">
          <string>最大输出电流/A:</string>
@@ -257,7 +254,7 @@ background-color: rgba(23, 147, 255, 255);
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>10</width>
+          <width>20</width>
           <height>16</height>
          </size>
         </property>
@@ -294,8 +291,7 @@ background-color: rgba(23, 147, 255, 255);
 border-width:2px;
 border-color: beige;
 color: rgb(255, 255, 255);
-background-color: rgba(23, 147, 255, 255);
-</string>
+background-color: rgba(12, 153, 134, 255);</string>
         </property>
         <property name="text">
          <string>00:00:00</string>
@@ -353,9 +349,7 @@ border-width:2px;
 border-radius:10px;
 border-color: beige;
 color: rgb(255, 255, 255);
-background-color: rgba(23, 147, 255, 255);
-
-
+background-color: rgba(12, 153, 134, 255);
 </string>
         </property>
         <property name="text">
@@ -386,7 +380,7 @@ border-width:2px;
 border-radius:10px;
 border-color: beige;
 color: rgb(255, 255, 255);
-background-color: rgba(23, 147, 255, 255);
+background-color: rgba(12, 153, 134, 255);
 
 </string>
         </property>
@@ -426,8 +420,7 @@ background-color: rgba(23, 147, 255, 255);
 border-width:2px;
 border-color: beige;
 color: rgb(255, 255, 255);
-background-color: rgba(23, 147, 255, 255);
-</string>
+background-color: rgba(12, 153, 134, 255);</string>
         </property>
         <property name="text">
          <string>断开</string>
@@ -509,187 +502,6 @@ background-color: rgba(23, 147, 255, 255);
        <property name="spacing">
         <number>0</number>
        </property>
-       <item row="2" column="0">
-        <widget class="QGroupBox" name="ME_energy_GpBox">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
-           <horstretch>0</horstretch>
-           <verstretch>1</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>425</width>
-           <height>90</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>425</width>
-           <height>116</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Arial Narrow</family>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"> QGroupBox::title {
-     subcontrol-origin: margin;
-    
-     padding: 0 3px;
-	 color: rgb(255, 255, 255);
-
-
- }
-
- QGroupBox {
-    border: 1px solid rgb(18, 220, 200);
-    border-radius: 5px;
-    margin-top: 0ex; /* leave space at the top for the title */
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                     stop:0 rgba(7, 85, 75, 255),
-                     stop:1 rgba(10, 100, 75, 255));
- }
-</string>
-         </property>
-         <property name="title">
-          <string>电能累计</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_22">
-          <property name="leftMargin">
-           <number>2</number>
-          </property>
-          <property name="topMargin">
-           <number>19</number>
-          </property>
-          <property name="rightMargin">
-           <number>2</number>
-          </property>
-          <property name="bottomMargin">
-           <number>2</number>
-          </property>
-          <property name="spacing">
-           <number>5</number>
-          </property>
-          <item row="0" column="0">
-           <widget class="QLabel" name="ME_energy_std_Label">
-            <property name="font">
-             <font>
-              <family>Arial Narrow</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>标        准: </string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLineEdit" name="ME_energy_std_LnEdit">
-            <property name="font">
-             <font>
-              <family>Arial Narrow</family>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>0</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="5">
-           <widget class="QLineEdit" name="lineEdit_6">
-            <property name="font">
-             <font>
-              <family>Arial Narrow</family>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>0</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="3">
-           <widget class="QLabel" name="RSMV_energy_pul_Label_5">
-            <property name="font">
-             <font>
-              <family>Arial Narrow</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>用电费用:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="5">
-           <widget class="QPushButton" name="RSMV_clearEnergy_PsBtn">
-            <property name="font">
-             <font>
-              <family>Arial Narrow</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>清除电能累积</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="ME_energy_object_Label">
-            <property name="font">
-             <font>
-              <family>Arial Narrow</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>被检电能.w </string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLineEdit" name="ME_energy_object_LnEdit">
-            <property name="font">
-             <font>
-              <family>Arial Narrow</family>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>0</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <spacer name="horizontalSpacer_5">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </widget>
-       </item>
        <item row="0" column="2">
         <widget class="QGroupBox" name="ME_phasor_GpBox">
          <property name="sizePolicy">
@@ -793,6 +605,190 @@ font: 9pt &quot;Kalinga&quot;;</string>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QGroupBox" name="ME_energy_GpBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>425</width>
+           <height>90</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>425</width>
+           <height>116</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Arial Narrow</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"> QGroupBox::title {
+     subcontrol-origin: margin;
+    
+     padding: 0 3px;
+	 color: rgb(255, 255, 255);
+
+
+ }
+
+ QGroupBox {
+    border: 1px solid rgb(18, 220, 200);
+    border-radius: 5px;
+    margin-top: 0ex; /* leave space at the top for the title */
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                     stop:0 rgba(7, 85, 75, 255),
+                     stop:1 rgba(10, 100, 75, 255));
+ }
+</string>
+         </property>
+         <property name="title">
+          <string>电能累计</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_22">
+          <property name="leftMargin">
+           <number>2</number>
+          </property>
+          <property name="topMargin">
+           <number>19</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>2</number>
+          </property>
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="ME_energy_std_Label">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>标准电能(W.h)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="ME_energy_std_LnEdit">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QLabel" name="ME_time_testEqpt_Label">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>被检时钟(s) </string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="6">
+           <widget class="QLineEdit" name="ME_time_testEqpt_LnEdit">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="ME_time_std_Label">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>标准时钟(s):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="ME_time_std_LnEdit">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="6">
+           <widget class="QLineEdit" name="ME_energy_testEqpt_LnEdit">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QLabel" name="ME_energy_testEqpt_Label">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>被检电能(W.h)</string>
             </property>
            </widget>
           </item>
@@ -996,7 +992,6 @@ QTabBar::tab:!selected
               <string notr="true">color: rgb(0, 170, 255);
 background-color: rgb(0, 0, 0);</string>
              </property>
-             <zorder>ES_standard_TblWidget</zorder>
             </widget>
            </item>
           </layout>
@@ -1052,13 +1047,7 @@ background-color: rgb(0, 0, 0);</string>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <layout class="QGridLayout" name="gridLayout_29">
-              <property name="margin">
-               <number>0</number>
-              </property>
-              <property name="spacing">
-               <number>0</number>
-              </property>
+             <layout class="QGridLayout" name="gridLayout_13">
               <item row="0" column="1">
                <widget class="QCheckBox" name="ES_wave_CkBox">
                 <property name="sizePolicy">
@@ -1066,6 +1055,18 @@ background-color: rgb(0, 0, 0);</string>
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>20</height>
+                 </size>
                 </property>
                 <property name="font">
                  <font>
@@ -1080,7 +1081,7 @@ background-color: rgb(0, 0, 0);</string>
                  <string notr="true">color: rgb(255, 255, 255);</string>
                 </property>
                 <property name="text">
-                 <string>电压波形</string>
+                 <string>电压</string>
                 </property>
                </widget>
               </item>
@@ -1133,172 +1134,6 @@ background-color: rgb(0, 0, 0);</string>
            </item>
           </layout>
          </widget>
-        </widget>
-       </item>
-       <item row="2" column="1" colspan="2">
-        <widget class="QGroupBox" name="ES_value_GpBox">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>302</width>
-           <height>75</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>302</width>
-           <height>160</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Arial Narrow</family>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"> QGroupBox::title {
-     subcontrol-origin: margin;
-
-     padding: 0 3px;
-	 color: rgb(255, 255, 255);
-
-
- }
-
- QGroupBox {
-    border: 1px solid rgb(18, 220, 200);
-    border-radius: 5px;
-    margin-top: 0ex; /* leave space at the top for the title */
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                     stop:0 rgba(7, 85, 75, 255),
-                     stop:1 rgba(10, 100, 75, 255));
- }
-</string>
-         </property>
-         <property name="title">
-          <string>误差计算(%)</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_23">
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>20</number>
-          </property>
-          <property name="rightMargin">
-           <number>2</number>
-          </property>
-          <property name="bottomMargin">
-           <number>2</number>
-          </property>
-          <property name="spacing">
-           <number>5</number>
-          </property>
-          <item row="1" column="4">
-           <widget class="QPushButton" name="serPort_EVT_PsBtn">
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>新检定点</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLabel" name="ES_PE_Label">
-            <property name="font">
-             <font>
-              <family>Arial Narrow</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>电能误差: </string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QLineEdit" name="ES_PE_LnEdit">
-            <property name="font">
-             <font>
-              <family>Arial Narrow</family>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>0</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="ES_TE_Label">
-            <property name="font">
-             <font>
-              <family>Arial Narrow</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>时钟误差: </string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="2">
-           <widget class="QLineEdit" name="ES_TE_LnEdit">
-            <property name="font">
-             <font>
-              <family>Arial Narrow</family>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>0</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="4">
-           <widget class="QPushButton" name="ES_insertForm_PsBtn">
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>记入报表</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="3">
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
         </widget>
        </item>
        <item row="1" column="0" colspan="3">
@@ -1970,38 +1805,171 @@ font: 9pt &quot;Kalinga&quot;;
          </item>
          <item row="3" column="4">
           <property name="text">
-           <string>Time(sec)</string>
+           <string/>
           </property>
           <property name="textAlignment">
            <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-          </property>
-          <property name="foreground">
-           <brush brushstyle="NoBrush">
-            <color alpha="255">
-             <red>0</red>
-             <green>170</green>
-             <blue>255</blue>
-            </color>
-           </brush>
           </property>
          </item>
          <item row="3" column="5">
           <property name="text">
-           <string>0</string>
-          </property>
-          <property name="textAlignment">
-           <set>AlignHCenter|AlignVCenter|AlignCenter</set>
-          </property>
-          <property name="foreground">
-           <brush brushstyle="NoBrush">
-            <color alpha="255">
-             <red>0</red>
-             <green>170</green>
-             <blue>255</blue>
-            </color>
-           </brush>
+           <string/>
           </property>
          </item>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QGroupBox" name="ES_value_GpBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>302</width>
+           <height>75</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>302</width>
+           <height>160</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Arial Narrow</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"> QGroupBox::title {
+     subcontrol-origin: margin;
+
+     padding: 0 3px;
+	 color: rgb(255, 255, 255);
+
+
+ }
+
+ QGroupBox {
+    border: 1px solid rgb(18, 220, 200);
+    border-radius: 5px;
+    margin-top: 0ex; /* leave space at the top for the title */
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                     stop:0 rgba(7, 85, 75, 255),
+                     stop:1 rgba(10, 100, 75, 255));
+ }
+</string>
+         </property>
+         <property name="title">
+          <string>误差计算(%)</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_23">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>2</number>
+          </property>
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <item row="0" column="1">
+           <widget class="QLabel" name="ES_PE_Label">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>电能误差: </string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLineEdit" name="ES_PE_LnEdit">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="ES_TE_Label">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>时钟误差: </string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="ES_TE_LnEdit">
+            <property name="font">
+             <font>
+              <family>Arial Narrow</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QPushButton" name="ES_insertForm_PsBtn">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>记入报表</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
@@ -2023,7 +1991,7 @@ font: 9pt &quot;Kalinga&quot;;
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: rgb(0, 170, 255);
+          <string notr="true">color: rgb(18, 220, 200);
 background-color: rgb(0, 0, 0);</string>
          </property>
         </widget>
@@ -2140,9 +2108,7 @@ border-width:2px;
 border-radius:10px;
 border-color: beige;
 color: rgb(255, 255, 255);
-background-color: rgba(23, 147, 255, 255);
-
-</string>
+background-color: rgba(12, 153, 134, 255);</string>
             </property>
             <property name="text">
              <string>谐波次数:  </string>
@@ -2215,8 +2181,7 @@ border-width:2px;
 border-radius:10px;
 border-color: beige;
 color: rgb(255, 255, 255);
-background-color: rgba(23, 147, 255, 255);
-
+background-color: rgba(12, 153, 134, 255);
 </string>
             </property>
             <property name="text">
@@ -2309,11 +2274,10 @@ background-color: rgba(23, 147, 255, 255);
 border-width:2px;
 border-color: beige;
 color: rgb(255, 255, 255);
-background-color: rgba(23, 147, 255, 255);
-</string>
+background-color: rgba(12, 153, 134, 255);</string>
             </property>
             <property name="text">
-             <string>0.001</string>
+             <string>0.01</string>
             </property>
             <property name="readOnly">
              <bool>true</bool>
@@ -2360,8 +2324,7 @@ border-width:2px;
 border-radius:10px;
 border-color: beige;
 color: rgb(255, 255, 255);
-background-color: rgba(23, 147, 255, 255);
-
+background-color: rgba(12, 153, 134, 255);
 </string>
             </property>
             <property name="text">
@@ -2410,7 +2373,7 @@ background-color: rgb(0, 0, 0);
           <bool>false</bool>
          </attribute>
          <attribute name="verticalHeaderDefaultSectionSize">
-          <number>57</number>
+          <number>55</number>
          </attribute>
          <row>
           <property name="text">
@@ -2731,7 +2694,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="3" column="2">
           <property name="text">
-           <string>谐波总含有率</string>
+           <string>总畸变率</string>
           </property>
           <property name="textAlignment">
            <set>AlignHCenter|AlignVCenter|AlignCenter</set>
@@ -3217,7 +3180,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="0" column="3">
           <property name="text">
-           <string>深圳市南山区</string>
+           <string>深圳南山智恒战略性新兴产业园15栋6楼</string>
           </property>
          </item>
          <item row="1" column="0">
@@ -3227,7 +3190,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="1" column="1">
           <property name="text">
-           <string>直流充电桩</string>
+           <string>XL-903交流充电桩现场校验仪</string>
           </property>
          </item>
          <item row="1" column="2">
@@ -3237,7 +3200,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="1" column="3">
           <property name="text">
-           <string> 深圳星龙</string>
+           <string>-</string>
           </property>
          </item>
          <item row="2" column="0">
@@ -3247,7 +3210,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="2" column="1">
           <property name="text">
-           <string>20151210</string>
+           <string>-</string>
           </property>
          </item>
          <item row="2" column="2">
@@ -3257,7 +3220,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="2" column="3">
           <property name="text">
-           <string>20151210</string>
+           <string>2016-06-01</string>
           </property>
          </item>
          <item row="3" column="0">
@@ -3267,7 +3230,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="3" column="1">
           <property name="text">
-           <string>20151210</string>
+           <string>-</string>
           </property>
          </item>
          <item row="3" column="2">
@@ -3287,7 +3250,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="4" column="1">
           <property name="text">
-           <string>100</string>
+           <string>0</string>
           </property>
          </item>
          <item row="4" column="2">
@@ -3297,7 +3260,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="4" column="3">
           <property name="text">
-           <string>10</string>
+           <string>0</string>
           </property>
          </item>
          <item row="5" column="0">
@@ -3327,7 +3290,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="6" column="1">
           <property name="text">
-           <string>20151210</string>
+           <string>2016-06-01</string>
           </property>
          </item>
          <item row="6" column="2">
@@ -3337,7 +3300,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="6" column="3">
           <property name="text">
-           <string>20161210</string>
+           <string>2016-06-01</string>
           </property>
          </item>
          <item row="7" column="0">
@@ -3377,7 +3340,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="9" column="1">
           <property name="text">
-           <string>交流充电桩</string>
+           <string>-</string>
           </property>
          </item>
          <item row="9" column="2">
@@ -3397,7 +3360,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="10" column="1">
           <property name="text">
-           <string>2016</string>
+           <string>-</string>
           </property>
          </item>
          <item row="10" column="2">
@@ -3412,7 +3375,7 @@ background-color: rgb(0, 0, 0);
          </item>
          <item row="11" column="1">
           <property name="text">
-           <string>20161210</string>
+           <string>2017-06-01</string>
           </property>
          </item>
          <item row="11" column="2">
@@ -3590,7 +3553,27 @@ p, li { white-space: pre-wrap; }
           <property name="spacing">
            <number>5</number>
           </property>
-          <item row="5" column="0" colspan="6">
+          <item row="0" column="1">
+           <widget class="QCheckBox" name="serPort_CR_CkBox">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>CR</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QCheckBox" name="serPort_LF_CkBox">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>LF</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0" colspan="13">
            <widget class="QGroupBox" name="serPort_SP_GpBox">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
@@ -3600,14 +3583,14 @@ p, li { white-space: pre-wrap; }
             </property>
             <property name="minimumSize">
              <size>
-              <width>300</width>
-              <height>200</height>
+              <width>309</width>
+              <height>215</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>16777215</height>
+              <height>215</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -3623,7 +3606,7 @@ p, li { white-space: pre-wrap; }
  QGroupBox {
     border: 1px solid rgb(18, 220, 200);
     border-radius: 5px;
-    margin-top: 1ex; /* leave space at the top for the title */
+    margin-top: 3ex; /* leave space at the top for the title */
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                      stop:0 rgba(7, 85, 75, 255),
                      stop:1 rgba(10, 100, 75, 255));
@@ -3861,34 +3844,30 @@ p, li { white-space: pre-wrap; }
             </layout>
            </widget>
           </item>
-          <item row="0" column="5">
+          <item row="0" column="12">
            <widget class="QPushButton" name="serPort_CleanSend_PsBtn">
             <property name="text">
              <string>清空发送</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="2">
-           <widget class="QCheckBox" name="serPort_LF_CkBox">
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>LF</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="0">
            <widget class="QLabel" name="label_5">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(255, 255, 255);</string>
             </property>
             <property name="text">
-             <string>发送:  </string>
+             <string>发送:</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="4">
+          <item row="0" column="11">
            <widget class="QPushButton" name="serPort_Send_PsBtn">
             <property name="enabled">
              <bool>false</bool>
@@ -3898,34 +3877,24 @@ p, li { white-space: pre-wrap; }
             </property>
            </widget>
           </item>
-          <item row="0" column="1">
-           <widget class="QCheckBox" name="serPort_CR_CkBox">
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>CR</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0" rowspan="2" colspan="6">
+          <item row="1" column="0">
            <widget class="QTextEdit" name="serPort_Send_TxEdit">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+             <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
             <property name="minimumSize">
              <size>
-              <width>0</width>
-              <height>60</height>
+              <width>195</width>
+              <height>170</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
-              <height>80</height>
+              <width>195</width>
+              <height>160</height>
              </size>
             </property>
             <property name="readOnly">
@@ -3933,31 +3902,24 @@ p, li { white-space: pre-wrap; }
             </property>
            </widget>
           </item>
-          <item row="0" column="3">
-           <spacer name="horizontalSpacer_19">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="4" column="0" colspan="6">
+          <item row="1" column="7" colspan="6">
            <widget class="QGroupBox" name="serPort_shortcut_GpBox">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
             <property name="minimumSize">
              <size>
-              <width>0</width>
-              <height>90</height>
+              <width>210</width>
+              <height>180</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>210</width>
+              <height>180</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -3974,7 +3936,7 @@ p, li { white-space: pre-wrap; }
  QGroupBox {
     border: 1px solid rgb(18, 220, 200);
     border-radius: 5px;
-    margin-top: 0ex; /* leave space at the top for the title */
+    margin-top: 3ex; /* leave space at the top for the title */
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                      stop:0 rgba(7, 85, 75, 255),
                      stop:1 rgba(10, 100, 75, 255));
@@ -3985,53 +3947,16 @@ p, li { white-space: pre-wrap; }
              <string>快速指令</string>
             </property>
             <layout class="QGridLayout" name="gridLayout_4">
-             <item row="1" column="4">
-              <widget class="QPushButton" name="serPort_HAR_PsBtn">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
+             <property name="margin">
+              <number>0</number>
+             </property>
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <item row="1" column="2">
+              <widget class="QPushButton" name="serPort_ME_PsBtn">
                <property name="text">
-                <string>HAR</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="3">
-              <widget class="QPushButton" name="serPort_RBAT_PsBtn">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="text">
-                <string>RBAT</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <spacer name="horizontalSpacer_16">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="0" column="1">
-              <widget class="QPushButton" name="serPort_RSM_PsBtn">
-               <property name="text">
-                <string>RSM</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="3">
-              <widget class="QPushButton" name="serPort_AV_PsBtn">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="text">
-                <string>版本</string>
+                <string>ME</string>
                </property>
               </widget>
              </item>
@@ -4042,8 +3967,32 @@ p, li { white-space: pre-wrap; }
                </property>
               </widget>
              </item>
-             <item row="0" column="5">
-              <spacer name="horizontalSpacer_17">
+             <item row="0" column="3">
+              <widget class="QPushButton" name="serPort_RSM_PsBtn">
+               <property name="text">
+                <string>RSM</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3">
+              <widget class="QPushButton" name="serPort_RS_PsBtn">
+               <property name="text">
+                <string>RS</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="3">
+              <widget class="QPushButton" name="serPort_HAR_PsBtn">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>HAR</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <spacer name="horizontalSpacer_5">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
@@ -4055,27 +4004,46 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="2">
-              <widget class="QPushButton" name="serPort_RS_PsBtn">
+             <item row="0" column="4">
+              <spacer name="horizontalSpacer_7">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="2" column="2">
+              <widget class="QPushButton" name="serPort_RBAT_PsBtn">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
                <property name="text">
-                <string>RS</string>
+                <string>RBAT</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="4">
+             <item row="4" column="2">
+              <widget class="QPushButton" name="serPort_AV_PsBtn">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>版本</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="3">
               <widget class="QPushButton" name="serPort_ADW_PsBtn">
                <property name="enabled">
                 <bool>false</bool>
                </property>
                <property name="text">
                 <string>ADW</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QPushButton" name="serPort_ME_PsBtn">
-               <property name="text">
-                <string>ME</string>
                </property>
               </widget>
              </item>

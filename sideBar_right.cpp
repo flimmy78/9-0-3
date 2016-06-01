@@ -40,18 +40,16 @@ void MainWidget::on_start_PsBtn_clicked(bool checked)
 
         case 0:
                 clean_main_SkWidget_1();//清除界面1的数据
-//                startRS();//读状态消息,停止显示保存数据
-//                startES();//电能误差
-//                startME(); //测量值
-//                startELAPSETIME();
+                startRS();//读状态消息,停止显示保存数据
+                startME(); //测量值
+                startELAPSETIME();
                 startWAVE();
+              // startES();//电能误差.自己计算也可以
         break;
 
         case 1:
-                // startRRF();
-
-                //ripple
-                //startRIPPLE();
+                startELAPSETIME();
+                startME(); //测量值
                 startHAR();//谐波
         break;
         default:

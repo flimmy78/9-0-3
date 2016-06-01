@@ -12,6 +12,80 @@
 #include <qwt_plot_magnifier.h>
 #include <qwt_plot_panner.h>
 
+/*******************************************************************************************
+ *fun:读取波形图数据,默认为64点
+*******************************************************************************************/
+
+void MainWidget:: startWAVE()
+{
+    int sampleCnt =64;
+    RSMV.wave_Ua_curve ->setRawSamples( 0,0, 0);
+    RSMV.wave_Ub_curve ->setRawSamples( 0,0, 0);
+    RSMV.wave_Uc_curve ->setRawSamples( 0,0, 0);
+
+     ui->ES_wave_QwtPlot->replot();
+
+    if(ui->ES_wave_CkBox->isChecked())
+    {
+         timeThreadTimer.wave_chlNum =1;
+    }
+    else
+    {
+         timeThreadTimer.wave_chlNum =0;
+    }
+
+    timeThreadTimer.wave_sampleCnt = sampleCnt;                       //采样数目
+
+    for(UINT16 i = 0; i < sampleCnt; i++ )                                 //X坐标的值
+    {
+        xval[i] = FLOAT64( i ) * 3.0 / FLOAT64( sampleCnt - 1 );
+    }
+
+    timeThreadTimer.run(RSMV_WAVE);
+}
+
+
+
+void MainWidget::slt_wave_update( )
+{
+   // qDebug()<<"slt_wave_update";
+#if 1
+    ui->ES_wave_QwtPlot->setAxisScale(QwtPlot::yLeft  ,-timeThreadTimer.RSMV_arrayTemp[3]*1.5,timeThreadTimer.RSMV_arrayTemp[3]*1.5,timeThreadTimer.RSMV_arrayTemp[3]*1.5);
+
+    RSMV.wave_vmax_marker->setLabel(QString::number(timeThreadTimer.RSMV_arrayTemp[3]));
+    RSMV.wave_vmin_marker->setLabel(QString::number(-timeThreadTimer.RSMV_arrayTemp[3]));
+
+    RSMV.wave_vmax_marker->setYValue( timeThreadTimer.RSMV_arrayTemp[3] );
+    RSMV.wave_vmin_marker->setYValue( -timeThreadTimer.RSMV_arrayTemp[3] );
+
+    if( timeThreadTimer.wave_chlNum ==0)
+    {
+        RSMV.wave_Ua_curve ->setRawSamples( xval,timeThreadTimer.RSMV_wave_axesY[0], timeThreadTimer.wave_sampleCnt);
+    }
+    else
+    {
+        RSMV.wave_Ua_curve ->setRawSamples( xval,timeThreadTimer.RSMV_wave_axesY[1], timeThreadTimer.wave_sampleCnt);
+    }
+
+//RSMV.wave_Ua_curve ->setRawSamples( xval,timeThreadTimer.RSMV_wave_axesY[0], timeThreadTimer.wave_sampleCnt);
+//  RSMV.wave_Ub_curve ->setRawSamples( xval,timeThreadTimer.RSMV_wave_axesY[1], timeThreadTimer.wave_sampleCnt);
+//  RSMV.wave_Uc_curve ->setRawSamples( xval,timeThreadTimer.RSMV_wave_axesY[2], timeThreadTimer.wave_sampleCnt);
+
+//  qDebug()<<"slt_wave_update"<<QString::number(timeThreadTimer.RSMV_arrayTemp[3]);
+//    for(int i = 0; i < timeThreadTimer.wave_sampleCnt; i++ )
+//    {
+//        qDebug("%f",timeThreadTimer.RSMV_wave_axesY[0][i]);
+//    }
+
+   // qDebug()<<QString::number(timeThreadTimer.wave_chlNum)<<timeThreadTimer.RSMV_arrayTemp[3];
+
+    ui->ES_wave_QwtPlot->replot();
+    //timeThreadTimer.mutexUpdate.unlock();
+#endif
+
+
+}
+
 void MainWidget::init_ES_wave(void)
 {
     ui->ES_wave_QwtPlot->setAxisScale(QwtPlot::xBottom, 0.0,3.0);
@@ -78,34 +152,7 @@ void MainWidget::init_ES_wave(void)
     RSMV.wave_Uc_curve ->attach(ui->ES_wave_QwtPlot);
 }
 
-void MainWidget:: startRD()
-{
-    timeThreadTimer.run(RD);
-//    qDebug()<<"111111111111111111111startRD";
-}
 
-void MainWidget:: startRS()
-{
-    timeThreadTimer.run(RS);
-//    qDebug()<<"111111111111111111111startRD";
-}
-
-
-//读取测量值ME
-void MainWidget:: startME()
-{
-    QString Message ="EPI\n\rSTATE;1\n\r";
-
-    if(timeThreadTimer.transmitsSimply((UINT8*)Message.toLatin1().data())!=ERR_RIGHT )
-    {
-         show_MsBox(QString::fromUtf8("解锁失败"),3000);
-         return;
-    }
-
-    ME_phasorPaint->isUpdatePhasor=true;//刷新  界面
-    ME_phasorPaint->update();
-    timeThreadTimer.run(ME);
-}
 
 
 

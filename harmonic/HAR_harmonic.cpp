@@ -65,12 +65,12 @@ void MainWidget::slt_RSMV_harmonic_update( )
            // Values[i+2]=timeThreadTimer.RSMV_arrayTemp[i];
             j++;//行数
         }
-        //totalRatio=totalRatio+ timeThreadTimer.RSMV_arrayTemp[i+2] * timeThreadTimer.RSMV_arrayTemp[i+2];//总含有率
+        totalRatio=totalRatio+ timeThreadTimer.RSMV_arrayTemp[i]*timeThreadTimer.RSMV_arrayTemp[i];
     }
      //ui->RSMV_Harmonic_Ratio_Label->setText();
-    // ui->RSMV_harmonic_rms_TblWidget->item(3,3)->setText(QString ::number(sqrt(totalRatio),'d',3));
+     ui->RSMV_harmonic_rms_TblWidget->item(3,3)->setText(QString ::number(sqrt(totalRatio),'d',3));
 
-     //set_RSMV_harmonic_histogram( H2,timeThreadTimer.RSMV_arrayTemp);
+     set_RSMV_harmonic_histogram( H2,timeThreadTimer.RSMV_arrayTemp);
 //     timeThreadTimer.mutexUpdate.unlock();
 
 }

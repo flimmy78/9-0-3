@@ -50,7 +50,7 @@ timeThread::timeThread()
 
     get_battery_Timer=new QTimer(this);
     connect(get_battery_Timer, SIGNAL(timeout()), this, SLOT(slt_battery_timeDone()) );     //定时接收数据
-    get_battery_Timer->setInterval(3*60*1000);//5分钟读一次
+    get_battery_Timer->setInterval(1*60*1000);//5分钟读一次
     get_battery_Timer->start();
 
     runType = 0;
@@ -246,7 +246,7 @@ void timeThread::run(int timerNum)//定时器不能放在run（）函数里面
         case HAR:
             {
                 timerNum = 0;
-                HAR_Timer->setInterval(3000);
+                HAR_Timer->setInterval(2000);
                 HAR_Timer->start();
 
             }

@@ -81,8 +81,10 @@ signals:
 
     void sig_RFT3_wave_update(float);
     void sig_RMSG_FrameList_update(QStringList );
-private slots:
+
+public slots:
     void slt_battery_timeDone();
+private slots:
     void slt_SSMV_rms_timeDone();
     void slt_ME_timeDone();
     void slt_RSMV_waveall_timeDone();

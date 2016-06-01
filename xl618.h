@@ -55,7 +55,7 @@ public:
     pLKLTYPE newLKLBuf(UINT8 type,UINT16 cnt);
     void  deleteLKLBuf(pLKLTYPE lkl);
 
-    UINT8 getKL(UINT8 type,pRKLTYPE data);  //type:0~5位分别表示通道1~6，位置1表示读取该通道
+    UINT8 getKL(pRKLTYPE data);
     pKLTYPE newKLBuf(UINT8 type,UINT16 cnt); //type:0~5位分别表示通道1~6，cnt：采样点数
     void  deleteKLBuf(pKLTYPE lkl);
 

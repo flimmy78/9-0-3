@@ -44,16 +44,16 @@ void MainWidget::init_RSMV_harmonic()
     RSMV.harmonic_grid_1->enableY( true );
     RSMV.harmonic_grid_1->enableXMin( false );
     RSMV.harmonic_grid_1->enableYMin( false );
-    RSMV.harmonic_grid_1->setMajPen( QPen( QColor(0, 170, 255, 255), 0, Qt::DotLine ) );
+    RSMV.harmonic_grid_1->setMajPen( QPen( QColor(18, 220, 200), 0, Qt::DotLine ) );
     RSMV.harmonic_grid_1->attach( ui->RSMV_Harmonic_QwtPlot );
 //stop:0 rgba(7, 85, 75, 255),
 //stop:1 rgba(18, 220, 200, 255));
     const double juneValues[40]={0};
-    RSMV_harmonic_histogram = new Histogram( "harmonic",  QColor(0, 170, 255) );
+    RSMV_harmonic_histogram = new Histogram( "harmonic",  QColor(18, 220, 200) );//QColor(0, 170, 255)
     RSMV_harmonic_histogram->setValues(sizeof( juneValues ) / sizeof( double ), juneValues );
     RSMV_harmonic_histogram->attach(  ui->RSMV_Harmonic_QwtPlot );
 }
-
+//background-color: rgba(12, 153, 134, 255);
 #if 1
 void MainWidget::set_RSMV_harmonic_histogram( uint numValues, const double *values)
 {

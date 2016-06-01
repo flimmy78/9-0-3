@@ -4,7 +4,6 @@
 //设置参数
 void MainWidget::on_serPort_write_SP_PsBtn_clicked()
 {
-
     pSPTYPE   pSPTYPE_Temp =NULL;
     if((pSPTYPE_Temp=(pSPTYPE)calloc(1,sizeof(SPTYPE)))==NULL)
     {
@@ -50,7 +49,6 @@ void MainWidget::on_serPort_write_SP_PsBtn_clicked()
     write_ini("SP/CHARGETYPE",QString::number(SP_chargeType_cbbox->currentIndex()));
     write_ini("SP/LOADTYPE",QString::number(SP_loadType_cbbox->currentIndex()));
     write_ini("SP/MEASURETYPE",QString::number(SP_measureType_cbbox->currentIndex()));
-
 }
 
 void MainWidget::on_serPort_read_SP_PsBtn_clicked()

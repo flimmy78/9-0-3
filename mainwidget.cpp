@@ -23,9 +23,9 @@ MainWidget::MainWidget(QWidget *parent) :
     init_RSMV_phasor();
     init_RSMV_harmonic();
     init_ES_wave();       //波形图
-    init_ripple_wave();   //纹波
     init_ESTD_wave();     //标准偏差波形图
     init_elapseTime();    //运行时间
+
 }
 
 MainWidget::~MainWidget()
@@ -97,6 +97,8 @@ void MainWidget::init_timeThreadTimer_connect()
 
     qRegisterMetaType<pPULSEPOW>("pPULSEPOW");
     #endif
+
+     timeThreadTimer.slt_battery_timeDone();//开机读取一次
 }
 
 
@@ -182,13 +184,13 @@ void MainWidget::slt_battery_update(QString str)
        ui->battery_Label->setStyleSheet(QString::fromUtf8("background-image: url(:);\n"
        "image: url(:/pic/battery_1.png);background-color:rgb(0, 0, 0, 0)"));
      }
-     else if((value>45) && (value<76))//10反抖动
+     else if((value>45) && (value<80))//10反抖动
      {
         // qDebug("fasdf");
        ui->battery_Label->setStyleSheet(QString::fromUtf8("background-image: url(:);\n"
        "image: url(:/pic/battery_2.png);background-color:rgb(0, 0, 0, 0)"));
      }
-     else if((value>15) && (value<40))
+     else if((value>10) && (value<45))
      {
        ui->battery_Label->setStyleSheet(QString::fromUtf8("background-image: url(:);\n"
        "image: url(:/pic/battery_3.png);background-color:rgb(0, 0, 0, 0)"));
@@ -202,5 +204,24 @@ void MainWidget::slt_battery_update(QString str)
     }
 
      ui->battery_Label->update();
-    qDebug()<<str;
+     qDebug()<<str;
 }
+
+void MainWidget::on_ES_wave_CkBox_clicked(bool checked)
+{
+    if(checked)
+    {
+         timeThreadTimer.wave_chlNum =1;
+         ui->ES_wave_CkBox->setText(QString::fromUtf8("电流"));
+    }
+    else
+    {
+        timeThreadTimer.wave_chlNum =0;
+        ui->ES_wave_CkBox->setText(QString::fromUtf8("电压"));
+    }
+}
+
+
+
+
+

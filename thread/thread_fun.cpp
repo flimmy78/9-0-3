@@ -21,11 +21,19 @@ UINT8 timeThread::transmitsSimply (UINT8 *data)//串口快速发送
 
 void timeThread::slt_battery_timeDone()
 {
+    if(mutexUpdate.tryLock()==false)
+    {
+        qDebug()<<"ME_locked";
+        return ;
+    }
+
     QString str;
     if(driver_619->getRBAT(str) == ERR_RIGHT)
     {
         emit sig_battery_update(str);
     }
+
+    mutexUpdate.unlock();
 }
 
 
@@ -54,8 +62,8 @@ bool timeThread:: getSP(pSPTYPE pSPTYPE_Temp)
 
 void timeThread::slt_HAR_timeDone()
 {
-    qDebug()<<"slt_HAR_timeDone";
-#if 0
+   // qDebug()<<"slt_HAR_timeDone";
+#if 1
     if(mutexUpdate.tryLock()==false)
     {
         qDebug()<<"ME_locked";
@@ -91,7 +99,7 @@ void timeThread::slt_HAR_timeDone()
     free(pHARTYPE_Temp);
     pHARTYPE_Temp=NULL;
      //timeThreadTimer.mutexUpdate.unlock();
-   // mutexUpdate.unlock();
+    mutexUpdate.unlock();
 #endif
 }
 //QStringList getRCR();
@@ -161,7 +169,7 @@ void timeThread::slt_ME_timeDone()
 #if 1
     if( driver_619->getME(driver_619->pMETYPE_Data) == ERR_RIGHT )
     {
-//         qDebug()<<"slt_ME_timeDone"<<QString ::number(driver_619->pMETYPE_Data->U1Freq);
+//      qDebug()<<"slt_ME_timeDone"<<QString ::number(driver_619->pMETYPE_Data->U1Freq);
          emit sig_ME_update(driver_619->pMETYPE_Data);
     }
 #endif
@@ -203,13 +211,13 @@ void timeThread::slt_RS_timeDone()
 
 void timeThread::slt_RSMV_wave_timeDone()
 {
-    qDebug()<<"slt_RSMV_wave_timeDone"<<QString::number(wave_chlNum)<<QString::number(wave_sampleCnt);
+//   qDebug()<<"slt_RSMV_wave_timeDone"<<QString::number(wave_chlNum)<<QString::number(wave_sampleCnt);
 
-//    if(mutexUpdate.tryLock()==false)
-//    {
-//        qDebug()<<"RSMV_wave_locked";
-//        return ;
-//    }
+    if(mutexUpdate.tryLock()==false)
+    {
+        qDebug()<<"RSMV_wave_locked";
+        return ;
+    }
 
     pRKLTYPE      pRKLTYPE_Temp=NULL;
 
@@ -221,23 +229,32 @@ void timeThread::slt_RSMV_wave_timeDone()
     }
 
 
-    if( (driver_619->getKL(wave_chlNum,pRKLTYPE_Temp) == ERR_RIGHT) )
+    if( (driver_619->getKL(pRKLTYPE_Temp) == ERR_RIGHT) )
     {
-#if 0
-        for(int i = 0; i <wave_sampleCnt; i++ )  //wave_sampleCnt
+#if 1
+        for(int i = 0; i <wave_sampleCnt; i++ )                  //wave_sampleCnt
         {
 
-           RSMV_wave_axesY[0][i]= pRKLTYPE_Temp->U1R[i];//Ua
-//         RSMV_wave_axesY[1][i]= (*(pKLTYPE_Temp->CH2))->elt[i];//Ub
+           RSMV_wave_axesY[0][i]= pRKLTYPE_Temp->U1[i];          //U1
+           RSMV_wave_axesY[1][i]= pRKLTYPE_Temp->I1[i];//I1
 //         RSMV_wave_axesY[2][i]= (*(pKLTYPE_Temp->CH3))->elt[i];//Uv
 
-            qDebug("xxxx--%2f",pRKLTYPE_Temp->U1R[i]);
+           //qDebug("xxxx%d==%f\n",i,pRKLTYPE_Temp->U1[i]);
+            //qDebug("xxxx%d==%f\n",i,pRKLTYPE_Temp->U1[i]);
         }
 
             RSMV_arrayTemp[0] = search_maxDoubleValue(&RSMV_wave_axesY[0][0],wave_sampleCnt);
-//          RSMV_arrayTemp[1] = search_maxDoubleValue(&RSMV_wave_axesY[1][0],RSMV_wave_sampleCnt);
-//          RSMV_arrayTemp[2] = search_maxDoubleValue(&RSMV_wave_axesY[2][0],RSMV_wave_sampleCnt);
-            RSMV_arrayTemp[3] = search_maxDoubleValue(&RSMV_arrayTemp[0],3);
+            RSMV_arrayTemp[1] = search_maxDoubleValue(&RSMV_wave_axesY[1][0],wave_sampleCnt);
+//          RSMV_arrayTemp[2] = search_maxDoubleValue(&RSMV_wave_axesY[2][0],wave_sampleCnt);
+            //RSMV_arrayTemp[3] = search_maxDoubleValue(&RSMV_arrayTemp[0],3);
+            if(wave_chlNum==0) //U1
+            {
+                RSMV_arrayTemp[3]  = RSMV_arrayTemp[0];        //获取最大值用于坐标计算
+            }
+            else               //I1
+            {
+                RSMV_arrayTemp[3]  = RSMV_arrayTemp[1];
+            }
 
            emit  sig_wave_update();
 #endif
@@ -247,7 +264,7 @@ void timeThread::slt_RSMV_wave_timeDone()
 
     free(pRKLTYPE_Temp);
     pRKLTYPE_Temp=NULL;
-//    mutexUpdate.unlock();
+    mutexUpdate.unlock();
  }
 
 

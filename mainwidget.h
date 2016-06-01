@@ -51,9 +51,7 @@ private:
 
     double            xval[300];  //波形图目前这样设置不会有问题
 
-
     void init_ES_wave();
-    void init_ripple_wave();
     void init_ESTD_wave();
 
     void init_elapseTime();//定时器时间
@@ -136,6 +134,12 @@ private slots:
     void on_RSMV_Harmonic_Range_HSlider_valueChanged(int value);
 
     void on_unlock_PsBtn_clicked();
+
+    void on_ES_wave_CkBox_clicked(bool checked);
+
+    void on_ME_energy_testEqpt_LnEdit_textChanged(const QString &arg1);
+
+    void on_ME_time_testEqpt_LnEdit_textChanged(const QString &arg1);
 
 private:
     QComboBox       *SP_chargeType_cbbox;

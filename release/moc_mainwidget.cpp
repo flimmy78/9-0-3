@@ -22,7 +22,7 @@ static const uint qt_meta_data_MainWidget[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      38,   14, // methods
+      41,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -68,6 +68,9 @@ static const uint qt_meta_data_MainWidget[] = {
     1121,   11,   11,   11, 0x08,
     1160, 1154,   11,   11, 0x08,
     1209,   11,   11,   11, 0x08,
+    1235,  536,   11,   11, 0x08,
+    1271, 1266,   11,   11, 0x08,
+    1321, 1266,   11,   11, 0x08,
 
        0        // eod
 };
@@ -107,6 +110,9 @@ static const char qt_meta_stringdata_MainWidget[] = {
     "on_ES_insertForm_PsBtn_clicked()\0value\0"
     "on_RSMV_Harmonic_Range_HSlider_valueChanged(int)\0"
     "on_unlock_PsBtn_clicked()\0"
+    "on_ES_wave_CkBox_clicked(bool)\0arg1\0"
+    "on_ME_energy_testEqpt_LnEdit_textChanged(QString)\0"
+    "on_ME_time_testEqpt_LnEdit_textChanged(QString)\0"
 };
 
 void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -153,6 +159,9 @@ void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 35: _t->on_ES_insertForm_PsBtn_clicked(); break;
         case 36: _t->on_RSMV_Harmonic_Range_HSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 37: _t->on_unlock_PsBtn_clicked(); break;
+        case 38: _t->on_ES_wave_CkBox_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 39: _t->on_ME_energy_testEqpt_LnEdit_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 40: _t->on_ME_time_testEqpt_LnEdit_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -190,9 +199,9 @@ int MainWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 38)
+        if (_id < 41)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 38;
+        _id -= 41;
     }
     return _id;
 }
