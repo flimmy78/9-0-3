@@ -136,23 +136,17 @@ public:
     QGroupBox *serPort_Rec_GbBox;
     QGridLayout *gridLayout_7;
     QTextEdit *serPort_Rec_TxEdit;
-    QPushButton *serPort_CleanRec_PsBtn;
     QSpacerItem *horizontalSpacer_2;
-    QLabel *label_3;
+    QPushButton *serPort_CleanRec_PsBtn;
     QGroupBox *serPort_send_GpBox;
     QGridLayout *gridLayout_8;
-    QCheckBox *serPort_CR_CkBox;
-    QCheckBox *serPort_LF_CkBox;
+    QTextEdit *serPort_Send_TxEdit;
     QGroupBox *serPort_SP_GpBox;
     QGridLayout *gridLayout_17;
     QPushButton *serPort_read_SP_PsBtn;
     QPushButton *serPort_write_SP_PsBtn;
     QSpacerItem *serPort_SP_HlSpacer;
     QTableWidget *serPort_SP_TabWidget;
-    QPushButton *serPort_CleanSend_PsBtn;
-    QLabel *label_5;
-    QPushButton *serPort_Send_PsBtn;
-    QTextEdit *serPort_Send_TxEdit;
     QGroupBox *serPort_shortcut_GpBox;
     QGridLayout *gridLayout_4;
     QPushButton *serPort_ME_PsBtn;
@@ -165,6 +159,10 @@ public:
     QPushButton *serPort_RBAT_PsBtn;
     QPushButton *serPort_AV_PsBtn;
     QPushButton *serPort_ADW_PsBtn;
+    QPushButton *serPort_Send_PsBtn;
+    QPushButton *serPort_CleanSend_PsBtn;
+    QCheckBox *serPort_LF_CkBox;
+    QCheckBox *serPort_CR_CkBox;
     QGroupBox *serPort_Settings_GpBox;
     QGridLayout *gridLayout_5;
     QLabel *serPort_portName_Label;
@@ -268,7 +266,7 @@ public:
         RS_maxCur_Label->setContextMenuPolicy(Qt::NoContextMenu);
         RS_maxCur_Label->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
 "border-width:2px;\n"
-"border-color: beige;\n"
+"border-color: rgb(255, 87, 104);;\n"
 "color: rgb(255, 255, 255);\n"
 "background-color: rgba(12, 153, 134, 255);"));
 
@@ -323,7 +321,7 @@ public:
         runTime_LnEdit->setFont(font);
         runTime_LnEdit->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
 "border-width:2px;\n"
-"border-color: beige;\n"
+"border-color: rgb(255, 87, 104);;\n"
 "color: rgb(255, 255, 255);\n"
 "background-color: rgba(12, 153, 134, 255);"));
         runTime_LnEdit->setReadOnly(true);
@@ -395,7 +393,7 @@ public:
         BMS_cntState_Label->setFont(font);
         BMS_cntState_Label->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
 "border-width:2px;\n"
-"border-color: beige;\n"
+"border-color: rgb(255, 87, 104);\n"
 "color: rgb(255, 255, 255);\n"
 "background-color: rgba(12, 153, 134, 255);"));
 
@@ -1215,7 +1213,7 @@ public:
         RSMV_Harmonic_LnEdit_Range->setFont(font6);
         RSMV_Harmonic_LnEdit_Range->setStyleSheet(QString::fromUtf8("border-style: outset;\n"
 "border-width:2px;\n"
-"border-color: beige;\n"
+"border-color: rgb(255, 87, 104);;\n"
 "color: rgb(255, 255, 255);\n"
 "background-color: rgba(12, 153, 134, 255);"));
         RSMV_Harmonic_LnEdit_Range->setReadOnly(true);
@@ -1748,20 +1746,14 @@ public:
 
         gridLayout_7->addWidget(serPort_Rec_TxEdit, 1, 0, 1, 4);
 
-        serPort_CleanRec_PsBtn = new QPushButton(serPort_Rec_GbBox);
-        serPort_CleanRec_PsBtn->setObjectName(QString::fromUtf8("serPort_CleanRec_PsBtn"));
-
-        gridLayout_7->addWidget(serPort_CleanRec_PsBtn, 0, 3, 1, 1);
-
         horizontalSpacer_2 = new QSpacerItem(30, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout_7->addItem(horizontalSpacer_2, 0, 1, 1, 1);
 
-        label_3 = new QLabel(serPort_Rec_GbBox);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+        serPort_CleanRec_PsBtn = new QPushButton(serPort_Rec_GbBox);
+        serPort_CleanRec_PsBtn->setObjectName(QString::fromUtf8("serPort_CleanRec_PsBtn"));
 
-        gridLayout_7->addWidget(label_3, 0, 0, 1, 1);
+        gridLayout_7->addWidget(serPort_CleanRec_PsBtn, 0, 0, 1, 1);
 
 
         gridLayout_6->addWidget(serPort_Rec_GbBox, 1, 0, 1, 1);
@@ -1794,17 +1786,15 @@ public:
         gridLayout_8->setSpacing(5);
         gridLayout_8->setContentsMargins(5, 5, 5, 5);
         gridLayout_8->setObjectName(QString::fromUtf8("gridLayout_8"));
-        serPort_CR_CkBox = new QCheckBox(serPort_send_GpBox);
-        serPort_CR_CkBox->setObjectName(QString::fromUtf8("serPort_CR_CkBox"));
-        serPort_CR_CkBox->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+        serPort_Send_TxEdit = new QTextEdit(serPort_send_GpBox);
+        serPort_Send_TxEdit->setObjectName(QString::fromUtf8("serPort_Send_TxEdit"));
+        sizePolicy12.setHeightForWidth(serPort_Send_TxEdit->sizePolicy().hasHeightForWidth());
+        serPort_Send_TxEdit->setSizePolicy(sizePolicy12);
+        serPort_Send_TxEdit->setMinimumSize(QSize(195, 170));
+        serPort_Send_TxEdit->setMaximumSize(QSize(195, 160));
+        serPort_Send_TxEdit->setReadOnly(false);
 
-        gridLayout_8->addWidget(serPort_CR_CkBox, 0, 1, 1, 1);
-
-        serPort_LF_CkBox = new QCheckBox(serPort_send_GpBox);
-        serPort_LF_CkBox->setObjectName(QString::fromUtf8("serPort_LF_CkBox"));
-        serPort_LF_CkBox->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_8->addWidget(serPort_LF_CkBox, 0, 4, 1, 1);
+        gridLayout_8->addWidget(serPort_Send_TxEdit, 1, 0, 1, 1);
 
         serPort_SP_GpBox = new QGroupBox(serPort_send_GpBox);
         serPort_SP_GpBox->setObjectName(QString::fromUtf8("serPort_SP_GpBox"));
@@ -1926,36 +1916,7 @@ public:
         gridLayout_17->addWidget(serPort_SP_TabWidget, 1, 0, 1, 6);
 
 
-        gridLayout_8->addWidget(serPort_SP_GpBox, 5, 0, 1, 13);
-
-        serPort_CleanSend_PsBtn = new QPushButton(serPort_send_GpBox);
-        serPort_CleanSend_PsBtn->setObjectName(QString::fromUtf8("serPort_CleanSend_PsBtn"));
-
-        gridLayout_8->addWidget(serPort_CleanSend_PsBtn, 0, 12, 1, 1);
-
-        label_5 = new QLabel(serPort_send_GpBox);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        sizePolicy3.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
-        label_5->setSizePolicy(sizePolicy3);
-        label_5->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_8->addWidget(label_5, 0, 0, 1, 1);
-
-        serPort_Send_PsBtn = new QPushButton(serPort_send_GpBox);
-        serPort_Send_PsBtn->setObjectName(QString::fromUtf8("serPort_Send_PsBtn"));
-        serPort_Send_PsBtn->setEnabled(false);
-
-        gridLayout_8->addWidget(serPort_Send_PsBtn, 0, 11, 1, 1);
-
-        serPort_Send_TxEdit = new QTextEdit(serPort_send_GpBox);
-        serPort_Send_TxEdit->setObjectName(QString::fromUtf8("serPort_Send_TxEdit"));
-        sizePolicy12.setHeightForWidth(serPort_Send_TxEdit->sizePolicy().hasHeightForWidth());
-        serPort_Send_TxEdit->setSizePolicy(sizePolicy12);
-        serPort_Send_TxEdit->setMinimumSize(QSize(195, 170));
-        serPort_Send_TxEdit->setMaximumSize(QSize(195, 160));
-        serPort_Send_TxEdit->setReadOnly(false);
-
-        gridLayout_8->addWidget(serPort_Send_TxEdit, 1, 0, 1, 1);
+        gridLayout_8->addWidget(serPort_SP_GpBox, 5, 0, 1, 14);
 
         serPort_shortcut_GpBox = new QGroupBox(serPort_send_GpBox);
         serPort_shortcut_GpBox->setObjectName(QString::fromUtf8("serPort_shortcut_GpBox"));
@@ -2039,7 +2000,30 @@ public:
         gridLayout_4->addWidget(serPort_ADW_PsBtn, 2, 3, 1, 1);
 
 
-        gridLayout_8->addWidget(serPort_shortcut_GpBox, 1, 7, 1, 6);
+        gridLayout_8->addWidget(serPort_shortcut_GpBox, 1, 8, 1, 6);
+
+        serPort_Send_PsBtn = new QPushButton(serPort_send_GpBox);
+        serPort_Send_PsBtn->setObjectName(QString::fromUtf8("serPort_Send_PsBtn"));
+        serPort_Send_PsBtn->setEnabled(false);
+
+        gridLayout_8->addWidget(serPort_Send_PsBtn, 0, 0, 1, 1);
+
+        serPort_CleanSend_PsBtn = new QPushButton(serPort_send_GpBox);
+        serPort_CleanSend_PsBtn->setObjectName(QString::fromUtf8("serPort_CleanSend_PsBtn"));
+
+        gridLayout_8->addWidget(serPort_CleanSend_PsBtn, 0, 1, 1, 1);
+
+        serPort_LF_CkBox = new QCheckBox(serPort_send_GpBox);
+        serPort_LF_CkBox->setObjectName(QString::fromUtf8("serPort_LF_CkBox"));
+        serPort_LF_CkBox->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        gridLayout_8->addWidget(serPort_LF_CkBox, 0, 13, 1, 1);
+
+        serPort_CR_CkBox = new QCheckBox(serPort_send_GpBox);
+        serPort_CR_CkBox->setObjectName(QString::fromUtf8("serPort_CR_CkBox"));
+        serPort_CR_CkBox->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+
+        gridLayout_8->addWidget(serPort_CR_CkBox, 0, 12, 1, 1);
 
 
         gridLayout_6->addWidget(serPort_send_GpBox, 1, 1, 1, 2);
@@ -2703,10 +2687,7 @@ public:
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", 0, QApplication::UnicodeUTF8));
         serPort_Rec_GbBox->setTitle(QString());
         serPort_CleanRec_PsBtn->setText(QApplication::translate("MainWidget", "\346\270\205\347\251\272\346\216\245\346\224\266", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("MainWidget", "\346\216\245\346\224\266:", 0, QApplication::UnicodeUTF8));
         serPort_send_GpBox->setTitle(QString());
-        serPort_CR_CkBox->setText(QApplication::translate("MainWidget", "CR", 0, QApplication::UnicodeUTF8));
-        serPort_LF_CkBox->setText(QApplication::translate("MainWidget", "LF", 0, QApplication::UnicodeUTF8));
         serPort_SP_GpBox->setTitle(QApplication::translate("MainWidget", "\345\217\202\346\225\260\350\256\276\347\275\256", 0, QApplication::UnicodeUTF8));
         serPort_read_SP_PsBtn->setText(QApplication::translate("MainWidget", "\350\257\273\345\217\226", 0, QApplication::UnicodeUTF8));
         serPort_write_SP_PsBtn->setText(QApplication::translate("MainWidget", "\345\206\231\345\205\245", 0, QApplication::UnicodeUTF8));
@@ -2773,9 +2754,6 @@ public:
         ___qtablewidgetitem159->setText(QApplication::translate("MainWidget", "0", 0, QApplication::UnicodeUTF8));
         serPort_SP_TabWidget->setSortingEnabled(__sortingEnabled3);
 
-        serPort_CleanSend_PsBtn->setText(QApplication::translate("MainWidget", "\346\270\205\347\251\272\345\217\221\351\200\201", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("MainWidget", "\345\217\221\351\200\201:", 0, QApplication::UnicodeUTF8));
-        serPort_Send_PsBtn->setText(QApplication::translate("MainWidget", "\345\217\221\351\200\201", 0, QApplication::UnicodeUTF8));
         serPort_shortcut_GpBox->setTitle(QApplication::translate("MainWidget", "\345\277\253\351\200\237\346\214\207\344\273\244", 0, QApplication::UnicodeUTF8));
         serPort_ME_PsBtn->setText(QApplication::translate("MainWidget", "ME", 0, QApplication::UnicodeUTF8));
         serPort_RP_PsBtn->setText(QApplication::translate("MainWidget", "RP", 0, QApplication::UnicodeUTF8));
@@ -2785,6 +2763,10 @@ public:
         serPort_RBAT_PsBtn->setText(QApplication::translate("MainWidget", "RBAT", 0, QApplication::UnicodeUTF8));
         serPort_AV_PsBtn->setText(QApplication::translate("MainWidget", "\347\211\210\346\234\254", 0, QApplication::UnicodeUTF8));
         serPort_ADW_PsBtn->setText(QApplication::translate("MainWidget", "ADW", 0, QApplication::UnicodeUTF8));
+        serPort_Send_PsBtn->setText(QApplication::translate("MainWidget", "\345\217\221\351\200\201", 0, QApplication::UnicodeUTF8));
+        serPort_CleanSend_PsBtn->setText(QApplication::translate("MainWidget", "\346\270\205\347\251\272\345\217\221\351\200\201", 0, QApplication::UnicodeUTF8));
+        serPort_LF_CkBox->setText(QApplication::translate("MainWidget", "LF", 0, QApplication::UnicodeUTF8));
+        serPort_CR_CkBox->setText(QApplication::translate("MainWidget", "CR", 0, QApplication::UnicodeUTF8));
         serPort_Settings_GpBox->setTitle(QString());
         serPort_portName_Label->setText(QApplication::translate("MainWidget", "\347\253\257\345\217\243 :", 0, QApplication::UnicodeUTF8));
         serPort_parity_Label->setText(QApplication::translate("MainWidget", "\346\240\241\351\252\214\344\275\215 :", 0, QApplication::UnicodeUTF8));

@@ -155,7 +155,7 @@ QPushButton#unlock_PsBtn:pressed
         <property name="styleSheet">
          <string notr="true">border-style: outset;
 border-width:2px;
-border-color: beige;
+border-color: rgb(255, 87, 104);;
 color: rgb(255, 255, 255);
 background-color: rgba(12, 153, 134, 255);</string>
         </property>
@@ -289,7 +289,7 @@ background-color: rgba(12, 153, 134, 255);</string>
         <property name="styleSheet">
          <string notr="true">border-style: outset;
 border-width:2px;
-border-color: beige;
+border-color: rgb(255, 87, 104);;
 color: rgb(255, 255, 255);
 background-color: rgba(12, 153, 134, 255);</string>
         </property>
@@ -418,7 +418,7 @@ background-color: rgba(12, 153, 134, 255);
         <property name="styleSheet">
          <string notr="true">border-style: outset;
 border-width:2px;
-border-color: beige;
+border-color: rgb(255, 87, 104);
 color: rgb(255, 255, 255);
 background-color: rgba(12, 153, 134, 255);</string>
         </property>
@@ -2272,7 +2272,7 @@ background-color: rgba(12, 153, 134, 255);
             <property name="styleSheet">
              <string notr="true">border-style: outset;
 border-width:2px;
-border-color: beige;
+border-color: rgb(255, 87, 104);;
 color: rgb(255, 255, 255);
 background-color: rgba(12, 153, 134, 255);</string>
             </property>
@@ -3470,13 +3470,6 @@ p, li { white-space: pre-wrap; }
             </property>
            </widget>
           </item>
-          <item row="0" column="3">
-           <widget class="QPushButton" name="serPort_CleanRec_PsBtn">
-            <property name="text">
-             <string>清空接收</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="1">
            <spacer name="horizontalSpacer_2">
             <property name="orientation">
@@ -3491,12 +3484,9 @@ p, li { white-space: pre-wrap; }
            </spacer>
           </item>
           <item row="0" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
+           <widget class="QPushButton" name="serPort_CleanRec_PsBtn">
             <property name="text">
-             <string>接收:</string>
+             <string>清空接收</string>
             </property>
            </widget>
           </item>
@@ -3553,27 +3543,32 @@ p, li { white-space: pre-wrap; }
           <property name="spacing">
            <number>5</number>
           </property>
-          <item row="0" column="1">
-           <widget class="QCheckBox" name="serPort_CR_CkBox">
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
+          <item row="1" column="0">
+           <widget class="QTextEdit" name="serPort_Send_TxEdit">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
             </property>
-            <property name="text">
-             <string>CR</string>
+            <property name="minimumSize">
+             <size>
+              <width>195</width>
+              <height>170</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>195</width>
+              <height>160</height>
+             </size>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
-          <item row="0" column="4">
-           <widget class="QCheckBox" name="serPort_LF_CkBox">
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>LF</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0" colspan="13">
+          <item row="5" column="0" colspan="14">
            <widget class="QGroupBox" name="serPort_SP_GpBox">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
@@ -3844,65 +3839,7 @@ p, li { white-space: pre-wrap; }
             </layout>
            </widget>
           </item>
-          <item row="0" column="12">
-           <widget class="QPushButton" name="serPort_CleanSend_PsBtn">
-            <property name="text">
-             <string>清空发送</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>发送:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="11">
-           <widget class="QPushButton" name="serPort_Send_PsBtn">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="text">
-             <string>发送</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QTextEdit" name="serPort_Send_TxEdit">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>195</width>
-              <height>170</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>195</width>
-              <height>160</height>
-             </size>
-            </property>
-            <property name="readOnly">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="7" colspan="6">
+          <item row="1" column="8" colspan="6">
            <widget class="QGroupBox" name="serPort_shortcut_GpBox">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -4048,6 +3985,43 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
             </layout>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="serPort_Send_PsBtn">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>发送</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="serPort_CleanSend_PsBtn">
+            <property name="text">
+             <string>清空发送</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="13">
+           <widget class="QCheckBox" name="serPort_LF_CkBox">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>LF</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="12">
+           <widget class="QCheckBox" name="serPort_CR_CkBox">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>CR</string>
+            </property>
            </widget>
           </item>
          </layout>
