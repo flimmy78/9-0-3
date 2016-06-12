@@ -2336,7 +2336,7 @@ public:
 
         retranslateUi(MainWidget);
 
-        main_SkWidget->setCurrentIndex(0);
+        main_SkWidget->setCurrentIndex(2);
         ES_TbWidget->setCurrentIndex(1);
 
 

@@ -45,36 +45,6 @@ UINT8 xl618::getKL(pRKLTYPE data)
                 //qDebug("xxxx%d==%f\n",j,data->U1[j]);
             }
         }
-
-
-
-#if 0
-        temp = strstr((char*)recvBuf,"U1R;");
-        if(temp)
-        {
-//                memcpy(data->PRODUCT, temp+strlen("PRODUCT;"),temp1-temp-strlen("PRODUCT;")-1);
-
-//                qDebug()<<QString::number(strlen(temp)-strlen("KLACK;"));
-//                memcpy((char *)&(data->U1R), (char *)temp,(sizeof(float)+2)*);
-
-//                qDebug("xxxx%s",temp);
-
-            //temp++;
-            for(UINT32 j = 0; j < 256; j ++)
-            {
-                sscanf(temp,"%E"CR,&data->U1R[j]); //取到指定字符集为止的字符串
-                while(*(temp++) != '\n');
-               // qDebug("xxxx%d==%f\n",j,data->U1R[j]);
-            }
-
-        }
-
-        temp = strstr((char*)recvBuf,"I1R;");
-        if(temp)
-        {
-             memcpy((char *)&(data->I1R), temp,sizeof(float)*256);
-        }
-#endif
     }else
         retValue = ERR_RIGHT;
 

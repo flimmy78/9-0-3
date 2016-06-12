@@ -62,6 +62,7 @@ void MainWidget::on_ME_energy_testEqpt_LnEdit_textChanged(const QString &arg1)
     float f_Std;
     f_Std = ui->ME_energy_std_LnEdit->text().toFloat(0);
     ui->ES_PE_LnEdit->setText(QString::number((arg1.toFloat(0) - f_Std)/(f_Std*0.01)));
+
 }
 
 //时钟误差计算
