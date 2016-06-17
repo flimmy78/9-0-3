@@ -2336,8 +2336,8 @@ public:
 
         retranslateUi(MainWidget);
 
-        main_SkWidget->setCurrentIndex(2);
-        ES_TbWidget->setCurrentIndex(1);
+        main_SkWidget->setCurrentIndex(0);
+        ES_TbWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWidget);
